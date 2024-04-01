@@ -1,0 +1,11 @@
+.custom-search-button {
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+  
+  .placeholder-white::placeholder {
+    color: #dee2e6; /* Adjust the color to match the button color */
+  }
+  
+  .nav-link.active {
+    box-shadow: 0 0 10px #fff, 0 0 20px #66b3ff, 0 0 30px #4d94ff; /* Adjust the shadow color and size as needed */
+  }
