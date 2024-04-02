@@ -16,3 +16,14 @@
   width: 40%;
   height: auto;
 }
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.book-card {
+  width: calc(20% - 20px); /* 20% width for each card with 20px margin on both sides */
+  margin: 10px;
+}

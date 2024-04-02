@@ -42,5 +42,507 @@
       "password": "Demo@123",
       "favouriteProducts": []
     }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "name": "World of Science",
+      "author": "Michael Connely",
+      "description": "An exploration of various scientific concepts and discoveries.",
+      "category": "Fiction",
+      "price": "800",
+      "releaseDate": "05-May-2016",
+      "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg"
+    },
+    {
+      "id": "2",
+      "name": "The Art of Programming",
+      "author": "Donald Knuth",
+      "description": "A comprehensive guide to the principles and practices of computer programming.",
+      "category": "Non-fiction",
+      "price": "1200",
+      "releaseDate": "10-Oct-2018",
+      "image": "https://m.media-amazon.com/images/I/516SjbkbbOL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "3",
+      "name": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "description": "A story of love, wealth, and betrayal in the Jazz Age.",
+      "category": "Classic",
+      "price": "500",
+      "releaseDate": "15-Jan-1925",
+      "image": "https://m.media-amazon.com/images/I/71V1cA2fiZL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "4",
+      "name": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "description": "The adventurous journey of Bilbo Baggins to reclaim a treasure guarded by a dragon.",
+      "category": "Fantasy",
+      "price": "700",
+      "releaseDate": "21-Sep-1937",
+      "image": "https://m.media-amazon.com/images/I/712cDO7d73L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "5",
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "description": "A coming-of-age story set in the racially charged atmosphere of the American South.",
+      "category": "Classic",
+      "price": "600",
+      "releaseDate": "11-Jul-1960",
+      "image": "https://images.blinkist.io/images/books/63fc4bfa0ec20100080b21fb/1_1/470.jpg"
+    },
+    {
+      "id": "6",
+      "name": "1984",
+      "author": "George Orwell",
+      "description": "A dystopian novel depicting a totalitarian regime and its impact on society.",
+      "category": "Dystopian",
+      "price": "550",
+      "releaseDate": "08-Jun-1949",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhZRfXlJi0PXzrbQL5EOEeHw-TJR1plj-M_9mZGib1Q&s"
+    },
+    {
+      "id": "7",
+      "name": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "description": "A narrative of teenage angst and rebellion against societal norms.",
+      "category": "Coming-of-age",
+      "price": "650",
+      "releaseDate": "16-Jul-1951",
+      "image": "https://www.adorebooks.in/wp-content/uploads/2022/02/The-Catcher-in-the-Rye.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "description": "A romantic comedy about the complexities of love, class, and marriage.",
+      "category": "Classic",
+      "price": "550",
+      "releaseDate": "28-Jan-1813",
+      "image": "https://m.media-amazon.com/images/I/71CR-BOauCL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "9",
+      "name": "The Alchemist",
+      "author": "Paulo Coelho",
+      "description": "A philosophical novel about following one's dreams and destiny.",
+      "category": "Fantasy",
+      "price": "700",
+      "releaseDate": "01-Jan-1988",
+      "image": "https://m.media-amazon.com/images/I/51BBCrLdH6L.jpg"
+    },
+    {
+      "id": "10",
+      "name": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "description": "An epic fantasy trilogy following the quest to destroy the One Ring.",
+      "category": "Fantasy",
+      "price": "1200",
+      "releaseDate": "29-Jul-1954",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "description": "A young wizard discovers his magical heritage.",
+      "category": "Fantasy",
+      "price": "900",
+      "releaseDate": "26-Jun-1997",
+      "image": "https://m.media-amazon.com/images/I/5165He67NEL.jpg"
+    },
+    {
+      "id": "12",
+      "name": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "description": "In a dystopian future, teenagers fight to the death on live television.",
+      "category": "Dystopian",
+      "price": "750",
+      "releaseDate": "14-Sep-2008",
+      "image": "https://toppsta.com/images/covers/2/0/8/2/9781407132082.webp?t=1695654125"
+    },
+    {
+      "id": "13",
+      "name": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "description": "A symbologist investigates a murder in the Louvre Museum.",
+      "category": "Thriller",
+      "price": "850",
+      "releaseDate": "18-Mar-2003",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/jp2xoy80/book/0/1/7/the-da-vinci-code-original-imafbeey5dyjxu5h.jpeg?q=20&crop=false"
+    },
+    {
+      "id": "14",
+      "name": "The Fault in Our Stars",
+      "author": "John Green",
+      "description": "Two cancer patients fall in love.",
+      "category": "Romance",
+      "price": "700",
+      "releaseDate": "10-Jan-2012",
+      "image": "https://m.media-amazon.com/images/I/51nSuORuWkL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "15",
+      "name": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "author": "C.S. Lewis",
+      "description": "Four children travel to a magical land through a wardrobe.",
+      "category": "Fantasy",
+      "price": "800",
+      "releaseDate": "16-Oct-1950",
+      "image": "https://m.media-amazon.com/images/I/51XJtkp3ALL.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Gone Girl",
+      "author": "Gillian Flynn",
+      "description": "A wife disappears on her fifth wedding anniversary.",
+      "category": "Mystery",
+      "price": "900",
+      "releaseDate": "24-Jun-2012",
+      "image": "https://m.media-amazon.com/images/I/71NV0obX14L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "17",
+      "name": "The Girl with the Dragon Tattoo",
+      "author": "Stieg Larsson",
+      "description": "A journalist investigates the disappearance of a woman.",
+      "category": "Thriller",
+      "price": "850",
+      "releaseDate": "16-Aug-2005",
+      "image": "https://m.media-amazon.com/images/I/517brh4+tIL.jpg"
+    },
+    {
+      "id": "18",
+      "name": "The Shining",
+      "author": "Stephen King",
+      "description": "A family faces supernatural occurrences in an isolated hotel.",
+      "category": "Horror",
+      "price": "750",
+      "releaseDate": "28-Jan-1977",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROseyM2BHne9fTRO3EbAoH4BAlU3dEbf9q9QarEzBJYA&s"
+    },
+    {
+      "id": "19",
+      "name": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "description": "A teenage boy struggles with growing up and adult hypocrisy.",
+      "category": "Coming-of-age",
+      "price": "700",
+      "releaseDate": "16-Jul-1951",
+      "image": "https://m.media-amazon.com/images/I/91HPG31dTwL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "20",
+      "name": "The Book Thief",
+      "author": "Markus Zusak",
+      "description": "A girl steals books and shares them with others during WWII.",
+      "category": "Historical Fiction",
+      "price": "800",
+      "releaseDate": "14-Sep-2005",
+      "image": "https://5.imimg.com/data5/ECOM/Default/2022/7/NR/QE/ZJ/87605443/buy-the-book-thief-book-online-at-low-prices-in-india-bookish-santa-books-bookish-santa-13620559347845-500x500.jpg"
+    },
+    {
+      "id": "21",
+      "name": "The Martian",
+      "author": "Andy Weir",
+      "description": "An astronaut is stranded on Mars and must survive.",
+      "category": "Science Fiction",
+      "price": "850",
+      "releaseDate": "02-Oct-2011",
+      "image": "https://cdn.kobo.com/book-images/07e6e6ff-c92f-413a-aaad-a9a00a671c92/1200/1200/False/the-martian-21.jpg"
+    },
+    {
+      "id": "22",
+      "name": "The Kite Runner",
+      "author": "Khaled Hosseini",
+      "description": "A story of friendship, betrayal, and redemption set in Afghanistan.",
+      "category": "Drama",
+      "price": "750",
+      "releaseDate": "29-May-2003",
+      "image": "https://cdn.kobo.com/book-images/e5d15efb-57df-4d05-b148-a13cbb909891/1200/1200/False/the-kite-runner-7.jpg"
+    },
+    {
+      "id": "23",
+      "name": "The Road",
+      "author": "Cormac McCarthy",
+      "description": "A post-apocalyptic journey of a father and son.",
+      "category": "Post-apocalyptic",
+      "price": "900",
+      "releaseDate": "26-Sep-2006",
+      "image": "https://m.media-amazon.com/images/I/81P45LkcMuL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "24",
+      "name": "The Help",
+      "author": "Kathryn Stockett",
+      "description": "A young white woman interviews African-American maids during the Civil Rights era.",
+      "category": "Historical Fiction",
+      "price": "800",
+      "releaseDate": "10-Feb-2009",
+      "image": "https://www.hollywoodreporter.com/wp-content/uploads/2011/02/the-help-2011-a-p.jpg"
+    },
+    {
+      "id": "25",
+      "name": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "description": "A man sells his soul for eternal youth, while his portrait ages instead.",
+      "category": "Gothic Fiction",
+      "price": "700",
+      "releaseDate": "20-Jun-1890",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRppVvx9SBJkW0IbnQ2Q92duTy9eD3Q9hL03LaV2XZpfQ&s"
+    },
+    {
+      "id": "26",
+      "name": "Frankenstein",
+      "author": "Mary Shelley",
+      "description": "A scientist creates a monster from human corpses.",
+      "category": "Gothic Horror",
+      "price": "750",
+      "releaseDate": "01-Jan-1818",
+      "image": "https://m.media-amazon.com/images/I/81EU992zdwL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "27",
+      "name": "Brave New World",
+      "author": "Aldous Huxley",
+      "description": "A dystopian world where humans are genetically engineered and controlled.",
+      "category": "Dystopian Fiction",
+      "price": "850",
+      "releaseDate": "01-Jan-1932",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/book/4/g/b/brave-new-world-english-original-imagqmrstkhzgqst.jpeg?q=90&crop=false"
+    },
+    {
+      "id": "28",
+      "name": "The Color Purple",
+      "author": "Alice Walker",
+      "description": "A young African-American girl's struggle for independence in the South.",
+      "category": "Drama",
+      "price": "800",
+      "releaseDate": "01-Jan-1982",
+      "image": "https://prodimage.images-bn.com/pimages/9780593512371_p0_v1_s1200x630.jpg"
+    },
+    {
+      "id": "29",
+      "name": "The Road Less Traveled",
+      "author": "M. Scott Peck",
+      "description": "A psychological self-help book.",
+      "category": "Self-help",
+      "price": "700",
+      "releaseDate": "01-Jan-1978",
+      "image": "https://m.media-amazon.com/images/I/61OjjZZpOwL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "30",
+      "name": "The Old Man and the Sea",
+      "author": "Ernest Hemingway",
+      "description": "An old fisherman's struggle with a giant marlin.",
+      "category": "Classics",
+      "price": "750",
+      "releaseDate": "01-Jan-1952",
+      "image": "https://www.insightpublica.com/assets/img/books/insight_publica_book501_image_1_.2458562-jpg"
+    },
+    {
+      "id": "31",
+      "name": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "description": "A tale of betrayal, revenge, and redemption.",
+      "category": "Adventure",
+      "price": "850",
+      "releaseDate": "01-Jan-1844",
+      "image": "https://cdn.kobo.com/book-images/20b5525d-668b-43c7-9049-40244fd6a8f9/1200/1200/False/the-count-of-monte-cristo-342.jpg"
+    },
+    {
+      "id": "32",
+      "name": "A Tale of Two Cities",
+      "author": "Charles Dickens",
+      "description": "Set in London and Paris during the French Revolution.",
+      "category": "Historical Fiction",
+      "price": "800",
+      "releaseDate": "01-Jan-1859",
+      "image": "https://m.media-amazon.com/images/I/71CQFGiPA+L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "33",
+      "name": "The Adventures of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "description": "Sherlock Holmes solves various mysteries.",
+      "category": "Mystery",
+      "price": "900",
+      "releaseDate": "01-Oct-1892",
+      "image": "https://m.media-amazon.com/images/I/71XRBP0JvPL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "34",
+      "name": "The Odyssey",
+      "author": "Homer",
+      "description": "An ancient Greek epic poem attributed to Homer.",
+      "category": "Epic",
+      "price": "750",
+      "releaseDate": "01-Jan-8th century BCE",
+      "image": "https://cdn.kobo.com/book-images/06d44c52-7463-4b59-8d78-13ead1d72662/1200/1200/False/the-odyssey-170.jpg"
+    },
+    {
+      "id": "35",
+      "name": "Dracula",
+      "author": "Bram Stoker",
+      "description": "Count Dracula's attempt to move from Transylvania to England.",
+      "category": "Gothic Horror",
+      "price": "800",
+      "releaseDate": "01-May-1897",
+      "image": "https://m.media-amazon.com/images/I/41G9D4MonbL.jpg"
+    },
+    {
+      "id": "36",
+      "name": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "description": "A tale of love and revenge on the Yorkshire moors.",
+      "category": "Gothic Fiction",
+      "price": "850",
+      "releaseDate": "01-Jan-1847",
+      "image": "https://m.media-amazon.com/images/I/51UBcTq-CGL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "37",
+      "name": "Moby-Dick",
+      "author": "Herman Melville",
+      "description": "Captain Ahab's obsessive quest for revenge on a white whale.",
+      "category": "Adventure",
+      "price": "900",
+      "releaseDate": "01-Nov-1851",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzg0MjFmMjAtMmNlMC00ZmEzLWE0ZDQtYTFhZjAyNzIxZWU3XkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_.jpg"
+    },
+    {
+      "id": "38",
+      "name": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "description": "The story of a young governess falling in love with her employer.",
+      "category": "Gothic Fiction",
+      "price": "800",
+      "releaseDate": "01-Oct-1847",
+      "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale/jackets/9781783199068.jpg"
+    },
+    {
+      "id": "39",
+      "name": "The Grapes of Wrath",
+      "author": "John Steinbeck",
+      "description": "The struggles of a poor family during the Great Depression.",
+      "category": "Historical Fiction",
+      "price": "850",
+      "releaseDate": "01-Apr-1939",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/book/d/4/x/grapes-of-wrath-original-imaghxw5vcwsj9gv.jpeg?q=90&crop=false"
+    },
+    {
+      "id": "40",
+      "name": "The Adventures of Huckleberry Finn",
+      "author": "Mark Twain",
+      "description": "The adventures of a young boy and a runaway slave on the Mississippi River.",
+      "category": "Adventure",
+      "price": "900",
+      "releaseDate": "01-Dec-1884",
+      "image": "https://m.media-amazon.com/images/I/91sBZnKzEfL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "41",
+      "name": "The Handmaid's Tale",
+      "author": "Margaret Atwood",
+      "description": "A dystopian novel set in a totalitarian society.",
+      "category": "Dystopian",
+      "price": "950",
+      "releaseDate": "01-Jan-1985",
+      "image": "https://m.media-amazon.com/images/I/41XVNoRN3dL.jpg"
+    },
+    {
+      "id": "42",
+      "name": "One Hundred Years of Solitude",
+      "author": "Gabriel García Márquez",
+      "description": "The multi-generational story of the Buendía family in the fictional town of Macondo.",
+      "category": "Magical Realism",
+      "price": "1000",
+      "releaseDate": "01-May-1967",
+      "image": "https://cms.buybooksindia.com/uploads/books/9780140157512_0_1606203270.jpeg"
+    },
+    {
+      "id": "43",
+      "name": "The Road to Wigan Pier",
+      "author": "George Orwell",
+      "description": "A sociological study of the working class in the north of England.",
+      "category": "Non-fiction",
+      "price": "800",
+      "releaseDate": "01-Mar-1937",
+      "image": "https://cdn.kobo.com/book-images/673ae1f4-7c2d-442b-823e-6007d73d1e05/1200/1200/False/the-road-to-wigan-pier-44.jpg"
+    },
+    {
+      "id": "44",
+      "name": "The Bell Jar",
+      "author": "Sylvia Plath",
+      "description": "A semi-autobiographical novel about a young woman's mental breakdown.",
+      "category": "Fiction",
+      "price": "850",
+      "releaseDate": "01-Jan-1963",
+      "image": "https://m.media-amazon.com/images/I/51HOe6OwX1L.jpg"
+    },
+    {
+      "id": "45",
+      "name": "The Scarlet Letter",
+      "author": "Nathaniel Hawthorne",
+      "description": "A Puritan woman's struggle to repent for her sin of adultery.",
+      "category": "Classic",
+      "price": "800",
+      "releaseDate": "01-Mar-1850",
+      "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781847494214.jpg"
+    },
+    {
+      "id": "46",
+      "name": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "description": "A psychological thriller about a young man who commits murder.",
+      "category": "Psychological Fiction",
+      "price": "900",
+      "releaseDate": "01-Jan-1866",
+      "image": "https://m.media-amazon.com/images/I/612KmKeEYEL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "47",
+      "name": "Lord of the Flies",
+      "author": "William Golding",
+      "description": "A group of boys stranded on an uninhabited island descend into savagery.",
+      "category": "Dystopian Fiction",
+      "price": "850",
+      "releaseDate": "01-Sep-1954",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/9b/LordOfTheFliesBookCover.jpg"
+    },
+    {
+      "id": "48",
+      "name": "A Clockwork Orange",
+      "author": "Anthony Burgess",
+      "description": "A dystopian novel about juvenile delinquency and societal control.",
+      "category": "Dystopian Fiction",
+      "price": "950",
+      "releaseDate": "01-Jan-1962",
+      "image": "https://m.media-amazon.com/images/I/61ZDp7+VKgL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "49",
+      "name": "Of Mice and Men",
+      "author": "John Steinbeck",
+      "description": "The story of two migrant ranch workers during the Great Depression.",
+      "category": "Classic",
+      "price": "800",
+      "releaseDate": "01-Feb-1937",
+      "image": "https://m.media-amazon.com/images/I/91GVnDB-AQL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "50",
+      "name": "The Sun Also Rises",
+      "author": "Ernest Hemingway",
+      "description": "Expatriates travel from Paris to Pamplona for the running of the bulls.",
+      "category": "Fiction",
+      "price": "900",
+      "releaseDate": "01-Oct-1926",
+      "image": "https://m.media-amazon.com/images/I/61jXRxyL0IS._AC_UF1000,1000_QL80_.jpg"
+    }
   ]
 }

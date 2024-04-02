@@ -34,7 +34,7 @@
 }
 
 .navbar-footer li:hover .dropdown-list {
-  /* cursor: "pointer"; */
+  cursor: "pointer";
   display: block;
   list-style-type: none;
   margin: 0;
