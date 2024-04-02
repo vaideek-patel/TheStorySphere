@@ -1,10 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./SignUp.css";
+import { getUsers, registerUser } from '../../../utils/axios-instance';
+import { useNavigate } from 'react-router-dom';
+
+const initialValues = {
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirmation: ''
+}
+const Login = () => {
+  const [users, setUsers] = useState([])
+  const navigate = useNavigate()
 
 
-const initialValues = { email: '', password: '', passwordConfirmation: '' } // Added passwordConfirmation
-function Login() {
+  useEffect(() => {
+    (async () => {
+      const {
+        success: usersSuccess,
+        data: usersData,
+        error: userError,
+      } = await getUsers();
+
+      if (userError) {
+        toast.error("Something went wronge. Try again later!");
+      }
+
+      setUsers(usersData)
+    })();
+  }, [])
+
+  const registerNewUser = async (values) => {
+    const { name, email, password } = values;
+    console.log(values);
+
+    let userObj = {
+      id: users.length !== 0
+        ? (parseInt(users[users.length - 1].id) + 1).toString()
+        : 1,
+      name,
+      email,
+      password,
+      favouriteProducts: []
+    }
+
+    const { success, data, error } = await registerUser(userObj);
+    if (success) {
+      navigate("/")
+    } else {
+      console.log(error)
+    }
+  };
   return (
     <>
       <br />
@@ -24,10 +71,19 @@ function Login() {
                   <Formik
                     initialValues={initialValues}
                     onSubmit={(values) => {
-                      console.log(values);
+                      registerNewUser(values);
                     }}
                   >
                     <Form className="text-start">
+
+                      <div className="mb-4">
+                        <label className="form-label" htmlFor="typeEmailX-2">Full Name</label>
+                        <div className="d-flex align-items-center">
+                          <Field type="text" id="typeEmailX-2" name="name" className="form-control form-control-lg" />
+                        </div>
+                      </div>
+
+
                       <div className="mb-4">
                         <label className="form-label" htmlFor="typeEmailX-2">Email</label>
                         <div className="d-flex align-items-center">
@@ -52,7 +108,7 @@ function Login() {
                       <div className="mb-4 form-check d-flex align-items-center"> {/* Adjusted class */}
                         <Field className="form-check-input me-3" type="checkbox" id="form1Example3" /> {/* Added me-3 class for spacing */}
                         <div>
-                         <p className="mb-0">I want to receive newsletters and emails about new books, authors, and promotions from Bookshop.org.</p>
+                          <p className="mb-0">I want to receive newsletters and emails about new books, authors, and promotions from Bookshop.org.</p>
                         </div>
                       </div>
 
