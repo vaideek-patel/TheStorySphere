@@ -1,18 +1,53 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./Login.css";
+import { getUsers } from '../../../utils/axios-instance';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../redux/actions/action';
 
 
 const initialValues = { email: '', password: '' }
-function Login() {
+const Login = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [users, setUsers] = useState([])
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await getUsers()
+        if (response.success) {
+          console.log(response)
+          setUsers(response.data)
+        } else {
+          console.error("Failed to fetch the Products Data", response.error)
+        }
+      } catch (error) {
+        console.error("Error while Fetching products", error)
+      }
+    }
+
+    fetchUsers()
+  }, [])
+
+  const handleUsersLogin = async (values) => {
+    const { email, password } = values;
+    const user = users.find((user) => user.email === email);
+    if (user && user.password === password) {
+      dispatch(login())
+      navigate("/");
+    } else {
+      console.log("error");
+    }
+  }
   return (
     <>
-    <br/>
-    <div className="row justify-content-center">
-            <div className="text-center">
-              <h3>Login as an Existing Customer</h3>
-            </div>
+      <br />
+      <div className="row justify-content-center">
+        <div className="text-center">
+          <h3>Login as an Existing Customer</h3>
         </div>
+      </div>
       <section className="login-section">
 
 
@@ -24,20 +59,20 @@ function Login() {
                   <Formik
                     initialValues={initialValues}
                     onSubmit={(values) => {
-                      console.log(values);
+                      handleUsersLogin(values);
                     }}
                   >
                     <Form className="text-start">
                       <div className="mb-4">
                         <label className="form-label" htmlFor="typeEmailX-2">Email</label>
-                        <div className="d-flex align-items-center"> 
+                        <div className="d-flex align-items-center">
                           <Field type="email" id="typeEmailX-2" name="email" className="form-control form-control-lg" />
                         </div>
                       </div>
 
                       <div className="mb-4">
                         <label className="form-label" htmlFor="typePasswordX-2">Password</label>
-                        <div className="d-flex align-items-center"> 
+                        <div className="d-flex align-items-center">
                           <Field type="password" id="typePasswordX-2" name="password" className="form-control form-control-lg" />
                         </div>
                       </div>

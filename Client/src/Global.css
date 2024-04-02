@@ -1,0 +1,18 @@
+/* Used in CarousalCommon Component */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Used In Home Page */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+/* Used In Home Page */
+.grid-item img {
+  width: 40%;
+  height: auto;
+}
