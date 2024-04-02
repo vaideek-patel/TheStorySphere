@@ -38,3 +38,22 @@ export const registerUser = async (userObj) => {
     };
   }
 };
+
+//BOOKS
+
+export const getBooks = async () => {
+  try {
+    const response = await API.get("books");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};

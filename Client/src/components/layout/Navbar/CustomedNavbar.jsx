@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../redux/actions/action';
@@ -11,7 +11,11 @@ import Logo from "../../../../public/The Story Sphere_transparent(12).png"
 
 const CustomedNavbar = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+  const handleBooksPage = () => {
+    navigate("/books")
+  }
   const handleLogOut = () => {
     dispatch(logout())
   }
@@ -77,7 +81,7 @@ const CustomedNavbar = () => {
           </li>
           <li className="mx-3">Recently Launched</li>
           <li className="mx-3">
-            <span style={{ cursor: 'pointer' }}>Explore Books Categories</span>
+            <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
             <ul className="dropdown-list" style={{ marginLeft: "-200px" }}>
               <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <div style={{ flex: '1', }}>
