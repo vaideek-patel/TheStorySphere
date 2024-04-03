@@ -10,6 +10,8 @@ const Home = () => {
             <CommonCarousel>
                 <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="Second slide" />
                 <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Third slide" />
+                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
+                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Third slide" />
             </CommonCarousel>
 
             <div className="container mt-4">

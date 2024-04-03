@@ -102,17 +102,19 @@
       "category": "Dystopian",
       "price": "550",
       "releaseDate": "08-Jun-1949",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhZRfXlJi0PXzrbQL5EOEeHw-TJR1plj-M_9mZGib1Q&s"
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhZRfXlJi0PXzrbQL5EOEeHw-TJR1plj-M_9mZGib1Q&s",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "7",
-      "name": "The Catcher in the Rye",
-      "author": "J.D. Salinger",
-      "description": "A narrative of teenage angst and rebellion against societal norms.",
-      "category": "Coming-of-age",
-      "price": "650",
-      "releaseDate": "16-Jul-1951",
-      "image": "https://www.adorebooks.in/wp-content/uploads/2022/02/The-Catcher-in-the-Rye.jpg"
+      "name": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "description": "The adventurous journey of Bilbo Baggins to reclaim a treasure guarded by a dragon.",
+      "category": "Fantasy",
+      "price": "700",
+      "releaseDate": "21-Sep-1937",
+      "image": "https://m.media-amazon.com/images/I/712cDO7d73L._AC_UF1000,1000_QL80_.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "8",
@@ -122,7 +124,8 @@
       "category": "Classic",
       "price": "550",
       "releaseDate": "28-Jan-1813",
-      "image": "https://m.media-amazon.com/images/I/71CR-BOauCL._AC_UF1000,1000_QL80_.jpg"
+      "image": "https://m.media-amazon.com/images/I/71CR-BOauCL._AC_UF1000,1000_QL80_.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "9",
@@ -132,7 +135,8 @@
       "category": "Fantasy",
       "price": "700",
       "releaseDate": "01-Jan-1988",
-      "image": "https://m.media-amazon.com/images/I/51BBCrLdH6L.jpg"
+      "image": "https://m.media-amazon.com/images/I/51BBCrLdH6L.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "10",
@@ -142,7 +146,8 @@
       "category": "Fantasy",
       "price": "1200",
       "releaseDate": "29-Jul-1954",
-      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg"
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "11",
@@ -152,7 +157,8 @@
       "category": "Fantasy",
       "price": "900",
       "releaseDate": "26-Jun-1997",
-      "image": "https://m.media-amazon.com/images/I/5165He67NEL.jpg"
+      "image": "https://m.media-amazon.com/images/I/5165He67NEL.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "12",
@@ -162,7 +168,8 @@
       "category": "Dystopian",
       "price": "750",
       "releaseDate": "14-Sep-2008",
-      "image": "https://toppsta.com/images/covers/2/0/8/2/9781407132082.webp?t=1695654125"
+      "image": "https://toppsta.com/images/covers/2/0/8/2/9781407132082.webp?t=1695654125",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "13",
@@ -172,7 +179,8 @@
       "category": "Thriller",
       "price": "850",
       "releaseDate": "18-Mar-2003",
-      "image": "https://rukminim2.flixcart.com/image/850/1000/jp2xoy80/book/0/1/7/the-da-vinci-code-original-imafbeey5dyjxu5h.jpeg?q=20&crop=false"
+      "image": "https://rukminim2.flixcart.com/image/850/1000/jp2xoy80/book/0/1/7/the-da-vinci-code-original-imafbeey5dyjxu5h.jpeg?q=20&crop=false",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "14",
@@ -182,7 +190,8 @@
       "category": "Romance",
       "price": "700",
       "releaseDate": "10-Jan-2012",
-      "image": "https://m.media-amazon.com/images/I/51nSuORuWkL._AC_UF1000,1000_QL80_.jpg"
+      "image": "https://m.media-amazon.com/images/I/51nSuORuWkL._AC_UF1000,1000_QL80_.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "15",
@@ -192,7 +201,8 @@
       "category": "Fantasy",
       "price": "800",
       "releaseDate": "16-Oct-1950",
-      "image": "https://m.media-amazon.com/images/I/51XJtkp3ALL.jpg"
+      "image": "https://m.media-amazon.com/images/I/51XJtkp3ALL.jpg",
+      "recentlyLaunched": "yes"
     },
     {
       "id": "16",
@@ -232,7 +242,7 @@
       "category": "Coming-of-age",
       "price": "700",
       "releaseDate": "16-Jul-1951",
-      "image": "https://m.media-amazon.com/images/I/91HPG31dTwL._AC_UF1000,1000_QL80_.jpg"
+      "image": "https://www.savethecat.com/wp-content/uploads/2019/05/243a0ba33adbee20d3ed689fbf712ec8-jd-salinger-holden-caulfield.jpg"
     },
     {
       "id": "20",

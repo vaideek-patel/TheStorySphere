@@ -41,9 +41,43 @@ export const registerUser = async (userObj) => {
 
 //BOOKS
 
-export const getBooks = async () => {
+// export const getBooks = async () => {
+//   try {
+//     const response = await API.get("books");
+//     return {
+//       success: true,
+//       data: response.data,
+//       error: null,
+//     };
+//   } catch (error) {
+//     return {
+//       success: false,
+//       data: [],
+//       error: error.message,
+//     };
+//   }
+// };
+
+export const getBooks = async (endpoint) => {
   try {
-    const response = await API.get("books");
+    const response = await API.get(endpoint);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const getBookById = async (bookId) => {
+  try {
+    const response = await API.get(`books/${bookId}`);
     return {
       success: true,
       data: response.data,

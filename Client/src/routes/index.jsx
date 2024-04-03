@@ -7,6 +7,7 @@ import Favourites from "../components/pages/Favourites/Favourites"
 import Cart from "../components/pages/Cart/Cart"
 import Orders from '../components/pages/Orders/Orders'
 import Books from '../components/pages/Books/Books'
+import RecentlyLaunched from '../components/pages/Books/RecentlyLaunched'
 
 const RouteFile = () => {
   return (
@@ -18,6 +19,7 @@ const RouteFile = () => {
       <Route path='/cart' element={<Cart />} />
       <Route path='/orders' element={<Orders />} />
       <Route path='/books' element={<Books />} />
+      <Route path='/books/recentlyLaunched' element={<RecentlyLaunched />} />
     </Routes>
   )
 }
