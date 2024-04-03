@@ -1,4 +1,3 @@
-// BookCard.js
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -33,7 +32,7 @@ const BookCard = ({ book, onQuickView }) => {
                             bottom: '10px',
                             right: '10px',
                         }}
-                        onClick={onQuickView}
+                        onClick={() => onQuickView(book.id)}
                     >
                         Quick View
                     </Button>

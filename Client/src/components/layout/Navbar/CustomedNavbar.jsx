@@ -13,8 +13,14 @@ const CustomedNavbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+  const handleRecentlyLaunced = () => {
+    navigate("/books/recentlyLaunched")
+  }
   const handleBooksPage = () => {
     navigate("/books")
+  }
+  const handleWishlistRegistry = () => {
+    navigate("/info/wishlist-and-registry")
   }
   const handleLogOut = () => {
     dispatch(logout())
@@ -44,7 +50,6 @@ const CustomedNavbar = () => {
           <Nav>
             {isLoggedIn === true ? (
               <>
-                <Nav.Link as={Link} to="/favourites">Favourites</Nav.Link>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
                 <Nav.Link as={Link} to="/orders">Orders</Nav.Link>
                 <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
@@ -69,8 +74,8 @@ const CustomedNavbar = () => {
               <li>Get 10% off these nerdy spring reads from MIT Press!</li>
             </ul>
           </li>
-          <li className="mx-3">
-            <span style={{ cursor: 'pointer' }}>TOP 50</span>
+          {/* <li className="mx-3">
+            <span style={{ cursor: 'pointer' }} onClick={handletop50books}>TOP 50</span>
             <ul className="dropdown-list">
               <li>Fiction</li>
               <li>Non-Fiction</li>
@@ -78,8 +83,8 @@ const CustomedNavbar = () => {
               <li>Regional Books</li>
               <li>Young Adults</li>
             </ul>
-          </li>
-          <li className="mx-3">Recently Launched</li>
+          </li> */}
+          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
           <li className="mx-3">
             <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
             <ul className="dropdown-list" style={{ marginLeft: "-200px" }}>
@@ -118,7 +123,7 @@ const CustomedNavbar = () => {
             </ul>
           </li>
 
-          <li className="mx-3">Wishlists and Registeries</li>
+          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
           <li className="mx-3">BEST SELLERS</li>
         </ul>
       </div>
