@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function DetailModal({ show, onHide, quickViewBook }) {
     return (
@@ -9,6 +10,7 @@ function DetailModal({ show, onHide, quickViewBook }) {
             onHide={onHide}
             backdrop="static"
             keyboard={false}
+            size="lg"
         >
             <Modal.Header closeButton>
                 <Modal.Title>{quickViewBook ? quickViewBook.name : "Book Details"}</Modal.Title>
@@ -27,6 +29,10 @@ function DetailModal({ show, onHide, quickViewBook }) {
                     </div>
                 </div>
             </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={onHide}>Close</Button>
+                <Button variant="primary">Add to Cart</Button>
+            </Modal.Footer>
         </Modal>
     );
 }
@@ -34,7 +40,7 @@ function DetailModal({ show, onHide, quickViewBook }) {
 DetailModal.propTypes = {
     show: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
-    quickViewBook: PropTypes.object, // This prop is optional and should be an object
+    quickViewBook: PropTypes.object,
 };
 
 export default DetailModal;

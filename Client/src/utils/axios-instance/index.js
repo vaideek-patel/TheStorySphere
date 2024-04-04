@@ -41,23 +41,6 @@ export const registerUser = async (userObj) => {
 
 //BOOKS
 
-// export const getBooks = async () => {
-//   try {
-//     const response = await API.get("books");
-//     return {
-//       success: true,
-//       data: response.data,
-//       error: null,
-//     };
-//   } catch (error) {
-//     return {
-//       success: false,
-//       data: [],
-//       error: error.message,
-//     };
-//   }
-// };
-
 export const getBooks = async (endpoint) => {
   try {
     const response = await API.get(endpoint);
@@ -91,3 +74,40 @@ export const getBookById = async (bookId) => {
     };
   }
 };
+
+//Wishlists
+
+export const getUserWishlists = async (userId) => {
+  try {
+    const response = await API.get(`wishList?owner=${userId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const updateWishlist = async (userId, wishlistId, updatedData) => {
+  try {
+    const response = await API.put(`wishList/${wishlistId}?owner=${userId}`, updatedData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+

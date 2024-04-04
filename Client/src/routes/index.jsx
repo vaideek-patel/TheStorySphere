@@ -8,6 +8,12 @@ import Cart from "../components/pages/Cart/Cart"
 import Orders from '../components/pages/Orders/Orders'
 import Books from '../components/pages/Books/Books'
 import RecentlyLaunched from '../components/pages/Books/RecentlyLaunched'
+import WishListRegistryInfo from '../components/pages/Wishlist&Registry/WishList&RegistryInfo'
+import RegisterWishlist from '../components/pages/Wishlist&Registry/WishList/RegisterWishlist'
+import RegisterNewRegistry from '../components/pages/Wishlist&Registry/Registry/RegisterNewRegistry'
+import ManageWishListRegistry from '../components/pages/Wishlist&Registry/ManageWishList&Registry'
+import BookDetailPage from '../components/pages/Books/BookDetailPage'
+import ViewWishListRegistry from '../components/pages/Wishlist&Registry/ViewWishList&Registry'
 
 const RouteFile = () => {
   return (
@@ -20,6 +26,12 @@ const RouteFile = () => {
       <Route path='/orders' element={<Orders />} />
       <Route path='/books' element={<Books />} />
       <Route path='/books/recentlyLaunched' element={<RecentlyLaunched />} />
+      <Route path='/info/wishlist-and-registry' element={<WishListRegistryInfo />} />
+      <Route path='/wishlists/new' element={<RegisterWishlist />} />
+      <Route path='/create_registry' element={<RegisterNewRegistry />} />
+      <Route path='/wishlists' element={<ManageWishListRegistry />} />
+      <Route path="/books/:id" element={<BookDetailPage />} />
+      <Route path="/wishlist/:id" element={<ViewWishListRegistry />} />
     </Routes>
   )
 }

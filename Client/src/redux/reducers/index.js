@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
+import { roleReducer } from "./isAuthReducer";
+import { dataReducer } from "./dataReducer";
 
 const rootReducer = combineReducers({
-  user: userReducer,
+  role: roleReducer,
+  data: dataReducer,
 });
 
 export default rootReducer;

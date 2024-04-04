@@ -42,7 +42,7 @@ const Login = () => {
       name,
       email,
       password,
-      favouriteProducts: []
+      wishlists: []
     }
 
     const { success, data, error } = await registerUser(userObj);

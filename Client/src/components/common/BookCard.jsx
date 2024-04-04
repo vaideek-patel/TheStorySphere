@@ -3,10 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import "../../Global.css"
 
 const BookCard = ({ book, onQuickView }) => {
     const [hovered, setHovered] = useState(false);
+    const navigate = useNavigate()
 
+    const handleCardClick = (book) => {
+        navigate(`/books/${book.id}`)
+    }
     return (
         <div className="col mb-3" style={{ margin: '0 auto' }}>
             <Card
@@ -20,9 +26,10 @@ const BookCard = ({ book, onQuickView }) => {
                 }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
+                onClick={() => handleCardClick(book)}
             >
                 <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', position: 'relative' }}>
-                    <Card.Img variant="top" src={book.image} style={{ height: '18rem', objectFit: 'contain' }} />
+                    <Card.Img variant="top" src={book.image} className='book-image'  />
                     <Button
                         variant="light"
                         className="rounded-pill"
