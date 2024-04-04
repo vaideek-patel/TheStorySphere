@@ -111,3 +111,20 @@ export const updateWishlist = async (userId, wishlistId, updatedData) => {
   }
 };
 
+
+export const placeOrder = async (orderObj) => {
+  try {
+    const response = await API.post("orders", orderObj);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};

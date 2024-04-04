@@ -14,6 +14,7 @@ import RegisterNewRegistry from '../components/pages/Wishlist&Registry/Registry/
 import ManageWishListRegistry from '../components/pages/Wishlist&Registry/ManageWishList&Registry'
 import BookDetailPage from '../components/pages/Books/BookDetailPage'
 import ViewWishListRegistry from '../components/pages/Wishlist&Registry/ViewWishList&Registry'
+import CheckOutPage from '../components/pages/CheckOutPage/CheckOutPage'
 
 const RouteFile = () => {
   return (
@@ -32,6 +33,7 @@ const RouteFile = () => {
       <Route path='/wishlists' element={<ManageWishListRegistry />} />
       <Route path="/books/:id" element={<BookDetailPage />} />
       <Route path="/wishlist/:id" element={<ViewWishListRegistry />} />
+      <Route path="/checkout" element={<CheckOutPage />} />
     </Routes>
   )
 }
