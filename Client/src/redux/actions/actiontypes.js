@@ -1,3 +1,5 @@
-export const LOGIN = "LOGIN";
-export const LOGOUT = "LOGOUT";
-export const USER_DETAILS = "USER_DETAILS";
+export const SET_ROLE = "SET_ROLE";
+export const REMOVE_ROLE = "REMOVE_ROLE";
+export const SET_DATA = "SET_DATA";
+export const REMOVE_DATA = "REMOVE_DATA";
+export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";

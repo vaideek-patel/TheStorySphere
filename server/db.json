@@ -4,43 +4,37 @@
       "id": "1",
       "name": "Alice",
       "email": "alice@example.com",
-      "password": "alicepass",
-      "favouriteProducts": []
+      "password": "alicepass"
     },
     {
       "id": "2",
       "name": "Vaideek",
       "email": "vaideek@mail.com",
-      "password": "vaideek123",
-      "favouriteProducts": []
+      "password": "vaideek123"
     },
     {
       "id": "3",
       "name": "Palash",
       "email": "palash@mail.com",
-      "password": "palash123",
-      "favouriteProducts": []
+      "password": "palash123"
     },
     {
       "id": "4",
       "name": "Demo",
       "email": "demo@mail.com",
-      "password": "demo123",
-      "favouriteProducts": []
+      "password": "demo123"
     },
     {
       "id": "5",
       "name": "test",
       "email": "test@mail.com",
-      "password": "test123",
-      "favouriteProducts": []
+      "password": "test123"
     },
     {
       "id": "6",
       "name": "TestUser",
       "email": "Test@demo.com",
-      "password": "Demo@123",
-      "favouriteProducts": []
+      "password": "Demo@123"
     }
   ],
   "books": [
@@ -553,6 +547,33 @@
       "price": "900",
       "releaseDate": "01-Oct-1926",
       "image": "https://m.media-amazon.com/images/I/61jXRxyL0IS._AC_UF1000,1000_QL80_.jpg"
+    }
+  ],
+  "wishList": [
+    {
+      "id": "1",
+      "name": "My Wishlist1",
+      "owner": "1",
+      "privacy": "public",
+      "books": [
+        {
+          "id": "1",
+          "name": "World of Science",
+          "author": "Michael Connely",
+          "description": "An exploration of various scientific concepts and discoveries.",
+          "category": "Fiction",
+          "price": "800",
+          "releaseDate": "05-May-2016",
+          "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "My Wishlist2",
+      "owner": "1",
+      "privacy": "public",
+      "books": []
     }
   ]
 }

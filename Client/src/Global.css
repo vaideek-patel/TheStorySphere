@@ -2,6 +2,7 @@
 .carousel-item img {
   height: 400px;
   object-fit: cover;
+
 }
 
 /* Used In Home Page */
@@ -24,6 +25,15 @@
 }
 
 .book-card {
-  width: calc(20% - 20px); /* 20% width for each card with 20px margin on both sides */
+  width: calc(20% - 20px);
   margin: 10px;
+}
+.custom-WishListRegistry-Card-width {
+  width: 700px;
+}
+
+/* Global book=image css */
+.book-image{
+  height: 18rem;
+  object-fit: contain;
 }

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./Login.css";
-import { getUsers } from '../../../utils/axios-instance';
+import { getUserWishlists, getUsers } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../../../redux/actions/action';
-
+import { setRole } from '../../../redux/actions/roleActions';
+import { setData } from '../../../redux/actions/dataAction';
 
 const initialValues = { email: '', password: '' }
 const Login = () => {
@@ -34,7 +34,19 @@ const Login = () => {
     const { email, password } = values;
     const user = users.find((user) => user.email === email);
     if (user && user.password === password) {
-      dispatch(login())
+      dispatch(setRole('user', user));
+
+      const fetchWishlists = async () => {
+        try {
+          const response = await getUserWishlists(user.id);
+          console.log(response)
+          dispatch(setData(response.data))
+        } catch (error) {
+          console.error('Error fetching wishlists:', error);
+        }
+      };
+      fetchWishlists()
+
       navigate("/");
     } else {
       console.log("error");

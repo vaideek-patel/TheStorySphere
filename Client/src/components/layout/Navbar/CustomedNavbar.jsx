@@ -3,16 +3,20 @@ import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstr
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../../redux/actions/action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import Logo from "../../../../public/The Story Sphere_transparent(12).png"
+import { removeRole } from '../../../redux/actions/roleActions';
+import { removeData } from '../../../redux/actions/dataAction';
+import { updateWishlist } from '../../../utils/axios-instance';
 
 
 const CustomedNavbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
+  const isLoggedIn = useSelector((state) => state.role.user)
+  const WishList = useSelector((state) => state.data.wishList)
+
   const handleRecentlyLaunced = () => {
     navigate("/books/recentlyLaunched")
   }
@@ -22,9 +26,31 @@ const CustomedNavbar = () => {
   const handleWishlistRegistry = () => {
     navigate("/info/wishlist-and-registry")
   }
-  const handleLogOut = () => {
-    dispatch(logout())
-  }
+  const handleLogOut = async () => {
+    if (isLoggedIn) {
+      const userWishlist = WishList.find(wishlist => wishlist.owner === isLoggedIn.id);
+      
+      if (userWishlist) {
+        try {
+          const response = await updateWishlist(isLoggedIn.id, userWishlist.id, userWishlist);
+          if (response.success) {
+            console.log("Wishlist data updated successfully.");
+          } else {
+            console.error("Failed to update wishlist data:", response.error);
+          }
+        } catch (error) {
+          console.error("Error while updating wishlist data:", error);
+        }
+      } else {
+        console.error("User's wishlist not found.");
+      }
+  
+      dispatch(removeRole());
+      dispatch(removeData());
+      navigate("/login");
+    }
+  };
+  
   return (
     <>
       {/* <div className='text-center ' style={{ backgroundColor: '#e0f7fa' }}>
@@ -48,7 +74,7 @@ const CustomedNavbar = () => {
             </Form>
           </div>
           <Nav>
-            {isLoggedIn === true ? (
+            {isLoggedIn !== null ? (
               <>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
                 <Nav.Link as={Link} to="/orders">Orders</Nav.Link>
