@@ -1,4 +1,9 @@
-import { SET_DATA, ADD_TO_WISHLIST, REMOVE_DATA } from "../actions/actiontypes";
+import {
+  SET_DATA,
+  ADD_TO_WISHLIST,
+  REMOVE_DATA,
+  ORDER_DETAILS,
+} from "../actions/actiontypes";
 
 const initialState = {
   wishList: [],
@@ -6,6 +11,14 @@ const initialState = {
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ORDER_DETAILS: {
+      return {
+        ...state,
+        finalOrderDetails: state.finalOrderDetails
+          ? [...state.finalOrderDetails, action.payload]
+          : [action.payload],
+      };
+    }
     case ADD_TO_WISHLIST: {
       const { wishlistId, bookData } = action.payload;
       const wishlistToUpdate = state.wishList.find(
@@ -28,7 +41,8 @@ const dataReducer = (state = initialState, action) => {
     }
     case REMOVE_DATA: {
       return {
-        wishList: [], // Reset wishList to an empty array
+        wishList: [],
+        finalOrderDetails: [], // Reset wishList to an empty array
       };
     }
     default: {

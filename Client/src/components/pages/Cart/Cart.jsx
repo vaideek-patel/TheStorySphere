@@ -1,11 +1,141 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+// import { removeBookFromCart, totalAmount } from '../../../redux/actions/actions';
+import { useNavigate } from 'react-router-dom';
+import { removeBookFromCart, totalAmount } from '../../../redux/actions/dataAction';
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [finalBooks, setFinalBooks] = useState([]);
+  const booksInCart = useSelector((state) => state.cart.cart);
+  const subTotal = finalBooks.reduce((acc, book) => acc + parseFloat(book.price) * book.quantity, 0);
+  const taxRate = 150;
+  const total = subTotal + taxRate;
+
+  useEffect(() => {
+    setFinalBooks(booksInCart.map(book => ({ ...book, quantity: 1 })));
+  }, [booksInCart]);
+
+  const removeBook = (bookId) => {
+    const updatedBooks = finalBooks.filter(book => book.id !== bookId);
+    setFinalBooks(updatedBooks);
+    dispatch(removeBookFromCart(bookId));
+  };
+
+  const handleCheckOut = () => {
+    const confirmation = window.confirm("Are you sure you want to Checkout? If yes then you will not be able to modify your order again.");
+    if (confirmation) {
+      dispatch(totalAmount(total));
+      navigate("/checkout");
+      console.log("User confirmed checkout");
+    } else {
+      console.log("User Wants to edit the order");
+    }
+  };
+
+  const handleDecrement = (bookId) => {
+    setFinalBooks(finalBooks.map(book =>
+      book.id === bookId ? { ...book, quantity: Math.max(book.quantity - 1, 1) } : book
+    ));
+  };
+
+  const handleIncrement = (bookId) => {
+    setFinalBooks(finalBooks.map(book =>
+      book.id === bookId ? { ...book, quantity: book.quantity + 1 } : book
+    ));
+  };
+
   return (
-    <div>
-      Cart Page
-    </div>
-  )
+    <>
+      <main id="cart" style={{ maxWidth: '960px' }}>
+        <Container>
+          <h1>Your Cart!</h1>
+          {finalBooks.length > 0 ? (
+            <Row>
+              <Col xs={12} sm={8}>
+                {finalBooks.map(book => (
+                  <div key={book.id} className="cartItem">
+                    <Row className="align-items-start">
+                      <Col xs={3}>
+                        <img src={book.image} alt="book" className="w-100" />
+                      </Col>
+                      <Col xs={5}>
+                        <h6>{book.name}</h6>
+                        <p style={{ color: 'blue', fontWeight: 'bold' }}>{book.author}</p>
+                        <p>{book.releaseDate}</p>
+                      </Col>
+                      <Col xs={2}>
+                        <div className="quantity-controls">
+                          <Button variant="light" onClick={() => handleDecrement(book.id)}>-</Button>
+                          <span className="quantity">{book.quantity}</span>
+                          <Button variant="light" onClick={() => handleIncrement(book.id)}>+</Button>
+                        </div>
+                      </Col>
+                      <Col xs={2}>
+                        <p id="cartItem1Price">₹{book.price}</p>
+                        <Button
+                          onClick={() => removeBook(book.id)}
+                          style={{
+                            backgroundColor: 'red',
+                            color: 'white',
+                            borderRadius: '5px',
+                            padding: '5px 10px',
+                            border: 'none',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          Remove Book
+                        </Button>
+                      </Col>
+                    </Row>
+                    <hr />
+                  </div>
+                ))}
+              </Col>
+              <Col xs={12} sm={4} className="p-3 proceed form">
+                <div className="row m-0">
+                  <Col sm={8} className="p-0">
+                    <h6>Subtotal</h6>
+                  </Col>
+                  <Col sm={4} className="p-0">
+                    <p id="subtotal">₹{subTotal.toFixed(2)}</p>
+                  </Col>
+                </div>
+                <div className="row m-0">
+                  <Col sm={8} className="p-0">
+                    <h6>Tax</h6>
+                  </Col>
+                  <Col sm={4} className="p-0">
+                    <p id="tax">₹{taxRate.toFixed(2)}</p>
+                  </Col>
+                </div>
+                <hr />
+                <div className="row mx-0 mb-2">
+                  <Col sm={8} className="p-0">
+                    <h5>Total</h5>
+                  </Col>
+                  <Col sm={4} className="p-0">
+                    <p id="total">₹{total.toFixed(2)}</p>
+                  </Col>
+                </div>
+                <div className="row mt-3">
+                  <Col xs={8} className="text-right">
+                    <Button variant="primary" onClick={handleCheckOut}>Checkout</Button>
+                  </Col>
+                </div>
+              </Col>
+            </Row>
+          ) : (
+            <div className="text-center">
+              <p>You don't have any books in the cart.</p>
+            </div>
+          )}
+        </Container>
+      </main >
+    </>
+  );
 }
 
-export default Cart
+export default Cart;
