@@ -29,7 +29,7 @@ const Home = () => {
                                         <Card.Body>
                                             <Card.Title>New books</Card.Title>
                                             <Card.Text>
-                                                <Link to="/new-books">View all (20)</Link>
+                                                <Link to="/books/recentlyLaunched">View all (20)</Link>
                                             </Card.Text>
                                         </Card.Body>
                                     </div>
@@ -117,6 +117,61 @@ const Home = () => {
                                 <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 8" />
                             </div>
                         </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <Card className="mb-3">
+                            <Card.Body>
+                                <Card.Title>The Books That Make you smarter</Card.Title>
+                                <Card.Text>
+                                    <Link to="/national-poetry-month">View all (10)</Link>
+                                </Card.Text>
+                                <div className="row g-0 image-scroll">
+                                    <div className="col-md-12 d-flex flex-nowrap overflow-auto">
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452660.jpg?height=250&v=v2-47828ed3acb16c78098f5ec00ff2598f" className="img-fluid me-3" alt="Image 2" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                    </div>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <Card className="mb-3">
+                            <Card.Body>
+                                <Card.Title>2024 Carol Shields Prize for Fiction Longlist</Card.Title>
+                                <Card.Text>
+                                    <Link to="/national-poetry-month">View all (10)</Link>
+                                </Card.Text>
+                                <div className="row g-0 image-scroll">
+                                    <div className="col-md-12 d-flex flex-nowrap overflow-auto">
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452660.jpg?height=250&v=v2-47828ed3acb16c78098f5ec00ff2598f" className="img-fluid me-3" alt="Image 2" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                    </div>
+                                </div>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </div>
 

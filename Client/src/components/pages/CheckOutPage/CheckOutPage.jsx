@@ -1,10 +1,26 @@
 import React from 'react';
 import { Container, Row, Col, Card, Form, Image, Button } from 'react-bootstrap';
-import { Formik, Field, Form as FormikForm } from 'formik';
+import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { finalOrderDetails } from '../../../redux/actions/dataAction';
 import { placeOrder } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
+
+
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required('First Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
+  shippingAddress: Yup.string().required('Shipping Address is required'),
+  company: Yup.string().required('Company Name is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  zip: Yup.string().required('Zip is required'),
+  cardNumber: Yup.string().required('Card Number is required'),
+  cardName: Yup.string().required('Card Name is required'),
+  cardExpiry: Yup.string().required('Card Expiry is required'),
+  cvv: Yup.string().required('CVV is required'),
+});
 
 
 const CheckOutPage = () => {
@@ -37,8 +53,8 @@ const CheckOutPage = () => {
     try {
       const response = await placeOrder(orderData);
       console.log('Order placed successfully:', response);
-      navigate("/orderConfirmationPage")
-      
+      navigate(`/confirmedOrder/${response.data.id}`)
+
     } catch (error) {
       console.error('Error placing order:', error);
     }
@@ -64,55 +80,64 @@ const CheckOutPage = () => {
                   }}
                   onSubmit={handleShippingAdress}
                 >
-                  <FormikForm>
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-3" controlId="firstName">
-                          {/* <Form.Label>First Name</Form.Label> */}
-                          <Field type="text" name="firstName" className="form-control" placeholder="First Name" />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group className="mb-3" controlId="lastName">
-                          {/* <Form.Label>Last Name</Form.Label> */}
-                          <Field type="text" name="lastName" className="form-control" placeholder="Last Name" />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Form.Group className="mb-3" controlId="shippingAddress">
-                      {/* <Form.Label>Shipping Address</Form.Label> */}
-                      <Field type="text" name="shippingAddress" className="form-control" placeholder="Shipping Address" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="company">
-                      {/* <Form.Label>Company or Apt Details</Form.Label> */}
-                      <Field type="text" name="company" className="form-control" placeholder="Company or Apt Details" />
-                    </Form.Group>
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-3" controlId="city">
-                          {/* <Form.Label>City</Form.Label> */}
-                          <Field type="text" name="city" className="form-control" placeholder="City" />
-                        </Form.Group>
-                      </Col>
-                      <Col md={3}>
-                        <Form.Group className="mb-3" controlId="state">
-                          {/* <Form.Label>State</Form.Label> */}
-                          <Field type="text" name="state" className="form-control" placeholder="State" />
-                        </Form.Group>
-                      </Col>
-                      <Col md={3}>
-                        <Form.Group className="mb-3" controlId="zip">
-                          {/* <Form.Label>Zip</Form.Label> */}
-                          <Field type="text" name="zip" className="form-control" placeholder="Zip" />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col md={12} className='text-end'>
-                        <Button type="submit" variant='danger' className='rounded-pill'>SAVE & CONTINUE</Button>
-                      </Col>
-                    </Row>
-                  </FormikForm>
+                  {({ touched, errors }) => (
+                    <FormikForm>
+                      <Row>
+                        <Col md={6}>
+                          <Form.Group className="mb-3" controlId="firstName">
+                            {/* <Form.Label>First Name</Form.Label> */}
+                            <Field type="text" name="firstName" className={`form-control ${touched.firstName && errors.firstName ? 'is-invalid' : ''}`} placeholder="First Name" />
+                            <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                        <Col md={6}>
+                          <Form.Group className="mb-3" controlId="lastName">
+                            {/* <Form.Label>Last Name</Form.Label> */}
+                            <Field type="text" name="lastName" className={`form-control ${touched.lastName && errors.lastName ? 'is-invalid' : ''}`} placeholder="Last Name" />
+                            <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Form.Group className="mb-3" controlId="shippingAddress">
+                        {/* <Form.Label>Shipping Address</Form.Label> */}
+                        <Field type="text" name="shippingAddress" className={`form-control ${touched.shippingAddress && errors.shippingAddress ? 'is-invalid' : ''}`} placeholder="Shipping Address" />
+                        <ErrorMessage name="shippingAddress" component="div" className="invalid-feedback" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="company">
+                        {/* <Form.Label>Company or Apt Details</Form.Label> */}
+                        <Field type="text" name="company" className={`form-control ${touched.company && errors.company ? 'is-invalid' : ''}`} placeholder="Company or Apt Details" />
+                        <ErrorMessage name="company" component="div" className="invalid-feedback" />
+                      </Form.Group>
+                      <Row>
+                        <Col md={6}>
+                          <Form.Group className="mb-3" controlId="city">
+                            {/* <Form.Label>City</Form.Label> */}
+                            <Field type="text" name="city" className={`form-control ${touched.city && errors.city ? 'is-invalid' : ''}`} placeholder="City" />
+                            <ErrorMessage name="city" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                        <Col md={3}>
+                          <Form.Group className="mb-3" controlId="state">
+                            {/* <Form.Label>State</Form.Label> */}
+                            <Field type="text" name="state" className={`form-control ${touched.state && errors.state ? 'is-invalid' : ''}`} placeholder="State" />
+                            <ErrorMessage name="state" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                        <Col md={3}>
+                          <Form.Group className="mb-3" controlId="zip">
+                            {/* <Form.Label>Zip</Form.Label> */}
+                            <Field type="text" name="zip" className="form-control" placeholder="Zip" />
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={12} className='text-end'>
+                          <Button type="submit" variant='danger' className='rounded-pill'>SAVE & CONTINUE</Button>
+                        </Col>
+                      </Row>
+                    </FormikForm>
+                  )}
+
                 </Formik>
               </Card.Body>
             </Card>

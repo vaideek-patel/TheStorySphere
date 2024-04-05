@@ -27,7 +27,7 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                 }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                onClick={() => handleCardClick(book)}
+            // onClick={() => handleCardClick(book)}
             >
                 <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', position: 'relative' }}>
                     <Card.Img variant="top" src={book.image} className='book-image' />
@@ -46,7 +46,7 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                     </Button>
                 </div>
                 <Card.Body className="d-flex flex-column justify-content-start align-items-start">
-                    <Card.Title>{book.name}</Card.Title>
+                    <Card.Title onClick={() => handleCardClick(book)}>{book.name}</Card.Title>
                     <Card.Text>{book.author}</Card.Text>
                     <Card.Text>₹{book.price}</Card.Text>
                     {buttons.map((button, index) => (
