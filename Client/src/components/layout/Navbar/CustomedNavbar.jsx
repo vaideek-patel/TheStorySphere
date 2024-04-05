@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
@@ -7,13 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import Logo from "../../../../public/The Story Sphere_transparent(12).png"
 import { removeRole } from '../../../redux/actions/roleActions';
-import { removeData } from '../../../redux/actions/dataAction';
-import { updateWishlist } from '../../../utils/axios-instance';
+import { clearCart, removeData } from '../../../redux/actions/dataAction';
+import { getSubcategoriesByCategoryId, updateWishlist } from '../../../utils/axios-instance';
 
 
 const CustomedNavbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [subcategories, setSubcategories] = useState({});
   const isLoggedIn = useSelector((state) => state.role.user)
   const WishList = useSelector((state) => state.data.wishList)
 
@@ -26,10 +27,37 @@ const CustomedNavbar = () => {
   const handleWishlistRegistry = () => {
     navigate("/info/wishlist-and-registry")
   }
+
+  const handleBestSellers = () => {
+    navigate("/categories/popular-books")
+  }
+  const handleSubCategory = (data) => {
+    const subCategoryName = data.name.replace(/ /g, '_');
+    navigate(`/collections/${data.categoryId}/${data.id}/${subCategoryName}`)
+  }
+
+  useEffect(() => {
+    fetchSubcategories(1),
+      fetchSubcategories(2)
+    fetchSubcategories(3)
+    fetchSubcategories(4)
+  }, [])
+  const fetchSubcategories = async (categoryId) => {
+    try {
+      const response = await getSubcategoriesByCategoryId(categoryId);
+      setSubcategories(prevState => ({
+        ...prevState,
+        [categoryId]: response.data
+      }));
+    } catch (error) {
+      console.error('Error fetching subcategories:', error);
+    }
+  };
+
   const handleLogOut = async () => {
     if (isLoggedIn) {
       const userWishlist = WishList.find(wishlist => wishlist.owner === isLoggedIn.id);
-      
+
       if (userWishlist) {
         try {
           const response = await updateWishlist(isLoggedIn.id, userWishlist.id, userWishlist);
@@ -44,15 +72,17 @@ const CustomedNavbar = () => {
       } else {
         console.error("User's wishlist not found.");
       }
-  
+
       dispatch(removeRole());
       dispatch(removeData());
+      dispatch(clearCart());
       navigate("/login");
     }
   };
-  
+
   return (
     <>
+      {/* {console.log(categories)} */}
       {/* <div className='text-center ' style={{ backgroundColor: '#e0f7fa' }}>
         <p className="text-center p-1">
           <FontAwesomeIcon icon={faTruckFast} /> Enjoy <strong>Free Shipping</strong> on orders above Rs.2000
@@ -76,12 +106,14 @@ const CustomedNavbar = () => {
           <Nav>
             {isLoggedIn !== null ? (
               <>
+                <Nav.Link as={Link} to="/account">Account</Nav.Link>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                <Nav.Link as={Link} to="/orders">Orders</Nav.Link>
                 <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
               </>
             ) : (
-              <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              <>
+                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              </>
             )}
           </Nav>
         </Container>
@@ -100,16 +132,6 @@ const CustomedNavbar = () => {
               <li>Get 10% off these nerdy spring reads from MIT Press!</li>
             </ul>
           </li>
-          {/* <li className="mx-3">
-            <span style={{ cursor: 'pointer' }} onClick={handletop50books}>TOP 50</span>
-            <ul className="dropdown-list">
-              <li>Fiction</li>
-              <li>Non-Fiction</li>
-              <li>Business and Management</li>
-              <li>Regional Books</li>
-              <li>Young Adults</li>
-            </ul>
-          </li> */}
           <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
           <li className="mx-3">
             <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
@@ -117,40 +139,34 @@ const CustomedNavbar = () => {
               <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <div style={{ flex: '1', }}>
                   <h6>Fiction</h6>
-                  <li> Fiction 1</li>
-                  <li>Fiction 2</li>
-                  <li>Fiction 3</li>
+                  {subcategories['1'] && subcategories['1'].map(subcat => (
+                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                  ))}
                 </div>
                 <div style={{ flex: '1', }}>
                   <h6>Non-Fiction</h6>
-                  <li> Non-Fiction 1</li>
-                  <li> Non-Fiction 2</li>
-                  <li> Non-Fiction 3</li>
+                  {subcategories['2'] && subcategories['2'].map(subcat => (
+                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                  ))}
                 </div>
                 <div style={{ flex: '1', }}>
                   <h6>Business and Management</h6>
-                  <li> Business and Management 1</li>
-                  <li>Business and Management 2</li>
-                  <li> Business and Management 3</li>
+                  {subcategories['3'] && subcategories['3'].map(subcat => (
+                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                  ))}
                 </div>
                 <div style={{ flex: '1', }}>
                   <h6>Regional Books</h6>
-                  <li> Regional Books 1</li>
-                  <li>Regional Books  2</li>
-                  <li>Regional Books 3</li>
-                </div>
-                <div style={{ flex: '1', }}>
-                  <h6>Featured Books</h6>
-                  <li> Featured Books 1</li>
-                  <li>Featured Books  2</li>
-                  <li>Featured Books 3</li>
+                  {subcategories['4'] && subcategories['4'].map(subcat => (
+                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                  ))}
                 </div>
               </div>
             </ul>
           </li>
 
           <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
-          <li className="mx-3">BEST SELLERS</li>
+          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleBestSellers}>BEST SELLERS</li>
         </ul>
       </div>
     </>
