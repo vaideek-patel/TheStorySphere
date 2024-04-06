@@ -37,6 +37,98 @@
       "password": "Demo@123"
     }
   ],
+  "sellers": [
+    {
+      "id": "1",
+      "name": "Vaideek Patel",
+      "email": "vaideek@seller.com",
+      "password": "vaideek@123",
+      "companyName": "Brainy Books Company Pvt. Ltd.",
+      "gstNumber": "GSTIN12345",
+      "storeKeepingUnit": "12345"
+    },
+    {
+      "id": "2",
+      "name": "John Smith",
+      "email": "John@seller.com",
+      "password": "John@123",
+      "companyName": "Smith's Book Emporium",
+      "gstNumber": "GSTIN54321",
+      "storeKeepingUnit": "54321"
+    },
+    {
+      "id": "3",
+      "name": "Emma Johnson",
+      "email": "Emma@seller.com",
+      "password": "Emma@123",
+      "companyName": "Emma's Literary Haven",
+      "gstNumber": "GSTIN67890",
+      "storeKeepingUnit": "67890"
+    },
+    {
+      "id": "4",
+      "name": "Li Wei",
+      "email": "Wei@seller.com",
+      "password": "Wei@123",
+      "companyName": "East Meets West Books",
+      "gstNumber": "GSTIN24680",
+      "storeKeepingUnit": "24680"
+    },
+    {
+      "id": "5",
+      "name": "Sophie Dubois",
+      "email": "Sophie@seller.com",
+      "password": "Sophie@123",
+      "companyName": "Belle Littérature",
+      "gstNumber": "GSTIN13579",
+      "storeKeepingUnit": "13579"
+    },
+    {
+      "id": "6",
+      "name": "Ravi patel",
+      "email": "ravi@bookseller.com",
+      "password": "ravi@123",
+      "companyName": "Patel's Book Haven",
+      "gstNumber": "GSTIN97531",
+      "storeKeepingUnit": "97531"
+    },
+    {
+      "id": "7",
+      "name": "Maria Gonzalez",
+      "email": "maria@bookstore.com",
+      "password": "maria@123",
+      "companyName": "Gonzalez Book Emporium",
+      "gstNumber": "GSTIN86420",
+      "storeKeepingUnit": "86420"
+    },
+    {
+      "id": "8",
+      "name": "David Lee",
+      "email": "david@bookworld.com",
+      "password": "david@123",
+      "companyName": "Lee's Literary World",
+      "gstNumber": "GSTIN75309",
+      "storeKeepingUnit": "75309"
+    },
+    {
+      "id": "9",
+      "name": "Lina Petrova",
+      "email": "lina@bookshop.com",
+      "password": "lina@123",
+      "companyName": "Petrova's Paperback Palace",
+      "gstNumber": "GSTIN64208",
+      "storeKeepingUnit": "64208"
+    },
+    {
+      "id": "10",
+      "name": "Mohammed Ali",
+      "email": "mohammed@booksales.com",
+      "password": "mohammed@123",
+      "companyName": "Ali's Almanac Emporium",
+      "gstNumber": "GSTIN53146",
+      "storeKeepingUnit": "53146"
+    }
+  ],
   "books": [
     {
       "id": "1",
@@ -49,7 +141,9 @@
       "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
       "categoryId": "1",
       "subCategoryId": "1",
-      "subcategoryName": "General & Literary Fiction"
+      "subcategoryName": "General & Literary Fiction",
+      "recentlyLaunched": "yes",
+      "soldBy": "1"
     },
     {
       "id": "2",
@@ -62,7 +156,9 @@
       "image": "https://example.com/image2.jpg",
       "categoryId": "1",
       "subCategoryId": "2",
-      "subcategoryName": "Crime Mystery Thriller"
+      "subcategoryName": "Crime Mystery Thriller",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "3",
@@ -75,7 +171,9 @@
       "image": "https://example.com/image3.jpg",
       "categoryId": "1",
       "subCategoryId": "3",
-      "subcategoryName": "Classics"
+      "subcategoryName": "Classics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "4",
@@ -88,7 +186,9 @@
       "image": "https://example.com/image4.jpg",
       "categoryId": "1",
       "subCategoryId": "4",
-      "subcategoryName": "Quick Reads"
+      "subcategoryName": "Quick Reads",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "5",
@@ -101,7 +201,9 @@
       "image": "https://example.com/image5.jpg",
       "categoryId": "1",
       "subCategoryId": "5",
-      "subcategoryName": "Romance"
+      "subcategoryName": "Romance",
+      "recentlyLaunched": "yes",
+      "soldBy": "1"
     },
     {
       "id": "6",
@@ -114,7 +216,9 @@
       "image": "https://example.com/image6.jpg",
       "categoryId": "1",
       "subCategoryId": "6",
-      "subcategoryName": "Mythological Fiction"
+      "subcategoryName": "Mythological Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "7",
@@ -127,7 +231,9 @@
       "image": "https://example.com/image7.jpg",
       "categoryId": "1",
       "subCategoryId": "1",
-      "subcategoryName": "General & Literary Fiction"
+      "subcategoryName": "General & Literary Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "8",
@@ -140,7 +246,9 @@
       "image": "https://example.com/image8.jpg",
       "categoryId": "1",
       "subCategoryId": "2",
-      "subcategoryName": "Crime Mystery Thriller"
+      "subcategoryName": "Crime Mystery Thriller",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "9",
@@ -153,7 +261,9 @@
       "image": "https://example.com/image9.jpg",
       "categoryId": "1",
       "subCategoryId": "3",
-      "subcategoryName": "Classics"
+      "subcategoryName": "Classics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "10",
@@ -166,7 +276,9 @@
       "image": "https://example.com/image10.jpg",
       "categoryId": "1",
       "subCategoryId": "4",
-      "subcategoryName": "Quick Reads"
+      "subcategoryName": "Quick Reads",
+      "recentlyLaunched": "yes",
+      "soldBy": "1"
     },
     {
       "id": "11",
@@ -179,7 +291,9 @@
       "image": "https://example.com/image11.jpg",
       "categoryId": "1",
       "subCategoryId": "5",
-      "subcategoryName": "Romance"
+      "subcategoryName": "Romance",
+      "recentlyLaunched": "yes",
+      "soldBy": "2"
     },
     {
       "id": "12",
@@ -192,7 +306,9 @@
       "image": "https://example.com/image12.jpg",
       "categoryId": "1",
       "subCategoryId": "6",
-      "subcategoryName": "Mythological Fiction"
+      "subcategoryName": "Mythological Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "13",
@@ -205,7 +321,9 @@
       "image": "https://example.com/image13.jpg",
       "categoryId": "1",
       "subCategoryId": "1",
-      "subcategoryName": "General & Literary Fiction"
+      "subcategoryName": "General & Literary Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "14",
@@ -218,7 +336,9 @@
       "image": "https://example.com/image14.jpg",
       "categoryId": "1",
       "subCategoryId": "2",
-      "subcategoryName": "Crime Mystery Thriller"
+      "subcategoryName": "Crime Mystery Thriller",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "15",
@@ -231,7 +351,9 @@
       "image": "https://example.com/image15.jpg",
       "categoryId": "1",
       "subCategoryId": "3",
-      "subcategoryName": "Classics"
+      "subcategoryName": "Classics",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "16",
@@ -244,7 +366,9 @@
       "image": "https://example.com/image16.jpg",
       "categoryId": "1",
       "subCategoryId": "4",
-      "subcategoryName": "Quick Reads"
+      "subcategoryName": "Quick Reads",
+      "recentlyLaunched": "yes",
+      "soldBy": "2"
     },
     {
       "id": "17",
@@ -257,7 +381,9 @@
       "image": "https://example.com/image17.jpg",
       "categoryId": "1",
       "subCategoryId": "5",
-      "subcategoryName": "Romance"
+      "subcategoryName": "Romance",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "18",
@@ -270,7 +396,9 @@
       "image": "https://example.com/image18.jpg",
       "categoryId": "1",
       "subCategoryId": "6",
-      "subcategoryName": "Mythological Fiction"
+      "subcategoryName": "Mythological Fiction",
+      "recentlyLaunched": "yes",
+      "soldBy": "2"
     },
     {
       "id": "19",
@@ -283,7 +411,9 @@
       "image": "https://example.com/image19.jpg",
       "categoryId": "1",
       "subCategoryId": "1",
-      "subcategoryName": "General & Literary Fiction"
+      "subcategoryName": "General & Literary Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "20",
@@ -296,7 +426,9 @@
       "image": "https://example.com/image20.jpg",
       "categoryId": "1",
       "subCategoryId": "2",
-      "subcategoryName": "Crime Mystery Thriller"
+      "subcategoryName": "Crime Mystery Thriller",
+      "recentlyLaunched": "no",
+      "soldBy": "2"
     },
     {
       "id": "21",
@@ -309,7 +441,9 @@
       "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
       "categoryId": "2",
       "subCategoryId": "16",
-      "subcategoryName": "Maths & Science"
+      "subcategoryName": "Maths & Science",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "22",
@@ -322,7 +456,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51ejXdCyu+L._SX329_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "23",
@@ -335,7 +471,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51iI+XZgTnL._SX322_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "8",
-      "subcategoryName": "Biography"
+      "subcategoryName": "Biography",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "24",
@@ -348,7 +486,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51wxhzY5CRL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "15",
-      "subcategoryName": "Mindfulness & Spirituality"
+      "subcategoryName": "Mindfulness & Spirituality",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "25",
@@ -361,7 +501,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51U5wXRCqtL._SX327_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "12",
-      "subcategoryName": "History"
+      "subcategoryName": "History",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "26",
@@ -374,7 +516,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41A6W1xUcbL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "11",
-      "subcategoryName": "Philosophy"
+      "subcategoryName": "Philosophy",
+      "recentlyLaunched": "yes",
+      "soldBy": "3"
     },
     {
       "id": "27",
@@ -387,7 +531,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41XoMm6YzOL._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "10",
-      "subcategoryName": "Social Studies & Education"
+      "subcategoryName": "Social Studies & Education",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "28",
@@ -400,7 +546,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51HRUDD7LcL._SX321_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "yes",
+      "soldBy": "3"
     },
     {
       "id": "29",
@@ -413,7 +561,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51gj9WVVznL._SX325_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "9",
-      "subcategoryName": "Religion & Mythology"
+      "subcategoryName": "Religion & Mythology",
+      "recentlyLaunched": "no",
+      "soldBy": "3"
     },
     {
       "id": "30",
@@ -426,7 +576,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51t5e2glGoL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "yes",
+      "soldBy": "3"
     },
     {
       "id": "31",
@@ -439,7 +591,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51Cn%2BYNuwuL._SX322_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "16",
-      "subcategoryName": "Maths & Science"
+      "subcategoryName": "Maths & Science",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "32",
@@ -452,7 +606,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51Q4tFxnE4L._SX323_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "11",
-      "subcategoryName": "Philosophy"
+      "subcategoryName": "Philosophy",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "33",
@@ -465,7 +621,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41XoMm6YzOL._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "10",
-      "subcategoryName": "Social Studies & Education"
+      "subcategoryName": "Social Studies & Education",
+      "recentlyLaunched": "yes",
+      "soldBy": "4"
     },
     {
       "id": "34",
@@ -478,7 +636,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41AQJ6OeWZL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "14",
-      "subcategoryName": "Health Fitness Diet"
+      "subcategoryName": "Health Fitness Diet",
+      "recentlyLaunched": "yes",
+      "soldBy": "4"
     },
     {
       "id": "35",
@@ -491,7 +651,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41Ee+5B0B5L._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "15",
-      "subcategoryName": "Mindfulness & Spirituality"
+      "subcategoryName": "Mindfulness & Spirituality",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "36",
@@ -504,7 +666,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51ygBbC9OBL._SX322_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "12",
-      "subcategoryName": "History"
+      "subcategoryName": "History",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "37",
@@ -517,7 +681,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41zluukLl3L._SX329_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "38",
@@ -530,7 +696,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51l2L3lGI7L._SX327_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "39",
@@ -543,7 +711,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51rB1vKouuL._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "12",
-      "subcategoryName": "History"
+      "subcategoryName": "History",
+      "recentlyLaunched": "no",
+      "soldBy": "4"
     },
     {
       "id": "40",
@@ -556,7 +726,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51zg4TnUpJL._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "8",
-      "subcategoryName": "Biography"
+      "subcategoryName": "Biography",
+      "recentlyLaunched": "yes",
+      "soldBy": "4"
     },
     {
       "id": "41",
@@ -569,7 +741,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51pQ6VyrxKL._SX321_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "16",
-      "subcategoryName": "Maths & Science"
+      "subcategoryName": "Maths & Science",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "42",
@@ -582,7 +756,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51-CJLtrVQL._SX322_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "8",
-      "subcategoryName": "Biography"
+      "subcategoryName": "Biography",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "43",
@@ -595,7 +771,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51jTcGPu3iL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "7",
-      "subcategoryName": "Self Improvement"
+      "subcategoryName": "Self Improvement",
+      "recentlyLaunched": "yes",
+      "soldBy": "5"
     },
     {
       "id": "44",
@@ -608,7 +786,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51iYGFU6S8L._SX327_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "16",
-      "subcategoryName": "Maths & Science"
+      "subcategoryName": "Maths & Science",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "45",
@@ -621,7 +801,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41VEnlQ8ctL._SX327_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "14",
-      "subcategoryName": "Health Fitness Diet"
+      "subcategoryName": "Health Fitness Diet",
+      "recentlyLaunched": "yes",
+      "soldBy": "5"
     },
     {
       "id": "46",
@@ -634,7 +816,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/41uzBzL4anL._SX334_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "12",
-      "subcategoryName": "History"
+      "subcategoryName": "History",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "47",
@@ -647,7 +831,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51oUxT4RptL._SX332_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "13",
-      "subcategoryName": "Current Affairs & Politics"
+      "subcategoryName": "Current Affairs & Politics",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "48",
@@ -660,7 +846,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51pG02gBVPL._SX331_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "13",
-      "subcategoryName": "Current Affairs & Politics"
+      "subcategoryName": "Current Affairs & Politics",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "49",
@@ -673,7 +861,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51fw2Y85B9L._SX324_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "16",
-      "subcategoryName": "Maths & Science"
+      "subcategoryName": "Maths & Science",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "50",
@@ -686,7 +876,9 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/51pQ6VyrxKL._SX321_BO1,204,203,200_.jpg",
       "categoryId": "2",
       "subCategoryId": "14",
-      "subcategoryName": "Health Fitness Diet"
+      "subcategoryName": "Health Fitness Diet",
+      "recentlyLaunched": "no",
+      "soldBy": "5"
     },
     {
       "id": "51",
@@ -699,7 +891,9 @@
       "image": "https://example.com/introduction_to_finance.jpg",
       "categoryId": "3",
       "subCategoryId": "17",
-      "subcategoryName": "Finance"
+      "subcategoryName": "Finance",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "52",
@@ -712,7 +906,9 @@
       "image": "https://example.com/the_lean_startup.jpg",
       "categoryId": "3",
       "subCategoryId": "18",
-      "subcategoryName": "Entrepreneurship & Management"
+      "subcategoryName": "Entrepreneurship & Management",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "53",
@@ -725,7 +921,9 @@
       "image": "https://example.com/career_development_handbook.jpg",
       "categoryId": "3",
       "subCategoryId": "19",
-      "subcategoryName": "Careers"
+      "subcategoryName": "Careers",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "54",
@@ -738,7 +936,9 @@
       "image": "https://example.com/marketing_strategies.jpg",
       "categoryId": "3",
       "subCategoryId": "20",
-      "subcategoryName": "Marketing & Advertising"
+      "subcategoryName": "Marketing & Advertising",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "55",
@@ -751,7 +951,9 @@
       "image": "https://example.com/understanding_economics.jpg",
       "categoryId": "3",
       "subCategoryId": "21",
-      "subcategoryName": "Economics"
+      "subcategoryName": "Economics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "56",
@@ -764,7 +966,9 @@
       "image": "https://example.com/financial_management.jpg",
       "categoryId": "3",
       "subCategoryId": "17",
-      "subcategoryName": "Finance"
+      "subcategoryName": "Finance",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "57",
@@ -777,7 +981,9 @@
       "image": "https://example.com/entrepreneurship_guide.jpg",
       "categoryId": "3",
       "subCategoryId": "18",
-      "subcategoryName": "Entrepreneurship & Management"
+      "subcategoryName": "Entrepreneurship & Management",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "58",
@@ -790,7 +996,9 @@
       "image": "https://example.com/career_growth.jpg",
       "categoryId": "3",
       "subCategoryId": "19",
-      "subcategoryName": "Careers"
+      "subcategoryName": "Careers",
+      "recentlyLaunched": "yes",
+      "soldBy": "1"
     },
     {
       "id": "59",
@@ -803,7 +1011,9 @@
       "image": "https://example.com/digital_marketing.jpg",
       "categoryId": "3",
       "subCategoryId": "20",
-      "subcategoryName": "Marketing & Advertising"
+      "subcategoryName": "Marketing & Advertising",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "60",
@@ -816,7 +1026,9 @@
       "image": "https://example.com/microeconomics_simple.jpg",
       "categoryId": "3",
       "subCategoryId": "21",
-      "subcategoryName": "Economics"
+      "subcategoryName": "Economics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "61",
@@ -829,7 +1041,9 @@
       "image": "https://example.com/financial_planning_startups.jpg",
       "categoryId": "3",
       "subCategoryId": "17",
-      "subcategoryName": "Finance"
+      "subcategoryName": "Finance",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "62",
@@ -842,7 +1056,9 @@
       "image": "https://example.com/leadership_strategies.jpg",
       "categoryId": "3",
       "subCategoryId": "18",
-      "subcategoryName": "Entrepreneurship & Management"
+      "subcategoryName": "Entrepreneurship & Management",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "63",
@@ -855,7 +1071,9 @@
       "image": "https://example.com/job_search_essentials.jpg",
       "categoryId": "3",
       "subCategoryId": "19",
-      "subcategoryName": "Careers"
+      "subcategoryName": "Careers",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "64",
@@ -868,7 +1086,9 @@
       "image": "https://example.com/social_media_marketing.jpg",
       "categoryId": "3",
       "subCategoryId": "20",
-      "subcategoryName": "Marketing & Advertising"
+      "subcategoryName": "Marketing & Advertising",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "65",
@@ -881,7 +1101,9 @@
       "image": "https://example.com/macroeconomics_managers.jpg",
       "categoryId": "3",
       "subCategoryId": "21",
-      "subcategoryName": "Economics"
+      "subcategoryName": "Economics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "66",
@@ -894,7 +1116,9 @@
       "image": "https://example.com/investment_strategies.jpg",
       "categoryId": "3",
       "subCategoryId": "17",
-      "subcategoryName": "Finance"
+      "subcategoryName": "Finance",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "67",
@@ -907,7 +1131,9 @@
       "image": "https://example.com/innovators_dilemma.jpg",
       "categoryId": "3",
       "subCategoryId": "18",
-      "subcategoryName": "Entrepreneurship & Management"
+      "subcategoryName": "Entrepreneurship & Management",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "68",
@@ -920,7 +1146,9 @@
       "image": "https://example.com/resume_writing_masterclass.jpg",
       "categoryId": "3",
       "subCategoryId": "19",
-      "subcategoryName": "Careers"
+      "subcategoryName": "Careers",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "69",
@@ -933,7 +1161,9 @@
       "image": "https://example.com/content_marketing_strategies.jpg",
       "categoryId": "3",
       "subCategoryId": "20",
-      "subcategoryName": "Marketing & Advertising"
+      "subcategoryName": "Marketing & Advertising",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "70",
@@ -946,7 +1176,9 @@
       "image": "https://example.com/global_economic_trends.jpg",
       "categoryId": "3",
       "subCategoryId": "21",
-      "subcategoryName": "Economics"
+      "subcategoryName": "Economics",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "71",
@@ -959,7 +1191,9 @@
       "image": "https://example.com/marathi_literature.jpg",
       "categoryId": "4",
       "subCategoryId": "22",
-      "subcategoryName": "Marathi"
+      "subcategoryName": "Marathi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "72",
@@ -972,7 +1206,9 @@
       "image": "https://example.com/hindi_cinema.jpg",
       "categoryId": "4",
       "subCategoryId": "23",
-      "subcategoryName": "Hindi"
+      "subcategoryName": "Hindi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "73",
@@ -985,7 +1221,9 @@
       "image": "https://example.com/gujarati_poetry.jpg",
       "categoryId": "4",
       "subCategoryId": "24",
-      "subcategoryName": "Gujarati"
+      "subcategoryName": "Gujarati",
+      "recentlyLaunched": "yes",
+      "soldBy": "1"
     },
     {
       "id": "74",
@@ -998,7 +1236,9 @@
       "image": "https://example.com/punjabi_folklore.jpg",
       "categoryId": "4",
       "subCategoryId": "25",
-      "subcategoryName": "Punjabi"
+      "subcategoryName": "Punjabi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "75",
@@ -1011,7 +1251,9 @@
       "image": "https://example.com/marathi_cuisine.jpg",
       "categoryId": "4",
       "subCategoryId": "22",
-      "subcategoryName": "Marathi"
+      "subcategoryName": "Marathi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "76",
@@ -1024,7 +1266,9 @@
       "image": "https://example.com/hindi_short_stories.jpg",
       "categoryId": "4",
       "subCategoryId": "23",
-      "subcategoryName": "Hindi"
+      "subcategoryName": "Hindi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "77",
@@ -1037,7 +1281,9 @@
       "image": "https://example.com/gujarati_history.jpg",
       "categoryId": "4",
       "subCategoryId": "24",
-      "subcategoryName": "Gujarati"
+      "subcategoryName": "Gujarati",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "78",
@@ -1050,7 +1296,9 @@
       "image": "https://example.com/punjabi_culture.jpg",
       "categoryId": "4",
       "subCategoryId": "25",
-      "subcategoryName": "Punjabi"
+      "subcategoryName": "Punjabi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "79",
@@ -1063,7 +1311,9 @@
       "image": "https://example.com/marathi_mythology.jpg",
       "categoryId": "4",
       "subCategoryId": "22",
-      "subcategoryName": "Marathi"
+      "subcategoryName": "Marathi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "80",
@@ -1071,38 +1321,44 @@
       "author": "Sunita Mishra",
       "description": "Master the intricacies of Hindi grammar with this comprehensive guide, suitable for learners of all levels.",
       "category": "Regional Books",
-      "price": "750",
-      "releaseDate": "25-December-2018",
+      "price": "700",
+      "releaseDate": "25-February-2018",
       "image": "https://example.com/hindi_grammar.jpg",
       "categoryId": "4",
       "subCategoryId": "23",
-      "subcategoryName": "Hindi"
+      "subcategoryName": "Hindi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "81",
-      "name": "Gujarati Literature: Gems of Gujarati Prose",
-      "author": "Vivek Trivedi",
-      "description": "A curated collection of gems from Gujarati literature, showcasing the richness of Gujarati prose.",
+      "name": "Gujarati Poetry: A Reflection of Emotions",
+      "author": "Deepak Mehta",
+      "description": "Experience the beauty of Gujarati poetry, where every verse is a reflection of emotions and sentiments.",
       "category": "Regional Books",
-      "price": "700",
-      "releaseDate": "05-August-2017",
-      "image": "https://example.com/gujarati_literature.jpg",
+      "price": "600",
+      "releaseDate": "22-November-2019",
+      "image": "https://example.com/gujarati_poetry_reflection.jpg",
       "categoryId": "4",
       "subCategoryId": "24",
-      "subcategoryName": "Gujarati"
+      "subcategoryName": "Gujarati",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "82",
-      "name": "Punjabi Poetry: Verses of Love and Longing",
-      "author": "Harpreet Kaur",
-      "description": "A collection of soulful Punjabi poetry, expressing the emotions of love, longing, and nostalgia.",
+      "name": "Punjabi Folk Music: Rhythms of Punjab",
+      "author": "Amit Singh",
+      "description": "Immerse yourself in the soulful melodies and vibrant rhythms of Punjabi folk music.",
       "category": "Regional Books",
-      "price": "600",
-      "releaseDate": "14-February-2019",
-      "image": "https://example.com/punjabi_poetry.jpg",
+      "price": "650",
+      "releaseDate": "10-July-2018",
+      "image": "https://example.com/punjabi_folk_music.jpg",
       "categoryId": "4",
       "subCategoryId": "25",
-      "subcategoryName": "Punjabi"
+      "subcategoryName": "Punjabi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "83",
@@ -1115,7 +1371,9 @@
       "image": "https://example.com/marathi_novels.jpg",
       "categoryId": "4",
       "subCategoryId": "22",
-      "subcategoryName": "Marathi"
+      "subcategoryName": "Marathi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "84",
@@ -1128,7 +1386,9 @@
       "image": "https://example.com/hindi_drama.jpg",
       "categoryId": "4",
       "subCategoryId": "23",
-      "subcategoryName": "Hindi"
+      "subcategoryName": "Hindi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "85",
@@ -1141,7 +1401,9 @@
       "image": "https://example.com/gujarati_folk_music.jpg",
       "categoryId": "4",
       "subCategoryId": "24",
-      "subcategoryName": "Gujarati"
+      "subcategoryName": "Gujarati",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "86",
@@ -1154,7 +1416,9 @@
       "image": "https://example.com/punjabi_cuisine.jpg",
       "categoryId": "4",
       "subCategoryId": "25",
-      "subcategoryName": "Punjabi"
+      "subcategoryName": "Punjabi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "87",
@@ -1167,7 +1431,9 @@
       "image": "https://example.com/marathi_drama.jpg",
       "categoryId": "4",
       "subCategoryId": "22",
-      "subcategoryName": "Marathi"
+      "subcategoryName": "Marathi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "88",
@@ -1180,7 +1446,9 @@
       "image": "https://example.com/hindi_literature.jpg",
       "categoryId": "4",
       "subCategoryId": "23",
-      "subcategoryName": "Hindi"
+      "subcategoryName": "Hindi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "89",
@@ -1193,7 +1461,9 @@
       "image": "https://example.com/gujarati_short_stories.jpg",
       "categoryId": "4",
       "subCategoryId": "24",
-      "subcategoryName": "Gujarati"
+      "subcategoryName": "Gujarati",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     },
     {
       "id": "90",
@@ -1206,7 +1476,9 @@
       "image": "https://example.com/punjabi_drama.jpg",
       "categoryId": "4",
       "subCategoryId": "25",
-      "subcategoryName": "Punjabi"
+      "subcategoryName": "Punjabi",
+      "recentlyLaunched": "no",
+      "soldBy": "1"
     }
   ],
   "wishList": [

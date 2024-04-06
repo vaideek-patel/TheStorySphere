@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Form, Image, Button } from 'react-bootstrap';
 import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { finalOrderDetails } from '../../../redux/actions/dataAction';
+import { clearCart, finalOrderDetails } from '../../../redux/actions/dataAction';
 import { placeOrder } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -53,6 +53,7 @@ const CheckOutPage = () => {
     try {
       const response = await placeOrder(orderData);
       console.log('Order placed successfully:', response);
+      dispatch(clearCart())
       navigate(`/confirmedOrder/${response.data.id}`)
 
     } catch (error) {

@@ -51,6 +51,11 @@ export const finalOrderDetails = (finalOrderData) => {
   };
 };
 
+export const removeFinalOrderDetails = () => {
+  return {
+    type: CLEAR_CART,
+  };
+};
 export const totalAmount = (amount) => {
   return {
     type: TOTAL_AMOUNT,
