@@ -27,7 +27,6 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                 }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-            // onClick={() => handleCardClick(book)}
             >
                 <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', position: 'relative' }}>
                     <Card.Img variant="top" src={book.image} className='book-image' />

@@ -4,6 +4,8 @@ import Protected from './Protected.jsx';
 
 const Home = lazy(() => import('../components/pages/Home/Home'));
 const Login = lazy(() => import('../components/pages/Login/Login'));
+const SellerLogin = lazy(() => import('../components/pages/Dashboard/SellerDashboard/Login/SellerLogin.jsx'));
+const SellerHome = lazy(() => import('../components/pages/Dashboard/SellerDashboard/Home/Home.jsx'));
 const SignUp = lazy(() => import('../components/pages/SignUp/SignUp'));
 const Favourites = lazy(() => import('../components/pages/Favourites/Favourites'));
 const Cart = lazy(() => import('../components/pages/Cart/Cart'));
@@ -22,6 +24,9 @@ const Account = lazy(() => import('../components/pages/Account/Account'));
 const BestSeller = lazy(() => import('../components/pages/Books/BestSeller'));
 const SpecialOffers = lazy(() => import('../components/pages/Books/SpecialOffers'));
 const Collections = lazy(() => import('../components/pages/Books/Collections.jsx'));
+//Seller
+const RegisterNewBook = lazy(() => import('../components/pages/Dashboard/SellerDashboard/RegisterBook/RegisterBook.jsx'));
+
 
 const RouteFile = () => {
   return (
@@ -29,6 +34,8 @@ const RouteFile = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Protected Component={Login} />} />
+        <Route path="/seller/login" element={<SellerLogin />} />
+        <Route path="/seller" element={<SellerHome />} />
         <Route path="/signUp" element={<Protected Component={SignUp} />} />
         <Route path="/account" element={<Account />} />
         <Route path="/favourites" element={<Favourites />} />
@@ -47,6 +54,7 @@ const RouteFile = () => {
         <Route path="/categories/popular-books" element={<BestSeller />} />
         <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
         <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
+        <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
       </Routes>
     </Suspense>
   );

@@ -3,9 +3,13 @@ import { deleteOrderById, getOrders } from '../../../utils/axios-instance';
 import { useSelector } from 'react-redux';
 import { Card, ListGroup, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import DetailModal from '../../common/Modal';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [orderedBooks, setOrderedBooks] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const userId = useSelector((state) => state.role.user.id);
 
   const handleOrderDelete = async (orderId) => {
@@ -14,27 +18,19 @@ const Orders = () => {
       console.log("Order Deleted!")
       setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
     }
-    //     setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
-    // Swal.fire({
-    //   title: "Are you sure?",
-    //   text: "You won't be able to revert this order again!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "Yes, delete it!"
-    // }).then(async (result) => {
-    //   if (result.isConfirmed) {
-    //     const deleteOrder = await deleteOrderById(orderId)
-    //     setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
-    //     Swal.fire({
-    //       title: "Deleted!",
-    //       text: "Your file has been deleted.",
-    //       icon: "success"
-    //     });
-    //   }
-    // });
   }
+
+  const handleViewOrderedBooks = async (order) => {
+    try {
+      // const booksIds = order.finalOrderBooks.books.map(book => book.bookId);
+      console.log(order.finalOrderBooks.cart)
+      setOrderedBooks(order.finalOrderBooks.cart);
+      // setSelectedOrder(order);
+      setShowModal(true);
+    } catch (error) {
+      console.error("Error while fetching ordered books:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +38,6 @@ const Orders = () => {
         const { success, data, error } = await getOrders();
         if (success) {
           const filteredOrders = data.filter(order => order.userId === userId);
-          console.log(filteredOrders);
           setOrders(filteredOrders);
         } else {
           console.error("Failed to fetch users:", error);
@@ -68,7 +63,7 @@ const Orders = () => {
                   <ListGroup.Item><b>User ID:</b> {order.userId}</ListGroup.Item>
                 </ListGroup>
                 <div className="d-flex justify-content-end">
-                  <Button variant="primary" style={{ marginRight: '8px' }}>View ordered books</Button>
+                  <Button variant="primary" style={{ marginRight: '8px' }} onClick={() => handleViewOrderedBooks(order)}>View ordered books</Button>
                   <Button variant="danger" onClick={() => handleOrderDelete(order.id)}>Delete order</Button>
                 </div>
               </Card.Body>
@@ -78,6 +73,12 @@ const Orders = () => {
           <h2>You have not placed any order yet.</h2>
         )}
       </div>
+      <DetailModal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        // quickViewBook={orderedBooks}
+        data={orderedBooks}
+      />
     </>
   );
 };

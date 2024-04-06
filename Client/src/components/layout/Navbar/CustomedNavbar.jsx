@@ -15,7 +15,8 @@ const CustomedNavbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [subcategories, setSubcategories] = useState({});
-  const isLoggedIn = useSelector((state) => state.role.user)
+  // const isLoggedIn = useSelector((state) => state.role.user)
+  const isLoggedIn = useSelector((state) => state.role)
   const WishList = useSelector((state) => state.data.wishList)
 
   const handleRecentlyLaunced = () => {
@@ -80,6 +81,12 @@ const CustomedNavbar = () => {
     }
   };
 
+  const handleSellerLogOut = () => {
+    dispatch(removeRole());
+    navigate("/seller/login");
+
+  }
+  console.log(isLoggedIn)
   return (
     <>
       {/* {console.log(categories)} */}
@@ -104,11 +111,25 @@ const CustomedNavbar = () => {
             </Form>
           </div>
           <Nav>
-            {isLoggedIn !== null ? (
+            {isLoggedIn.isAuth !== false ? (
               <>
-                <Nav.Link as={Link} to="/account">Account</Nav.Link>
-                <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
+                {isLoggedIn.user && (
+                  <>
+                    <Nav.Link as={Link} to="/account">Account</Nav.Link>
+                    <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+                    <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
+                  </>
+                )}
+                {isLoggedIn.seller && (
+                  <>
+                    <Nav.Link onClick={handleSellerLogOut}>Logout Seller</Nav.Link>
+                  </>
+                )}
+                {isLoggedIn.admin && (
+                  <>
+                    <Nav.Link onClick={handleLogOut}>Logout Admin</Nav.Link>
+                  </>
+                )}
               </>
             ) : (
               <>

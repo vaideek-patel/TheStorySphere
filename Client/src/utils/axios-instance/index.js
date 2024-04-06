@@ -182,6 +182,23 @@ export const deleteOrderById = async (orderId) => {
   }
 };
 
+export const getCategory = async () => {
+  try {
+    const response = await API.get("category");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
 export const getSubcategoriesByCategoryId = async (categoryId) => {
   try {
     const response = await API.get(`sub-category?categoryId=${categoryId}`);
@@ -202,6 +219,44 @@ export const getSubcategoriesByCategoryId = async (categoryId) => {
 export const getBooksBySubcategoryId = async (subcategoryId) => {
   try {
     const response = await API.get(`books?subCategoryId=${subcategoryId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+
+
+//Sellers
+
+export const getSellers = async () => {
+  try {
+    const response = await API.get("sellers");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const getSellersBooksBySellerId = async (sellerId) => {
+  try {
+    const response = await API.get(`books?soldBy=${sellerId}`);
     return {
       success: true,
       data: response.data,
