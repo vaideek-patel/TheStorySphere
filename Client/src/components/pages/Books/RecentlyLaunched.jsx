@@ -38,10 +38,10 @@ const RecentlyLaunched = () => {
                                 </div>
                                 <div className="col-md-8">
                                     <Card.Body>
-                                        <Card.Title>{book.name}</Card.Title>
-                                        <Card.Text>{book.author}</Card.Text>
+                                        <Card.Title className='playfair-display-mygooglefont'>{book.name}</Card.Title>
+                                        <Card.Text className='lora-mygooglefont'>{book.author}</Card.Text>
                                         <Card.Text> ₹{book.price}</Card.Text>
-                                        <Card.Text> {book.description}</Card.Text>
+                                        <Card.Text className='playfair-display-mygooglefont'>{book.description}</Card.Text>
                                         <div className="d-flex justify-content-between w-100">
                                             <Button variant="danger" className="rounded-pill">
                                                 <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART

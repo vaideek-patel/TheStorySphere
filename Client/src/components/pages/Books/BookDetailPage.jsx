@@ -66,8 +66,8 @@ const BookDetailPage = () => {
                     <img src={book.image} alt="Book Cover" className="book-image" />
                 </Col>
                 <Col md={6}>
-                    <h2>{book.name}</h2>
-                    <p>Author: {book.author}</p>
+                    <h2 className='playfair-display-mygooglefont '>{book.name}</h2>
+                    <p className='lora-mygooglefont'>{book.author}</p>
                     <div className="d-flex mb-3">
                         <Button variant="primary" className="me-2">
                             <FontAwesomeIcon icon={faShoppingCart} className="me-1" />
@@ -96,7 +96,7 @@ const BookDetailPage = () => {
                             </Dropdown>
                         )}
                     </div>
-                    <p>{book.description}</p>
+                    <p className='lora-mygooglefont'>{book.description}</p>
                 </Col>
             </Row>
             <Row>

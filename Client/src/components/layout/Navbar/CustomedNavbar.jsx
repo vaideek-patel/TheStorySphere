@@ -86,7 +86,11 @@ const CustomedNavbar = () => {
     navigate("/seller/login");
 
   }
-  console.log(isLoggedIn)
+
+  const handleAdminLogOut = () => {
+    dispatch(removeRole());
+    navigate("/adminLogin")
+  }
   return (
     <>
       {/* {console.log(categories)} */}
@@ -100,16 +104,21 @@ const CustomedNavbar = () => {
           <img src={Logo} alt="The Story Sphere" width="auto" height="50" />
         </Navbar.Brand>
         <Container>
-          <div className="search-bar-container">
-            <Form className="d-flex justify-content-center">
-              <FormControl
-                type="search"
-                placeholder="Search books, authors, ISBNs"
-                className="bg-white text-light placeholder-white"
-                aria-label="Search"
-              />
-            </Form>
-          </div>
+          {isLoggedIn.user !== null ? (
+            <div className="search-bar-container">
+              <Form className="d-flex justify-content-center">
+                <FormControl
+                  type="search"
+                  placeholder="Search books, authors, ISBNs"
+                  className="bg-white text-light placeholder-white"
+                  aria-label="Search"
+                />
+
+              </Form>
+            </div>
+          ) : (
+            null
+          )}
           <Nav>
             {isLoggedIn.isAuth !== false ? (
               <>
@@ -127,7 +136,12 @@ const CustomedNavbar = () => {
                 )}
                 {isLoggedIn.admin && (
                   <>
-                    <Nav.Link onClick={handleLogOut}>Logout Admin</Nav.Link>
+                    <Nav.Link as={Link} to="/admin/manage-category">Manage Category</Nav.Link>
+                    <Nav.Link as={Link} to="/admin/manage-sub-category">Manage Sub-Category</Nav.Link>
+                    <Nav.Link as={Link} to="/admin/manage-books">Manage Books</Nav.Link>
+                    <Nav.Link as={Link} to="/admin/manage-orders">Manage Orders</Nav.Link>
+                    <Nav.Link as={Link} to="/admin/manage-sellers">Manage Sellers</Nav.Link>
+                    <Nav.Link onClick={handleAdminLogOut}>Logout Admin</Nav.Link>
                   </>
                 )}
               </>
@@ -139,57 +153,61 @@ const CustomedNavbar = () => {
           </Nav>
         </Container>
       </Navbar>
-      <div className="navbar-footer">
-        <ul className='d-flex justify-content-center align-items-center' style={{ listStyleType: 'none', padding: 0 }}>
-          <li className="mx-3">
-            <span style={{ cursor: 'pointer' }}>Special Offers</span>
-            <ul className="dropdown-list">
-              <li>There's a 10% discount on these special titles every month from DK here!</li>
-              <li>Get 15% off select titles from FSG & Picador here!</li>
-              <li>Get 10% off THE WOMEN and more by Kristin Hannah!</li>
-              <li>Get 15% off these classic Cormac McCarthy books!</li>
-              <li>Get 10% off these books in the Grumpy Monkey series!</li>
-              <li>Get 10% off OTHERWORLDLY and more by F.T. Lukens!</li>
-              <li>Get 10% off these nerdy spring reads from MIT Press!</li>
-            </ul>
-          </li>
-          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
-          <li className="mx-3">
-            <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
-            <ul className="dropdown-list" style={{ marginLeft: "-200px" }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <div style={{ flex: '1', }}>
-                  <h6>Fiction</h6>
-                  {subcategories['1'] && subcategories['1'].map(subcat => (
-                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
-                  ))}
+      {isLoggedIn.user !== null ? (
+        <div className="navbar-footer">
+          <ul className='d-flex justify-content-center align-items-center' style={{ listStyleType: 'none', padding: 0 }}>
+            <li className="mx-3">
+              <span style={{ cursor: 'pointer' }}>Special Offers</span>
+              <ul className="dropdown-list">
+                <li>There's a 10% discount on these special titles every month from DK here!</li>
+                <li>Get 15% off select titles from FSG & Picador here!</li>
+                <li>Get 10% off THE WOMEN and more by Kristin Hannah!</li>
+                <li>Get 15% off these classic Cormac McCarthy books!</li>
+                <li>Get 10% off these books in the Grumpy Monkey series!</li>
+                <li>Get 10% off OTHERWORLDLY and more by F.T. Lukens!</li>
+                <li>Get 10% off these nerdy spring reads from MIT Press!</li>
+              </ul>
+            </li>
+            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
+            <li className="mx-3">
+              <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
+              <ul className="dropdown-list" style={{ marginLeft: "-200px" }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                  <div style={{ flex: '1', }}>
+                    <h6>Fiction</h6>
+                    {subcategories['1'] && subcategories['1'].map(subcat => (
+                      <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                    ))}
+                  </div>
+                  <div style={{ flex: '1', }}>
+                    <h6>Non-Fiction</h6>
+                    {subcategories['2'] && subcategories['2'].map(subcat => (
+                      <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                    ))}
+                  </div>
+                  <div style={{ flex: '1', }}>
+                    <h6>Business and Management</h6>
+                    {subcategories['3'] && subcategories['3'].map(subcat => (
+                      <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                    ))}
+                  </div>
+                  <div style={{ flex: '1', }}>
+                    <h6>Regional Books</h6>
+                    {subcategories['4'] && subcategories['4'].map(subcat => (
+                      <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
+                    ))}
+                  </div>
                 </div>
-                <div style={{ flex: '1', }}>
-                  <h6>Non-Fiction</h6>
-                  {subcategories['2'] && subcategories['2'].map(subcat => (
-                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
-                  ))}
-                </div>
-                <div style={{ flex: '1', }}>
-                  <h6>Business and Management</h6>
-                  {subcategories['3'] && subcategories['3'].map(subcat => (
-                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
-                  ))}
-                </div>
-                <div style={{ flex: '1', }}>
-                  <h6>Regional Books</h6>
-                  {subcategories['4'] && subcategories['4'].map(subcat => (
-                    <li key={subcat.id} onClick={() => handleSubCategory(subcat)}>{subcat.name}</li>
-                  ))}
-                </div>
-              </div>
-            </ul>
-          </li>
+              </ul>
+            </li>
 
-          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
-          <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleBestSellers}>BEST SELLERS</li>
-        </ul>
-      </div>
+            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
+            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleBestSellers}>BEST SELLERS</li>
+          </ul>
+        </div>
+      ) : (
+        null
+      )}
     </>
   );
 }

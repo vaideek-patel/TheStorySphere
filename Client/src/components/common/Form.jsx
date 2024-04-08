@@ -3,10 +3,13 @@ import { Formik, Form, Field } from 'formik';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const FormComponent = ({ initialValues, validationSchema, onSubmit, fields }) => {
+    console.log(initialValues);
     return (
+
         <Container>
             <h1 className="text-center mt-5 mb-4">Register New Book</h1>
             <Formik
+                enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}

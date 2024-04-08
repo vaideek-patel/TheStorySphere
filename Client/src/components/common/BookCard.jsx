@@ -45,8 +45,8 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                     </Button>
                 </div>
                 <Card.Body className="d-flex flex-column justify-content-start align-items-start">
-                    <Card.Title onClick={() => handleCardClick(book)}>{book.name}</Card.Title>
-                    <Card.Text>{book.author}</Card.Text>
+                    <Card.Title onClick={() => handleCardClick(book)} className='playfair-display-mygooglefont'>{book.name}</Card.Title>
+                    <Card.Text className='lora-mygooglefont'>{book.author}</Card.Text>
                     <Card.Text>₹{book.price}</Card.Text>
                     {buttons.map((button, index) => (
                         <div className="d-flex justify-content-between w-100">

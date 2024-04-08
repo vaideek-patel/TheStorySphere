@@ -26,12 +26,25 @@ const SpecialOffers = lazy(() => import('../components/pages/Books/SpecialOffers
 const Collections = lazy(() => import('../components/pages/Books/Collections.jsx'));
 //Seller
 const RegisterNewBook = lazy(() => import('../components/pages/Dashboard/SellerDashboard/RegisterBook/RegisterBook.jsx'));
-
+//Admin
+const AdminLogin = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Login/AdminLogin.jsx'));
+const AdminHome = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Home/AdminHome.jsx'));
+const ManageCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/ManageCategory/ManageCategory.jsx'))
+const ManageSubCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/ManageSubCategory/ManageSubCategory.jsx'))
+const ManageBooks = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/ManageBooks/ManageBooks.jsx'))
+const ManageOrders = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/ManageOrders/ManageOrders.jsx'))
+const ManageSellers = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/ManageSellers/ManageSellers.jsx'))
+const RegisterSeller = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterSeller/RegisterSeller.jsx'))
+const RegisterBook = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterBook/RegisterBook.jsx'))
+const RegisterSubCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterSubCategory/RegisterSubCategory.jsx'))
+const RegisterCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterCategory/RegisterCategory.jsx'))
+const UpdateCateogry = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateCategory/UpdateCategory.jsx'))
 
 const RouteFile = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
+        <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Protected Component={Login} />} />
         <Route path="/seller/login" element={<SellerLogin />} />
@@ -55,9 +68,21 @@ const RouteFile = () => {
         <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
         <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
         <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
+        <Route path="/admin/home" element={<AdminHome />} />
+        <Route path="/admin/manage-category" element={<ManageCategory />} />
+        <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
+        <Route path="/admin/manage-books" element={<ManageBooks />} />
+        <Route path="/admin/manage-orders" element={<ManageOrders />} />
+        <Route path="/admin/manage-sellers" element={<ManageSellers />} />
+        <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
+        <Route path="/admin/register-newBook" element={<RegisterBook />} />
+        <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
+        <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
+        <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
       </Routes>
     </Suspense>
   );
 };
 
 export default RouteFile;
+
