@@ -37,3 +37,17 @@
   height: 18rem;
   object-fit: contain;
 }
+
+.playfair-display-mygooglefont {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.lora-mygooglefont {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}

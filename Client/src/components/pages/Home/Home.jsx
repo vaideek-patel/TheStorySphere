@@ -27,7 +27,7 @@ const Home = () => {
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
-                                            <Card.Title>New books</Card.Title>
+                                            <Card.Title className='playfair-display-mygooglefont'><h2>New books</h2></Card.Title>
                                             <Card.Text>
                                                 <Link to="/books/recentlyLaunched">View all (20)</Link>
                                             </Card.Text>
@@ -47,7 +47,7 @@ const Home = () => {
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
-                                            <Card.Title>The Story Sphere's best of the week</Card.Title>
+                                        <Card.Title className='playfair-display-mygooglefont'><h2>The Story Sphere's BestSellers of the Week</h2></Card.Title>
                                             <Card.Text>
                                                 <Link to="/best-of-the-week">View all (10)</Link>
                                             </Card.Text>
@@ -63,7 +63,7 @@ const Home = () => {
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                                <Card.Title>National Poetry Month</Card.Title>
+                            <Card.Title className='playfair-display-mygooglefont'><h2>National Poetry Month</h2></Card.Title>
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>
@@ -88,7 +88,7 @@ const Home = () => {
                 {/* Adding the grid for International Booker Prize Longlist */}
                 <div className="row">
                     <div className="col-md-12">
-                        <h3>The 2024 International Booker Prize Longlist</h3>
+                        <h2 className='playfair-display-mygooglefont'>The 2024 International Booker Prize Longlist</h2>
                     </div>
                     <div className="col-md-12">
                         <div className="grid-container">
@@ -119,13 +119,14 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <br/>
+                <br />
 
                 <div className="row">
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                                <Card.Title>The Books That Make you smarter</Card.Title>
+                            <Card.Title className='playfair-display-mygooglefont'><h2>The Books That Make You Smarter</h2></Card.Title>
+                                {/* <Card.Title>The Books That Make you smarter</Card.Title> */}
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>
@@ -152,7 +153,7 @@ const Home = () => {
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                                <Card.Title>2024 Carol Shields Prize for Fiction Longlist</Card.Title>
+                            <Card.Title className='playfair-display-mygooglefont'><h2>2024 Carol Shields Prize For Fiction Longlist</h2></Card.Title>
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>

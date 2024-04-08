@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
-import FormComponent from '../../../../common/Form';
-import { getCategory, getSubcategoriesByCategoryId } from '../../../../../utils/axios-instance';
+import FormComponent from '../../../../../common/Form';
+import { getCategory, getSubcategoriesByCategoryId } from '../../../../../../utils/axios-instance';
 
 const RegisterBook = () => {
     const [categories, setCategories] = useState([]);
     const [subcategories, setSubcategories] = useState([]);
     const [selectedCategoryId, setSelectedCategoryId] = useState('');
+    const [selectedSubCategoryId, setSelectedSubCategoryId] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,7 +18,6 @@ const RegisterBook = () => {
                 console.log(error);
             }
         };
-
         fetchData();
     }, []);
 
@@ -31,6 +31,10 @@ const RegisterBook = () => {
             console.log(error);
         }
     };
+    const handleSubCategoryChange = (value) => {
+        setSelectedSubCategoryId(value)
+
+    }
 
     const initialValues = {
         name: '',
@@ -40,9 +44,10 @@ const RegisterBook = () => {
         releaseDate: '',
         image: '',
         recentlyLaunched: "",
-        category: '',
-        subcategory: ''
+        category: null,
+        subcategory: null
     };
+
 
     const validationSchema = Yup.object({
         name: Yup.string().required('Required'),
@@ -51,14 +56,18 @@ const RegisterBook = () => {
         price: Yup.number().required('Required'),
         releaseDate: Yup.date().required('Required'),
         image: Yup.string().url('Invalid URL').required('Required'),
-        category: Yup.string().required('Required'),
-        subcategory: Yup.string().required('Required')
     });
 
     const handleSubmit = (values, { resetForm }) => {
-        console.log(values);
+        const formData = {
+            ...values,
+            categoryId: selectedCategoryId,
+            subcategoryId: selectedSubCategoryId,
+        };
+        console.log(formData);
         resetForm();
     };
+
 
     const fields = [
         { name: 'name', label: 'Name', type: 'text' },
@@ -82,6 +91,7 @@ const RegisterBook = () => {
             name: 'subcategory',
             label: 'Subcategory',
             as: 'select',
+            onChange: ((e) => handleSubCategoryChange(e.target.value)),
             options: subcategories.map(subcategory => ({
                 value: subcategory.id,
                 label: subcategory.name

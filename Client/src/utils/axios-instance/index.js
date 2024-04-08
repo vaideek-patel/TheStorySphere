@@ -58,6 +58,23 @@ export const getBooks = async (endpoint) => {
   }
 };
 
+export const getAllBooks = async () => {
+  try {
+    const response = await API.get("books");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
 export const getBookById = async (bookId) => {
   try {
     const response = await API.get(`books/${bookId}`);
@@ -199,6 +216,39 @@ export const getCategory = async () => {
   }
 };
 
+export const getCategorydataFromId = async (id) => {
+  try {
+    const response = await API.get(`category?id=${id}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+export const getSubCategory = async () => {
+  try {
+    const response = await API.get("sub-category");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
 export const getSubcategoriesByCategoryId = async (categoryId) => {
   try {
     const response = await API.get(`sub-category?categoryId=${categoryId}`);
@@ -233,8 +283,6 @@ export const getBooksBySubcategoryId = async (subcategoryId) => {
   }
 };
 
-
-
 //Sellers
 
 export const getSellers = async () => {
@@ -257,6 +305,25 @@ export const getSellers = async () => {
 export const getSellersBooksBySellerId = async (sellerId) => {
   try {
     const response = await API.get(`books?soldBy=${sellerId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+//ADMIN
+
+export const registerNewCategory = async (categoryObj) => {
+  try {
+    const response = await API.post("category", categoryObj);
     return {
       success: true,
       data: response.data,
