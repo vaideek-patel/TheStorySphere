@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { getBookById, getBooks } from '../../../utils/axios-instance';
 import BookCard from '../../common/BookCard';
-import "../../../Global.css"
+import "../../../Global.css";
 import DetailModal from '../../common/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { bookToCart } from '../../../redux/actions/dataAction';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Pagination from '../../common/Pagination';
 
 const Books = () => {
     const [books, setBooks] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [quickViewBook, setQuickViewBook] = useState()
-    const booksInCart = useSelector((state) => state.cart.cart)
-    const dispatch = useDispatch()
+    const [quickViewBook, setQuickViewBook] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [booksPerPage] = useState(16);
+    const booksInCart = useSelector((state) => state.cart.cart);
+    const dispatch = useDispatch();
 
     const handleQuickView = (bookId) => {
-        console.log(bookId)
-
         const fetchBookData = async () => {
             try {
                 const response = await getBookById(bookId);
-                console.log(response)
-                setQuickViewBook(response.data)
+                setQuickViewBook(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-        fetchBookData()
+        fetchBookData();
         setShowModal(true);
     };
 
@@ -57,7 +56,7 @@ const Books = () => {
 
     const cartButton = (book) => {
         const alreadyInCart = booksInCart.find(item => item.id === book.id);
-        const label = alreadyInCart ? "Added to Cart" : "Add to Cart";
+        const label = alreadyInCart ? "In Cart" : "Add to Cart";
         return {
             variant: 'danger',
             onClick: () => handleCart(book),
@@ -67,14 +66,23 @@ const Books = () => {
 
     const buttons = (book) => [cartButton(book)];
 
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <>
+            <div className="subCategory-heading-container">
+                <h2 className='playfair-display-mygooglefont'>Explore All Books Across The Story Sphere.</h2>
+            </div>
             <div className="books-container">
-                {books.map((book, index) => (
+                {currentBooks.map((book, index) => (
                     <BookCard key={book.id} book={book} onQuickView={handleQuickView} buttons={buttons(book)} />
                 ))}
             </div>
+            <Pagination currentPage={currentPage} totalPages={Math.ceil(books.length / booksPerPage)} onPageChange={paginate} />
             <DetailModal show={showModal} quickViewBook={quickViewBook} onHide={() => setShowModal(false)} />
         </>
     );

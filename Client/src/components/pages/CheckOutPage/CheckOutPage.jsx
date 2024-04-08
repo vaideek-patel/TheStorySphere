@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, finalOrderDetails } from '../../../redux/actions/dataAction';
 import { placeOrder } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import * as Yup from 'yup';
-
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required('First Name is required'),
@@ -22,24 +23,23 @@ const validationSchema = Yup.object().shape({
   cvv: Yup.string().required('CVV is required'),
 });
 
-
 const CheckOutPage = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const finalOrderBooks = useSelector((state) => state.cart)
-  const totalAmount = useSelector((state) => state.cart.totalAmount)
-  const finalOrder = useSelector((state) => state.data.finalOrderDetails)
-  const userId = useSelector((state) => state.role.user.id)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const finalOrderBooks = useSelector((state) => state.cart);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const finalOrder = useSelector((state) => state.data.finalOrderDetails);
+  const userId = useSelector((state) => state.role.user.id);
+
   const handleShippingAdress = (values) => {
-    dispatch(finalOrderDetails(values))
+    dispatch(finalOrderDetails(values));
   };
 
   const handlePaymentDeatils = (values) => {
-    dispatch(finalOrderDetails(values))
-  }
+    dispatch(finalOrderDetails(values));
+  };
 
   const placeFinalOrder = async () => {
-    console.log(finalOrder);
     const shippingDetails = finalOrder[0];
     const paymentDetails = finalOrder[1];
 
@@ -53,13 +53,13 @@ const CheckOutPage = () => {
     try {
       const response = await placeOrder(orderData);
       console.log('Order placed successfully:', response);
-      dispatch(clearCart())
-      navigate(`/confirmedOrder/${response.data.id}`)
-
+      dispatch(clearCart());
+      navigate(`/confirmedOrder/${response.data.id}`);
     } catch (error) {
       console.error('Error placing order:', error);
     }
   };
+
   return (
     <Container>
       <Row>
@@ -143,13 +143,6 @@ const CheckOutPage = () => {
               </Card.Body>
             </Card>
           </Col>
-          {/* <Col md={6}>
-            <Card className="mb-4">
-              <Card.Body>
-                <h4>Expected delivery in 3-4 days</h4>
-              </Card.Body>
-            </Card>
-          </Col> */}
           <Col md={10}>
             <Card className="">
               <Card.Body>
@@ -207,7 +200,6 @@ const CheckOutPage = () => {
         <Col md={4}>
           <Card>
             <Card.Body>
-              {/* Apply Promo Code Section */}
               <h3 className='mb-3'>Order Summary</h3>
               <h6>Apply a promo code (Optional)</h6>
               <Row className="mb-3">
@@ -219,13 +211,10 @@ const CheckOutPage = () => {
                 </Col>
               </Row>
               <hr style={{ backgroundColor: '#333', height: '2px', marginBottom: '20px' }} />
-
               <h5>Order Summary</h5>
               <div className="mb-3">
                 <p>Total: ${totalAmount}</p>
               </div>
-
-              {/* Place Order Button */}
               <Button variant="danger" className="rounded-pill" onClick={placeFinalOrder}>Place Order</Button>
             </Card.Body>
           </Card>

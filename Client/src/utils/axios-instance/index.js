@@ -283,6 +283,22 @@ export const getBooksBySubcategoryId = async (subcategoryId) => {
   }
 };
 
+// export const getCarolShieldsPrizeForFiction = async (subcategoryId) => {
+//   try {
+//     const response = await API.get(`books?subCategoryId=${subcategoryId}`);
+//     return {
+//       success: true,
+//       data: response.data,
+//       error: null,
+//     };
+//   } catch (error) {
+//     return {
+//       success: false,
+//       data: [],
+//       error: error.message,
+//     };
+//   }
+// };
 //Sellers
 
 export const getSellers = async () => {
@@ -305,6 +321,23 @@ export const getSellers = async () => {
 export const getSellersBooksBySellerId = async (sellerId) => {
   try {
     const response = await API.get(`books?soldBy=${sellerId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const getAccountDetailByUsertId = async (userId) => {
+  try {
+    const response = await API.get(`users?id=${userId}`);
     return {
       success: true,
       data: response.data,

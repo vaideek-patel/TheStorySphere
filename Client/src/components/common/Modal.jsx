@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom"
 
 function DetailModal({ show, onHide, quickViewBook, data }) {
+    const navigate = useNavigate()
 
+    const handleInDetailView = (book) => {
+        console.log(book.id)
+        navigate(`/books/${book.id}`)
+    }
     return (
         <Modal
             show={show}
@@ -34,7 +40,7 @@ function DetailModal({ show, onHide, quickViewBook, data }) {
                         </div>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={onHide}>Close</Button>
-                            <Button variant="primary">Add to Cart</Button>
+                            <Button variant="primary" onClick={() => handleInDetailView(quickViewBook)}>View In Detail</Button>
                         </Modal.Footer>
                     </>
                 ) : (

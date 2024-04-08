@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookToCart } from '../../../redux/actions/dataAction';
+import "../../../Global.css"
 
 const Collections = () => {
-  const { subCategoryId } = useParams();
+  const { subCategoryId, subcategoryName } = useParams();
   const [books, setBooks] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [quickViewBook, setQuickViewBook] = useState(null);
@@ -51,7 +52,7 @@ const Collections = () => {
 
   const cartButton = (book) => {
     const alreadyInCart = booksInCart.find((item) => item.id === book.id);
-    const label = alreadyInCart ? 'Added to Cart' : 'Add to Cart';
+    const label = alreadyInCart ? 'In Cart' : 'Add to Cart';
     return {
       variant: 'danger',
       onClick: () => handleCart(book),
@@ -67,6 +68,9 @@ const Collections = () => {
 
   return (
     <>
+      <div className="subCategory-heading-container">
+      <h2 className='playfair-display-mygooglefont'>{subcategoryName.replace(/_/g, ' ')}</h2>
+    </div>
       <div className="books-container">
         {books.map((book, index) => (
           <BookCard
