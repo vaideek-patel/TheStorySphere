@@ -143,7 +143,15 @@
       "subCategoryId": "1",
       "subcategoryName": "General & Literary Fiction",
       "recentlyLaunched": "yes",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "2",
@@ -158,7 +166,15 @@
       "subCategoryId": "2",
       "subcategoryName": "Crime Mystery Thriller",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "3",
@@ -173,7 +189,15 @@
       "subCategoryId": "3",
       "subcategoryName": "Classics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "4",
@@ -188,7 +212,15 @@
       "subCategoryId": "4",
       "subcategoryName": "Quick Reads",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "5",
@@ -203,7 +235,15 @@
       "subCategoryId": "5",
       "subcategoryName": "Romance",
       "recentlyLaunched": "yes",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "6",
@@ -218,7 +258,15 @@
       "subCategoryId": "6",
       "subcategoryName": "Mythological Fiction",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "7",
@@ -233,7 +281,15 @@
       "subCategoryId": "1",
       "subcategoryName": "General & Literary Fiction",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "8",
@@ -248,7 +304,15 @@
       "subCategoryId": "2",
       "subcategoryName": "Crime Mystery Thriller",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "9",
@@ -263,7 +327,15 @@
       "subCategoryId": "3",
       "subcategoryName": "Classics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "10",
@@ -278,7 +350,15 @@
       "subCategoryId": "4",
       "subcategoryName": "Quick Reads",
       "recentlyLaunched": "yes",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "11",
@@ -293,7 +373,15 @@
       "subCategoryId": "5",
       "subcategoryName": "Romance",
       "recentlyLaunched": "yes",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "12",
@@ -308,7 +396,15 @@
       "subCategoryId": "6",
       "subcategoryName": "Mythological Fiction",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "13",
@@ -323,7 +419,15 @@
       "subCategoryId": "1",
       "subcategoryName": "General & Literary Fiction",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "14",
@@ -338,7 +442,15 @@
       "subCategoryId": "2",
       "subcategoryName": "Crime Mystery Thriller",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "15",
@@ -353,7 +465,15 @@
       "subCategoryId": "3",
       "subcategoryName": "Classics",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "16",
@@ -368,7 +488,15 @@
       "subCategoryId": "4",
       "subcategoryName": "Quick Reads",
       "recentlyLaunched": "yes",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "17",
@@ -383,7 +511,15 @@
       "subCategoryId": "5",
       "subcategoryName": "Romance",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "18",
@@ -398,7 +534,15 @@
       "subCategoryId": "6",
       "subcategoryName": "Mythological Fiction",
       "recentlyLaunched": "yes",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "19",
@@ -413,7 +557,15 @@
       "subCategoryId": "1",
       "subcategoryName": "General & Literary Fiction",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
+      }
     },
     {
       "id": "20",
@@ -428,7 +580,15 @@
       "subCategoryId": "2",
       "subcategoryName": "Crime Mystery Thriller",
       "recentlyLaunched": "no",
-      "soldBy": "2"
+      "soldBy": "2",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "21",
@@ -443,7 +603,15 @@
       "subCategoryId": "16",
       "subcategoryName": "Maths & Science",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "22",
@@ -458,7 +626,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "23",
@@ -473,7 +649,15 @@
       "subCategoryId": "8",
       "subcategoryName": "Biography",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "24",
@@ -488,7 +672,15 @@
       "subCategoryId": "15",
       "subcategoryName": "Mindfulness & Spirituality",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "25",
@@ -503,7 +695,15 @@
       "subCategoryId": "12",
       "subcategoryName": "History",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "26",
@@ -518,7 +718,15 @@
       "subCategoryId": "11",
       "subcategoryName": "Philosophy",
       "recentlyLaunched": "yes",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "27",
@@ -533,7 +741,15 @@
       "subCategoryId": "10",
       "subcategoryName": "Social Studies & Education",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "28",
@@ -548,7 +764,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "yes",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "29",
@@ -563,7 +787,15 @@
       "subCategoryId": "9",
       "subcategoryName": "Religion & Mythology",
       "recentlyLaunched": "no",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "30",
@@ -578,7 +810,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "yes",
-      "soldBy": "3"
+      "soldBy": "3",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "31",
@@ -593,7 +833,15 @@
       "subCategoryId": "16",
       "subcategoryName": "Maths & Science",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "32",
@@ -608,7 +856,15 @@
       "subCategoryId": "11",
       "subcategoryName": "Philosophy",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "33",
@@ -623,7 +879,15 @@
       "subCategoryId": "10",
       "subcategoryName": "Social Studies & Education",
       "recentlyLaunched": "yes",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "34",
@@ -638,7 +902,15 @@
       "subCategoryId": "14",
       "subcategoryName": "Health Fitness Diet",
       "recentlyLaunched": "yes",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "35",
@@ -653,7 +925,15 @@
       "subCategoryId": "15",
       "subcategoryName": "Mindfulness & Spirituality",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "36",
@@ -668,7 +948,15 @@
       "subCategoryId": "12",
       "subcategoryName": "History",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "37",
@@ -683,7 +971,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "38",
@@ -698,7 +994,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "39",
@@ -713,7 +1017,15 @@
       "subCategoryId": "12",
       "subcategoryName": "History",
       "recentlyLaunched": "no",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "40",
@@ -728,7 +1040,15 @@
       "subCategoryId": "8",
       "subcategoryName": "Biography",
       "recentlyLaunched": "yes",
-      "soldBy": "4"
+      "soldBy": "4",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "41",
@@ -743,7 +1063,15 @@
       "subCategoryId": "16",
       "subcategoryName": "Maths & Science",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "42",
@@ -758,7 +1086,15 @@
       "subCategoryId": "8",
       "subcategoryName": "Biography",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "yes",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "43",
@@ -773,7 +1109,15 @@
       "subCategoryId": "7",
       "subcategoryName": "Self Improvement",
       "recentlyLaunched": "yes",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "44",
@@ -788,7 +1132,15 @@
       "subCategoryId": "16",
       "subcategoryName": "Maths & Science",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "45",
@@ -803,7 +1155,15 @@
       "subCategoryId": "14",
       "subcategoryName": "Health Fitness Diet",
       "recentlyLaunched": "yes",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "46",
@@ -818,7 +1178,15 @@
       "subCategoryId": "12",
       "subcategoryName": "History",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "47",
@@ -833,7 +1201,15 @@
       "subCategoryId": "13",
       "subcategoryName": "Current Affairs & Politics",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "48",
@@ -848,7 +1224,15 @@
       "subCategoryId": "13",
       "subcategoryName": "Current Affairs & Politics",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "49",
@@ -863,7 +1247,15 @@
       "subCategoryId": "16",
       "subcategoryName": "Maths & Science",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "50",
@@ -878,7 +1270,15 @@
       "subCategoryId": "14",
       "subcategoryName": "Health Fitness Diet",
       "recentlyLaunched": "no",
-      "soldBy": "5"
+      "soldBy": "5",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "51",
@@ -893,7 +1293,15 @@
       "subCategoryId": "17",
       "subcategoryName": "Finance",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "52",
@@ -908,7 +1316,15 @@
       "subCategoryId": "18",
       "subcategoryName": "Entrepreneurship & Management",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "53",
@@ -923,7 +1339,15 @@
       "subCategoryId": "19",
       "subcategoryName": "Careers",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "54",
@@ -938,7 +1362,15 @@
       "subCategoryId": "20",
       "subcategoryName": "Marketing & Advertising",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "55",
@@ -953,7 +1385,15 @@
       "subCategoryId": "21",
       "subcategoryName": "Economics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "56",
@@ -968,7 +1408,15 @@
       "subCategoryId": "17",
       "subcategoryName": "Finance",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "57",
@@ -983,7 +1431,15 @@
       "subCategoryId": "18",
       "subcategoryName": "Entrepreneurship & Management",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "58",
@@ -998,7 +1454,15 @@
       "subCategoryId": "19",
       "subcategoryName": "Careers",
       "recentlyLaunched": "yes",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "59",
@@ -1013,7 +1477,15 @@
       "subCategoryId": "20",
       "subcategoryName": "Marketing & Advertising",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "60",
@@ -1028,7 +1500,15 @@
       "subCategoryId": "21",
       "subcategoryName": "Economics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "61",
@@ -1043,7 +1523,15 @@
       "subCategoryId": "17",
       "subcategoryName": "Finance",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "62",
@@ -1058,7 +1546,15 @@
       "subCategoryId": "18",
       "subcategoryName": "Entrepreneurship & Management",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "63",
@@ -1073,7 +1569,15 @@
       "subCategoryId": "19",
       "subcategoryName": "Careers",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "64",
@@ -1088,7 +1592,15 @@
       "subCategoryId": "20",
       "subcategoryName": "Marketing & Advertising",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "65",
@@ -1103,7 +1615,15 @@
       "subCategoryId": "21",
       "subcategoryName": "Economics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "66",
@@ -1118,7 +1638,15 @@
       "subCategoryId": "17",
       "subcategoryName": "Finance",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "67",
@@ -1133,7 +1661,15 @@
       "subCategoryId": "18",
       "subcategoryName": "Entrepreneurship & Management",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "68",
@@ -1148,7 +1684,15 @@
       "subCategoryId": "19",
       "subcategoryName": "Careers",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "69",
@@ -1163,7 +1707,15 @@
       "subCategoryId": "20",
       "subcategoryName": "Marketing & Advertising",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "70",
@@ -1178,7 +1730,15 @@
       "subCategoryId": "21",
       "subcategoryName": "Economics",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "71",
@@ -1193,7 +1753,15 @@
       "subCategoryId": "22",
       "subcategoryName": "Marathi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "yes",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "72",
@@ -1208,7 +1776,15 @@
       "subCategoryId": "23",
       "subcategoryName": "Hindi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "73",
@@ -1223,7 +1799,15 @@
       "subCategoryId": "24",
       "subcategoryName": "Gujarati",
       "recentlyLaunched": "yes",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "74",
@@ -1238,7 +1822,15 @@
       "subCategoryId": "25",
       "subcategoryName": "Punjabi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "75",
@@ -1253,7 +1845,15 @@
       "subCategoryId": "22",
       "subcategoryName": "Marathi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "76",
@@ -1268,7 +1868,15 @@
       "subCategoryId": "23",
       "subcategoryName": "Hindi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "77",
@@ -1283,7 +1891,15 @@
       "subCategoryId": "24",
       "subcategoryName": "Gujarati",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "78",
@@ -1298,7 +1914,15 @@
       "subCategoryId": "25",
       "subcategoryName": "Punjabi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "79",
@@ -1313,7 +1937,15 @@
       "subCategoryId": "22",
       "subcategoryName": "Marathi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "80",
@@ -1328,7 +1960,15 @@
       "subCategoryId": "23",
       "subcategoryName": "Hindi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "81",
@@ -1343,7 +1983,15 @@
       "subCategoryId": "24",
       "subcategoryName": "Gujarati",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "82",
@@ -1358,7 +2006,15 @@
       "subCategoryId": "25",
       "subcategoryName": "Punjabi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "83",
@@ -1373,7 +2029,15 @@
       "subCategoryId": "22",
       "subcategoryName": "Marathi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "yes",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "84",
@@ -1388,7 +2052,15 @@
       "subCategoryId": "23",
       "subcategoryName": "Hindi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "85",
@@ -1403,7 +2075,15 @@
       "subCategoryId": "24",
       "subcategoryName": "Gujarati",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "86",
@@ -1418,7 +2098,15 @@
       "subCategoryId": "25",
       "subcategoryName": "Punjabi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "87",
@@ -1433,7 +2121,15 @@
       "subCategoryId": "22",
       "subcategoryName": "Marathi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "88",
@@ -1448,7 +2144,15 @@
       "subCategoryId": "23",
       "subcategoryName": "Hindi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "89",
@@ -1463,7 +2167,15 @@
       "subCategoryId": "24",
       "subcategoryName": "Gujarati",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     },
     {
       "id": "90",
@@ -1478,7 +2190,107 @@
       "subCategoryId": "25",
       "subcategoryName": "Punjabi",
       "recentlyLaunched": "no",
-      "soldBy": "1"
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "yes",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "91",
+      "name": "Poverty by America",
+      "author": "Mathew Desmond",
+      "description": "In 'Poverty by America', Mathew delves deep into the complex issues surrounding poverty in America. Drawing on extensive research and firsthand accounts, Mathew explores the root causes of poverty, its impact on individuals and communities, and the systemic barriers that perpetuate this social issue. Through compelling narratives and insightful analysis, the book sheds light on the struggles faced by millions of Americans living in poverty, challenges prevailing stereotypes, and offers potential solutions for addressing this pressing societal concern.",
+      "category": "Non-Fiction",
+      "price": "1500",
+      "releaseDate": "15-Mar-2024",
+      "image": "https://images-eu.ssl-images-amazon.com/images/I/61DAx72G7ZL._AC_UL210_SR210,210_.jpg",
+      "categoryId": "2",
+      "subCategoryId": "8",
+      "subcategoryName": "Biography",
+      "recentlyLaunched": "yes",
+      "soldBy": "7",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "92",
+      "name": "There's Always This Year: On Basketball and Ascension",
+      "author": "Hanif Abdurraqib",
+      "description": "In 'There's Always This Year', Hanif Abdurraqib explores the intersection of basketball and cultural identity, weaving together personal anecdotes, historical insights, and poetic reflections. From the court to the streets, Abdurraqib delves into the significance of basketball as more than just a sport, but as a symbol of hope, resilience, and collective aspiration. Through vivid storytelling and lyrical prose, he examines the ways in which the game reflects and shapes society, offering profound insights into the human experience.",
+      "category": "Non-Fiction",
+      "price": "1800",
+      "releaseDate": "10-Aug-2023",
+      "image": "https://m.media-amazon.com/images/I/91iCXd5gqhL._AC_UF1000,1000_QL80_.jpg",
+      "categoryId": "2",
+      "subCategoryId": "10",
+      "subcategoryName": "Social Studies & Education",
+      "recentlyLaunched": "yes",
+      "soldBy": "9",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "93",
+      "name": "Companion Piece: A Novel",
+      "author": "Ali Smith",
+      "description": "In 'Companion Piece: A Novel', Ali Smith weaves together a captivating narrative that explores themes of friendship, identity, and the passage of time. Through rich prose and vivid characters, Smith takes readers on a journey through interconnected lives, delving into the complexities of human relationships and the enduring bonds that shape our lives. With her trademark wit and insight, Smith crafts a thought-provoking story that celebrates the power of connection and the beauty of shared experiences.",
+      "category": "Fiction",
+      "price": "1800",
+      "releaseDate": "10-Sep-2023",
+      "image": "https://m.media-amazon.com/images/I/91g2f2d7hfL._AC_UF1000,1000_QL80_.jpg",
+      "categoryId": "1",
+      "subCategoryId": "1",
+      "subcategoryName": "Literary Fiction",
+      "recentlyLaunched": "no",
+      "soldBy": "10",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "94",
+      "name": "She's Not Sorry: A Psychological Thriller",
+      "author": "Mary Kubica",
+      "description": "In 'She's Not Sorry: A Psychological Thriller', Mary Kubica weaves a gripping tale of deception, betrayal, and suspense. As secrets unravel and truths come to light, the lines between reality and illusion blur, leaving readers on the edge of their seats. With expertly crafted twists and turns, Kubica delivers a chilling narrative that will keep readers guessing until the very end.",
+      "category": "Fiction",
+      "price": "1800",
+      "releaseDate": "10-Apr-2024",
+      "image": "https://m.media-amazon.com/images/I/91GEjqfbUpL._AC_UF1000,1000_QL80_.jpg",
+      "categoryId": "1",
+      "subCategoryId": "2",
+      "subcategoryName": "Thriller",
+      "recentlyLaunched": "yes",
+      "soldBy": "8",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     }
   ],
   "wishList": [
@@ -1508,77 +2320,7 @@
       "books": []
     }
   ],
-  "orders": [
-    {
-      "id": "4e09",
-      "userId": "1",
-      "shippingDetails": {
-        "firstName": "Vaideek",
-        "lastName": "Patel",
-        "shippingAddress": "30-Silver Parikrama Ahmedabad",
-        "company": "Bacancy House",
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "zip": "380060"
-      },
-      "paymentDetails": {
-        "cardNumber": "293209382039218",
-        "cardName": "Vaideek Patel",
-        "cardExpiry": "21/03",
-        "cvv": "123"
-      },
-      "finalOrderBooks": {
-        "cart": [
-          {
-            "id": "1",
-            "name": "World of Science",
-            "author": "Michael Connely",
-            "description": "An exploration of various scientific concepts and discoveries.",
-            "category": "Fiction",
-            "price": "800",
-            "releaseDate": "05-May-2016",
-            "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
-            "categoryId": "1",
-            "subCategoryId": "1",
-            "subcategoryName": "General & Literary Fiction",
-            "recentlyLaunched": "yes",
-            "soldBy": "1"
-          },
-          {
-            "id": "2",
-            "name": "The Mystery of Black Manor",
-            "author": "Jane Doe",
-            "description": "A gripping tale of crime and mystery set in the eerie Black Manor.",
-            "category": "Fiction",
-            "price": "1000",
-            "releaseDate": "15-June-2018",
-            "image": "https://example.com/image2.jpg",
-            "categoryId": "1",
-            "subCategoryId": "2",
-            "subcategoryName": "Crime Mystery Thriller",
-            "recentlyLaunched": "no",
-            "soldBy": "1"
-          },
-          {
-            "id": "3",
-            "name": "Pride and Prejudice",
-            "author": "Jane Austen",
-            "description": "A classic tale of love, manners, and social expectations.",
-            "category": "Fiction",
-            "price": "750",
-            "releaseDate": "28-Jan-1813",
-            "image": "https://example.com/image3.jpg",
-            "categoryId": "1",
-            "subCategoryId": "3",
-            "subcategoryName": "Classics",
-            "recentlyLaunched": "no",
-            "soldBy": "1"
-          }
-        ],
-        "totalAmount": 2700
-      }
-    }
-  ],
+  "orders": [],
   "category": [
     {
       "name": "Fiction",

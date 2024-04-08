@@ -91,16 +91,19 @@ const CustomedNavbar = () => {
     dispatch(removeRole());
     navigate("/adminLogin")
   }
+
+  const handleSpecialOffers = () => {
+    navigate("/lists/special-offers-on-TheStorySphere")
+  }
   return (
     <>
-      {/* {console.log(categories)} */}
-      {/* <div className='text-center ' style={{ backgroundColor: '#e0f7fa' }}>
-        <p className="text-center p-1">
+      <div className='text-center mb-0 ' style={{ backgroundColor: '#e0f7fa' }}>
+        <p className="text-center p-1 mb-0">
           <FontAwesomeIcon icon={faTruckFast} /> Enjoy <strong>Free Shipping</strong> on orders above Rs.2000
         </p>
-      </div> */}
+      </div>
       <Navbar bg="light" data-bs-theme="light">
-        <Navbar.Brand as={Link} to="/" >
+        <Navbar.Brand as={Link} to="/" className='ms-4' >
           <img src={Logo} alt="The Story Sphere" width="auto" height="50" />
         </Navbar.Brand>
         <Container>
@@ -155,9 +158,9 @@ const CustomedNavbar = () => {
       </Navbar>
       {isLoggedIn.user !== null ? (
         <div className="navbar-footer">
-          <ul className='d-flex justify-content-center align-items-center' style={{ listStyleType: 'none', padding: 0 }}>
+          <ul className='d-flex justify-content-center align-items-center mb-0 pb-3' style={{ listStyleType: 'none', padding: 0 }}>
             <li className="mx-3">
-              <span style={{ cursor: 'pointer' }}>Special Offers</span>
+              <span style={{ cursor: 'pointer' }} onClick={handleSpecialOffers}>Special Offers</span>
               <ul className="dropdown-list">
                 <li>There's a 10% discount on these special titles every month from DK here!</li>
                 <li>Get 15% off select titles from FSG & Picador here!</li>

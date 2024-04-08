@@ -1,17 +1,92 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CommonCarousel from '../../common/Carousel';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../../Global.css"
+import { getBooks } from '../../../utils/axios-instance';
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+    const navigate = useNavigate()
+    const [carolShieldsBooks, setCarolShieldsBooks] = useState([]);
+    const [nationalPoetry, setNationalPoetry] = useState([]);
+    const [bookerPrize, setBookerPrize] = useState([]);
+    const [smartBooks, setSmartBooks] = useState([]);
+
+    useEffect(() => {
+
+        const fetchCoralShieldBooks = async () => {
+            try {
+                const response = await getBooks("books?AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist=yes");
+                if (response.success) {
+                    setCarolShieldsBooks(response.data);
+                } else {
+                    console.error("Failed to fetch the Products Data", response.error);
+                }
+            } catch (error) {
+                console.error("Error while Fetching products", error);
+            }
+        };
+
+        const fetchNationPoetryBooks = async () => {
+            try {
+                const response = await getBooks("books?AdditionalBookDetails.NationalPoetryMonth=yes");
+                if (response.success) {
+                    setNationalPoetry(response.data);
+                } else {
+                    console.error("Failed to fetch the Products Data", response.error);
+                }
+            } catch (error) {
+                console.error("Error while Fetching products", error);
+            }
+        };
+
+        const fetchInternationalBookerPrizeBooks = async () => {
+            try {
+                const response = await getBooks("books?AdditionalBookDetails.InternationalBookerPrizeLonglist=yes");
+                if (response.success) {
+                    console.log(response.data);
+                    setBookerPrize(response.data);
+                } else {
+                    console.error("Failed to fetch the Products Data", response.error);
+                }
+            } catch (error) {
+                console.error("Error while Fetching products", error);
+            }
+        };
+
+        const fetchSmartBooks = async () => {
+            try {
+                const response = await getBooks("books?AdditionalBookDetails.BooksThatMakeYouSmarter=yes");
+                if (response.success) {
+                    setSmartBooks(response.data);
+                } else {
+                    console.error("Failed to fetch the Products Data", response.error);
+                }
+            } catch (error) {
+                console.error("Error while Fetching products", error);
+            }
+        };
+
+        fetchSmartBooks()
+        fetchCoralShieldBooks();
+        fetchNationPoetryBooks();
+        fetchInternationalBookerPrizeBooks();
+
+    }, []);
+
+    const handleBookClick = (bookId) => {
+        console.log("Book clicked:", bookId);
+        navigate(`/books/${bookId}`)
+    };
+
     return (
         <>
             <CommonCarousel>
-                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="Second slide" />
-                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Third slide" />
-                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
-                <img src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Third slide" />
+                <img id='91' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="First slide" />
+                <img id='92' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Second slide" />
+                <img id='93' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
+                <img id='94' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Fourth slide" />
             </CommonCarousel>
 
             <div className="container mt-4">
@@ -47,9 +122,9 @@ const Home = () => {
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
-                                        <Card.Title className='playfair-display-mygooglefont'><h2>The Story Sphere's BestSellers of the Week</h2></Card.Title>
+                                            <Card.Title className='playfair-display-mygooglefont'><h2>The Story Sphere's BestSellers of the Week</h2></Card.Title>
                                             <Card.Text>
-                                                <Link to="/best-of-the-week">View all (10)</Link>
+                                                <Link to="/books/bestSellers-of-the-week">View all (10)</Link>
                                             </Card.Text>
                                         </Card.Body>
                                     </div>
@@ -63,22 +138,15 @@ const Home = () => {
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                            <Card.Title className='playfair-display-mygooglefont'><h2>National Poetry Month</h2></Card.Title>
+                                <Card.Title className='playfair-display-mygooglefont'><h2>National Poetry Month</h2></Card.Title>
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>
                                 <div className="row g-0 image-scroll">
                                     <div className="col-md-12 d-flex flex-nowrap overflow-auto">
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452660.jpg?height=250&v=v2-47828ed3acb16c78098f5ec00ff2598f" className="img-fluid me-3" alt="Image 2" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        {nationalPoetry.map(book => (
+                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                        ))}
                                     </div>
                                 </div>
                             </Card.Body>
@@ -86,89 +154,61 @@ const Home = () => {
                     </div>
                 </div>
                 {/* Adding the grid for International Booker Prize Longlist */}
-                <div className="row">
-                    <div className="col-md-12">
+                <div className="grid">
+                    <div className="col-md-10">
                         <h2 className='playfair-display-mygooglefont'>The 2024 International Booker Prize Longlist</h2>
                     </div>
                     <div className="col-md-12">
                         <div className="grid-container">
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 1" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 2" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 3" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 4" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 5" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 6" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 7" />
-                            </div>
-                            <div className="grid-item">
-                                <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid" alt="Book 8" />
-                            </div>
+                            {bookerPrize.map(book => (
+                                <div className="grid-item d-flex" key={book.id}>
+                                    <img src={book.image} className="img-fluid" alt={book.title} />
+                                    <div className="book-info" style={{ marginLeft: "10px" }}>
+                                        <p className="book-title playfair-display-mygooglefont">{book.name}</p>
+                                        <p className="book-author lora-mygooglefont">{book.author}</p>
+                                        <p className="book-price">{book.price}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
+
                 <br />
 
                 <div className="row">
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                            <Card.Title className='playfair-display-mygooglefont'><h2>The Books That Make You Smarter</h2></Card.Title>
+                                <Card.Title className='playfair-display-mygooglefont'><h2>The Books That Make You Smarter</h2></Card.Title>
                                 {/* <Card.Title>The Books That Make you smarter</Card.Title> */}
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>
                                 <div className="row g-0 image-scroll">
                                     <div className="col-md-12 d-flex flex-nowrap overflow-auto">
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452660.jpg?height=250&v=v2-47828ed3acb16c78098f5ec00ff2598f" className="img-fluid me-3" alt="Image 2" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        {smartBooks.map(book => (
+                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                        ))}
                                     </div>
                                 </div>
                             </Card.Body>
                         </Card>
                     </div>
                 </div>
-
                 <div className="row">
                     <div className="col-md-12">
                         <Card className="mb-3">
                             <Card.Body>
-                            <Card.Title className='playfair-display-mygooglefont'><h2>2024 Carol Shields Prize For Fiction Longlist</h2></Card.Title>
+                                <Card.Title className='playfair-display-mygooglefont'><h2>2024 Carol Shields Prize For Fiction Longlist</h2></Card.Title>
                                 <Card.Text>
                                     <Link to="/national-poetry-month">View all (10)</Link>
                                 </Card.Text>
                                 <div className="row g-0 image-scroll">
                                     <div className="col-md-12 d-flex flex-nowrap overflow-auto">
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452660.jpg?height=250&v=v2-47828ed3acb16c78098f5ec00ff2598f" className="img-fluid me-3" alt="Image 2" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9780316417525.jpg?height=250&v=v2-e8311ad439f7f99fcbee6777901c2718" className="img-fluid me-3" alt="Image 3" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781644452752.jpg?height=250&v=v2-4275c026893579df3d5230ea38b48c63" className="img-fluid me-3" alt="Image 1" />
+                                        {carolShieldsBooks.map(book => (
+                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                        ))}
                                     </div>
                                 </div>
                             </Card.Body>

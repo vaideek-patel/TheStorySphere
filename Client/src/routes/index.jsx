@@ -22,6 +22,7 @@ const CheckOutPage = lazy(() => import('../components/pages/CheckOutPage/CheckOu
 const OrderConfirmationPage = lazy(() => import('../components/pages/OrderConfirmation/OrderConfirmationPage'));
 const Account = lazy(() => import('../components/pages/Account/Account'));
 const BestSeller = lazy(() => import('../components/pages/Books/BestSeller'));
+const BestSellerOfTheWeek = lazy(() => import('../components/pages/Books/BestSellerOfTheWeek.jsx'));
 const SpecialOffers = lazy(() => import('../components/pages/Books/SpecialOffers'));
 const Collections = lazy(() => import('../components/pages/Books/Collections.jsx'));
 //Seller
@@ -56,6 +57,7 @@ const RouteFile = () => {
         <Route path="/manage-orders" element={<Orders />} />
         <Route path="/books" element={<Books />} />
         <Route path="/books/recentlyLaunched" element={<RecentlyLaunched />} />
+        <Route path="/books/bestSellers-of-the-week" element={<BestSellerOfTheWeek />} />
         <Route path="/info/wishlist-and-registry" element={<WishListRegistryInfo />} />
         <Route path="/wishlists/new" element={<RegisterWishlist />} />
         <Route path="/create_registry" element={<RegisterNewRegistry />} />
