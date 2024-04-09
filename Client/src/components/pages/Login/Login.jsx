@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./Login.css";
+import "../../../Global.css"
 import { getUserWishlists, getUsers } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -57,7 +58,7 @@ const Login = () => {
       <br />
       <div className="row justify-content-center">
         <div className="text-center">
-          <h3>Login as an Existing Customer</h3>
+          <h3 className='playfair-display-mygooglefont'>Login as an Existing Customer</h3>
         </div>
       </div>
       <section className="login-section">

@@ -5,7 +5,7 @@ import "../../../Global.css";
 import DetailModal from '../../common/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { bookToCart } from '../../../redux/actions/dataAction';
+import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from '../../common/Pagination';
 
@@ -54,6 +54,22 @@ const Books = () => {
         }
     };
 
+
+    const handleFavourites = (book) => {
+        console.log(book)
+        dispatch(addToFavorites(book))
+
+    }
+    const FavButton = (book) => {
+        // const alreadyInCart = booksInCart.find(item => item.id === book.id);
+        return {
+            variant: "primary",
+            onClick: () => handleFavourites(book),
+            label: <><FontAwesomeIcon icon={faHeart} /></>
+        };
+    };
+
+
     const cartButton = (book) => {
         const alreadyInCart = booksInCart.find(item => item.id === book.id);
         const label = alreadyInCart ? "In Cart" : "Add to Cart";
@@ -64,7 +80,7 @@ const Books = () => {
         };
     };
 
-    const buttons = (book) => [cartButton(book)];
+    const buttons = (book) => [cartButton(book), FavButton(book)];
 
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;

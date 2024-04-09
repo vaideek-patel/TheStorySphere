@@ -5,14 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import "../../Global.css"
+import { useDispatch, useSelector } from "react-redux"
+import { addToFavorites } from '../../redux/actions/dataAction';
 
 const BookCard = ({ book, onQuickView, buttons }) => {
+    const dispatch = useDispatch()
+    const userId = useSelector((state) => state.role.user.id)
     const [hovered, setHovered] = useState(false);
     const navigate = useNavigate()
 
     const handleCardClick = (book) => {
         navigate(`/books/${book.id}`)
-
+    }
+    const handleFavourites = (book) => {
+        console.log(book)
+        dispatch(addToFavorites(book))
     }
     return (
         <div className="col mb-3" style={{ margin: '0 auto' }}>
@@ -54,15 +61,14 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                                 {button.icon && <FontAwesomeIcon icon={button.icon} />}
                                 {button.label}
                             </Button>
+
+                            {/* <Button variant="primary" onClick={() => handleFavourites(book)} className="rounded-pill" >
+                                <FontAwesomeIcon icon={faHeart} />
+                            </Button> */}
                         </div>
                     ))}
                     {/* <div className="d-flex justify-content-between w-100">
-                        <Button variant="danger" className="rounded-pill" onClick={handleAddToCart}>
-                            <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
-                        </Button>
-                        <Button variant="light" className="rounded-pill" >
-                            <FontAwesomeIcon icon={faHeart} />
-                        </Button>
+                        
                     </div> */}
                 </Card.Body>
             </Card>
