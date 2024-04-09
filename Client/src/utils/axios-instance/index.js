@@ -351,6 +351,39 @@ export const getAccountDetailByUsertId = async (userId) => {
     };
   }
 };
+export const updateUserData = async (userId, newData) => {
+  try {
+    const response = await API.put(`users/${userId}`, newData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const deleteUserData = async (userId) => {
+  try {
+    const response = await API.delete(`users/${userId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
 
 //ADMIN
 
@@ -370,6 +403,39 @@ export const registerNewCategory = async (categoryObj) => {
     };
   }
 };
+export const updateCateoryData = async (categoryId, newData) => {
+  try {
+    const response = await API.put(`category/${categoryId}`, newData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const deleteCategoryData = async (categoryId) => {
+  try {
+    const response = await API.delete(`category/${categoryId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
 
 export const registerNewBook = async (bookObj) => {
   try {
@@ -383,6 +449,40 @@ export const registerNewBook = async (bookObj) => {
     return {
       success: false,
       data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const updateBookData = async (bookId, bookData) => {
+  try {
+    const response = await API.put(`books/${bookId}`, bookData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const deleteBookData = async (bookId) => {
+  try {
+    const response = await API.delete(`books/${bookId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
       error: error.message,
     };
   }

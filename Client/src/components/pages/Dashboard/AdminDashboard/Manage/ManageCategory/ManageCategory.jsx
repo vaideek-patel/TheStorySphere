@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getCategory } from '../../../../../../utils/axios-instance';
+import { deleteCategoryData, getCategory } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
@@ -17,7 +17,6 @@ const ManageCategory = () => {
         const fetchCategory = async () => {
             try {
                 const response = await getCategory();
-                console.log(response.data)
                 setcategory(response.data);
             } catch (error) {
                 console.log(error);
@@ -26,20 +25,27 @@ const ManageCategory = () => {
         fetchCategory();
     }, []);
 
-    const ListNewCategory = () => {
+    const listNewCategory = () => {
         navigate("/admin/register-newCategory")
     }
-    const UpdateCategory = (id) => {
+    const updateCategory = (id) => {
         console.log(id)
         navigate(`/admin/update-Category/${id}`)
+    }
+
+    const deleteCategory = async (id) => {
+        const deleteCategory = await deleteCategoryData(id)
+        console.log(deleteCategory)
+        const updatedCategoery = category.filter(category => category.id !== id);
+        setcategory(updatedCategoery);
     }
     return (
         <>
             <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2>Manage Category here!</h2>
-                <Button variant="success" onClick={ListNewCategory}>Add a new Category </Button>
+                <Button variant="success" onClick={listNewCategory}>Add a new Category </Button>
             </div>
-            <Table data={category} headers={categoryArray} handleUpdate={UpdateCategory} />
+            <Table data={category} headers={categoryArray} handleUpdate={updateCategory} handleDelete={deleteCategory} />
         </>
     )
 }
