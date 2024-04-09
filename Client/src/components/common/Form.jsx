@@ -7,7 +7,7 @@ const FormComponent = ({ initialValues, validationSchema, onSubmit, fields }) =>
     return (
 
         <Container>
-            <h1 className="text-center mt-5 mb-4">Register New Book</h1>
+            {/* <h1 className="text-center mt-5 mb-4">Register New Book</h1> */}
             <Formik
                 enableReinitialize
                 initialValues={initialValues}

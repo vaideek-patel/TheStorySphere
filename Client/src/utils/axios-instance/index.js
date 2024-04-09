@@ -370,3 +370,20 @@ export const registerNewCategory = async (categoryObj) => {
     };
   }
 };
+
+export const registerNewBook = async (bookObj) => {
+  try {
+    const response = await API.post("books", bookObj);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};

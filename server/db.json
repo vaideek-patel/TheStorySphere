@@ -2291,6 +2291,29 @@
         "BooksThatMakeYouSmarter": "no",
         "CarolShieldsPrizeForFictionLonglist": "no"
       }
+    },
+    {
+      "id": "95",
+      "name": "The Universe",
+      "author": "Vaideek Patel",
+      "description": "The universe at it's best",
+      "price": 555,
+      "releaseDate": "2024-04-01",
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fbook&psig=AOvVaw0vgWc0PfIXJugajQ7MHozk&ust=1712418626811000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMCYm-C2q4UDFQAAAAAdAAAAABAE",
+      "categoryId": "1",
+      "category": "Fiction",
+      "subCategoryId": "1",
+      "subcategoryName": "General & Literary Fiction",
+      "recentlyLaunched": "yes",
+      "AdditionalBookDetails": {
+        "BestSeller": "yes",
+        "BestSellerOfTheWeek": false,
+        "NationalPoetryMonth": false,
+        "InternationalBookerPrizeLonglist": false,
+        "BooksThatMakeYouSmarter": false,
+        "CarolShieldsPrizeForFictionLonglist": false
+      },
+      "soldBy": "1"
     }
   ],
   "wishList": [

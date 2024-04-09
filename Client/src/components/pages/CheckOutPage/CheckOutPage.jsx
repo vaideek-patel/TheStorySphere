@@ -1,27 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Image, Button } from 'react-bootstrap';
 import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, finalOrderDetails } from '../../../redux/actions/dataAction';
 import { placeOrder } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import * as Yup from 'yup';
-
-const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last Name is required'),
-  shippingAddress: Yup.string().required('Shipping Address is required'),
-  company: Yup.string().required('Company Name is required'),
-  city: Yup.string().required('City is required'),
-  state: Yup.string().required('State is required'),
-  zip: Yup.string().required('Zip is required'),
-  cardNumber: Yup.string().required('Card Number is required'),
-  cardName: Yup.string().required('Card Name is required'),
-  cardExpiry: Yup.string().required('Card Expiry is required'),
-  cvv: Yup.string().required('CVV is required'),
-});
 
 const CheckOutPage = () => {
   const dispatch = useDispatch();
@@ -31,12 +14,17 @@ const CheckOutPage = () => {
   const finalOrder = useSelector((state) => state.data.finalOrderDetails);
   const userId = useSelector((state) => state.role.user.id);
 
+  const [isSaved, setIsSaved] = useState(false);
+  const [paymentMethodSaved, setpaymentMethodSaved] = useState(false);
+
   const handleShippingAdress = (values) => {
     dispatch(finalOrderDetails(values));
+    setIsSaved(true);
   };
 
   const handlePaymentDeatils = (values) => {
     dispatch(finalOrderDetails(values));
+    setpaymentMethodSaved(true)
   };
 
   const placeFinalOrder = async () => {
@@ -60,6 +48,53 @@ const CheckOutPage = () => {
     }
   };
 
+  const validateShippingAddress = values => {
+    const errors = {};
+
+    if (!values.firstName) {
+      errors.firstName = 'First Name is required';
+    }
+    if (!values.lastName) {
+      errors.lastName = 'Last Name is required';
+    }
+    if (!values.shippingAddress) {
+      errors.shippingAddress = 'Shipping Address is required';
+    }
+    if (!values.company) {
+      errors.company = 'Company Name is required';
+    }
+    if (!values.city) {
+      errors.city = 'City is required';
+    }
+    if (!values.state) {
+      errors.state = 'State is required';
+    }
+    if (!values.zip) {
+      errors.zip = 'Zip is required';
+    }
+
+    return errors;
+  };
+
+  const validatePaymentDetails = values => {
+    const errors = {};
+
+    if (!values.cardNumber) {
+      errors.cardNumber = 'Card Number is required';
+    }
+    if (!values.cardName) {
+      errors.cardName = 'Card Name is required';
+    }
+    if (!values.cardExpiry) {
+      errors.cardExpiry = 'Card Expiry is required';
+    }
+    if (!values.cvv) {
+      errors.cvv = 'CVV is required';
+    }
+
+    return errors;
+  };
+
   return (
     <Container>
       <Row>
@@ -79,6 +114,7 @@ const CheckOutPage = () => {
                     state: '',
                     zip: ''
                   }}
+                  validate={validateShippingAddress}
                   onSubmit={handleShippingAdress}
                 >
                   {({ touched, errors }) => (
@@ -86,54 +122,48 @@ const CheckOutPage = () => {
                       <Row>
                         <Col md={6}>
                           <Form.Group className="mb-3" controlId="firstName">
-                            {/* <Form.Label>First Name</Form.Label> */}
                             <Field type="text" name="firstName" className={`form-control ${touched.firstName && errors.firstName ? 'is-invalid' : ''}`} placeholder="First Name" />
                             <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                           </Form.Group>
                         </Col>
                         <Col md={6}>
                           <Form.Group className="mb-3" controlId="lastName">
-                            {/* <Form.Label>Last Name</Form.Label> */}
                             <Field type="text" name="lastName" className={`form-control ${touched.lastName && errors.lastName ? 'is-invalid' : ''}`} placeholder="Last Name" />
                             <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                           </Form.Group>
                         </Col>
                       </Row>
                       <Form.Group className="mb-3" controlId="shippingAddress">
-                        {/* <Form.Label>Shipping Address</Form.Label> */}
                         <Field type="text" name="shippingAddress" className={`form-control ${touched.shippingAddress && errors.shippingAddress ? 'is-invalid' : ''}`} placeholder="Shipping Address" />
                         <ErrorMessage name="shippingAddress" component="div" className="invalid-feedback" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="company">
-                        {/* <Form.Label>Company or Apt Details</Form.Label> */}
                         <Field type="text" name="company" className={`form-control ${touched.company && errors.company ? 'is-invalid' : ''}`} placeholder="Company or Apt Details" />
                         <ErrorMessage name="company" component="div" className="invalid-feedback" />
                       </Form.Group>
                       <Row>
                         <Col md={6}>
                           <Form.Group className="mb-3" controlId="city">
-                            {/* <Form.Label>City</Form.Label> */}
                             <Field type="text" name="city" className={`form-control ${touched.city && errors.city ? 'is-invalid' : ''}`} placeholder="City" />
                             <ErrorMessage name="city" component="div" className="invalid-feedback" />
                           </Form.Group>
                         </Col>
                         <Col md={3}>
                           <Form.Group className="mb-3" controlId="state">
-                            {/* <Form.Label>State</Form.Label> */}
                             <Field type="text" name="state" className={`form-control ${touched.state && errors.state ? 'is-invalid' : ''}`} placeholder="State" />
                             <ErrorMessage name="state" component="div" className="invalid-feedback" />
                           </Form.Group>
                         </Col>
                         <Col md={3}>
                           <Form.Group className="mb-3" controlId="zip">
-                            {/* <Form.Label>Zip</Form.Label> */}
                             <Field type="text" name="zip" className="form-control" placeholder="Zip" />
+                            <ErrorMessage name="zip" component="div" className="invalid-feedback" />
                           </Form.Group>
                         </Col>
                       </Row>
                       <Row>
                         <Col md={12} className='text-end'>
-                          <Button type="submit" variant='danger' className='rounded-pill'>SAVE & CONTINUE</Button>
+                          <Button type="submit" variant='danger' className='rounded-pill' disabled={isSaved}>{isSaved ? 'Saved' : 'SAVE & CONTINUE'}</Button>
                         </Col>
                       </Row>
                     </FormikForm>
@@ -162,35 +192,39 @@ const CheckOutPage = () => {
                     cardExpiry: '',
                     cvv: ''
                   }}
+                  validate={validatePaymentDetails}
                   onSubmit={handlePaymentDeatils}
                 >
-                  <FormikForm>
-                    <Form.Group className="mb-3" controlId="cardNumber">
-                      {/* <Form.Label>Card Number</Form.Label> */}
-                      <Field type="text" name="cardNumber" className="form-control" placeholder="Card Number" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="cardName">
-                      {/* <Form.Label>Card Name</Form.Label> */}
-                      <Field type="text" name="cardName" className="form-control" placeholder="Card Name" />
-                    </Form.Group>
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-3" controlId="cardExpiry">
-                          {/* <Form.Label>Card Expiry</Form.Label> */}
-                          <Field type="text" name="cardExpiry" className="form-control" placeholder="MM/YY" />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group className="mb-3" controlId="cvv">
-                          {/* <Form.Label>CVV</Form.Label> */}
-                          <Field type="text" name="cvv" className="form-control" placeholder="CVV" />
-                        </Form.Group>
-                      </Col>
-                      <Col md={12} className='text-end'>
-                        <Button type="submit" variant='danger' className='rounded-pill'>CONFIRM PAYMENT METHOD</Button>
-                      </Col>
-                    </Row>
-                  </FormikForm>
+                  {({ touched, errors }) => (
+                    <FormikForm>
+                      <Form.Group className="mb-3" controlId="cardNumber">
+                        <Field type="text" name="cardNumber" className={`form-control ${touched.cardNumber && errors.cardNumber ? 'is-invalid' : ''}`} placeholder="Card Number" />
+                        <ErrorMessage name="cardNumber" component="div" className="invalid-feedback" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="cardName">
+                        <Field type="text" name="cardName" className={`form-control ${touched.cardName && errors.cardName ? 'is-invalid' : ''}`} placeholder="Card Name" />
+                        <ErrorMessage name="cardName" component="div" className="invalid-feedback" />
+                      </Form.Group>
+                      <Row>
+                        <Col md={6}>
+                          <Form.Group className="mb-3" controlId="cardExpiry">
+                            <Field type="text" name="cardExpiry" className={`form-control ${touched.cardExpiry && errors.cardExpiry ? 'is-invalid' : ''}`} placeholder="MM/YY" />
+                            <ErrorMessage name="cardExpiry" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                        <Col md={6}>
+                          <Form.Group className="mb-3" controlId="cvv">
+                            <Field type="text" name="cvv" className={`form-control ${touched.cvv && errors.cvv ? 'is-invalid' : ''}`} placeholder="CVV" />
+                            <ErrorMessage name="cvv" component="div" className="invalid-feedback" />
+                          </Form.Group>
+                        </Col>
+                        <Col md={12} className='text-end'>
+                          <Button type="submit" variant='danger' className='rounded-pill' disabled={paymentMethodSaved} >{paymentMethodSaved ? 'SAVED PAYMENT METHOD' : 'CONFIRM PAYMENT METHOD'}</Button>
+
+                        </Col>
+                      </Row>
+                    </FormikForm>
+                  )}
                 </Formik>
               </Card.Body>
             </Card>
