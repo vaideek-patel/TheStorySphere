@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Form, FormControl, Button, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import "../../../Global.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -101,11 +102,11 @@ const CustomedNavbar = () => {
   }
   return (
     <>
-      {/* <div className='text-center mb-0 ' style={{ backgroundColor: '#e0f7fa' }}>
-        <p className="text-center p-1 mb-0">
+      <div className='text-center mb-0 ' style={{ backgroundColor: '#FFB6C1' }}>
+        <p className="text-center p-1 mb-0 kalam-regular">
           <FontAwesomeIcon icon={faTruckFast} /> Enjoy <strong>Free Shipping</strong> on orders above Rs.2000
         </p>
-      </div> */}
+      </div>
       <Navbar bg="light" data-bs-theme="light">
         <Navbar.Brand as={Link} to="/" className='ms-4' >
           <img src={Logo} alt="The Story Sphere" width="auto" height="50" />
@@ -174,9 +175,9 @@ const CustomedNavbar = () => {
           <ul className='d-flex justify-content-center align-items-center mb-0 pb-3' style={{ listStyleType: 'none', padding: 0 }}>
             <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
             <li className="mx-3">
-              <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
+              <span onClick={handleBooksPage} className='pointer'>Explore Books</span>
               <ul className="dropdown-list" style={{ marginLeft: "-200px" }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }} className='pointer'>
                   <div style={{ flex: '1', }}>
                     <h6>Fiction</h6>
                     {subcategories['1'] && subcategories['1'].map(subcat => (
@@ -206,7 +207,7 @@ const CustomedNavbar = () => {
             </li>
 
             <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleBestSellers}>BEST SELLERS</li>
-            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
+            {/* <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li> */}
             <li className="mx-3">
               <span style={{ cursor: 'pointer' }} onClick={handleSpecialOffers}>Special Offers</span>
               <ul className="dropdown-list">

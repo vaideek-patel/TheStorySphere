@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import "../../../Global.css"
 import { getBooks } from '../../../utils/axios-instance';
 import { useNavigate } from "react-router-dom"
+import { useSelector } from 'react-redux'
 
 const Home = () => {
     const navigate = useNavigate()
+    const { loader } = useSelector((state) => state.app);
     const [carolShieldsBooks, setCarolShieldsBooks] = useState([]);
     const [nationalPoetry, setNationalPoetry] = useState([]);
     const [bookerPrize, setBookerPrize] = useState([]);
@@ -80,13 +82,30 @@ const Home = () => {
         navigate(`/books/${bookId}`)
     };
 
+    const handlePoetryImageClick = (bookId) => {
+        navigate(`/books/${bookId}`)
+    }
+
+    const handleInternationalBookerPrizeImage = (bookId) => {
+        navigate(`/books/${bookId}`)
+    }
+
+    const handleBooksThatMakeSmartImage = (bookId) => {
+        navigate(`/books/${bookId}`)
+    }
+
+    const handleCarolShieldPrizeImage = (bookId) => {
+        navigate(`/books/${bookId}`)
+    }
+
     return (
         <>
+            {/* {loader && <Loader />} */}
             <CommonCarousel>
-                <img id='91' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="First slide" />
-                <img id='92' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Second slide" />
-                <img id='93' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
-                <img id='94' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Fourth slide" />
+                <img id='91' className='pointer' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="First slide" />
+                <img id='92' className='pointer' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Second slide" />
+                <img id='93' className='pointer' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
+                <img id='94' className='pointer' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Fourth slide" />
             </CommonCarousel>
 
             <div className="container mt-4">
@@ -96,9 +115,9 @@ const Home = () => {
                             <Card className="mb-3">
                                 <div className="row g-0">
                                     <div className="col-md-4  d-flex overflow-hidden">
-                                        <img src="https://images-us.bookshop.org/ingram/9781646221974.jpg?height=250&v=v2-5f7652f3d344f6b94469b0926aa98d4a" className="img-fluid me-3" alt="New Books Image" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3" alt="Best of the Week Image" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3" alt="Best of the Week Image" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781646221974.jpg?height=250&v=v2-5f7652f3d344f6b94469b0926aa98d4a" className="img-fluid me-3 custom" alt="New Books Image" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
+                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
@@ -116,9 +135,9 @@ const Home = () => {
                                 <div className="row g-0">
                                     <div className="col-md-4  d-flex overflow-hidden">
                                         <div className='d-flex pd-19'>
-                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3" alt="New Books Image" />
-                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3" alt="Best of the Week Image" />
-                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3" alt="Best of the Week Image" />                                    </div>
+                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="New Books Image" />
+                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
+                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />                                    </div>
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
@@ -140,12 +159,12 @@ const Home = () => {
                             <Card.Body>
                                 <Card.Title className='playfair-display-mygooglefont'><h2>National Poetry Month</h2></Card.Title>
                                 <Card.Text>
-                                    <Link to="/national-poetry-month">View all (10)</Link>
+                                    <Link to="/books/nationalPoetryMonth">View all (10)</Link>
                                 </Card.Text>
-                                <div className="row g-0 image-scroll">
-                                    <div className="col-md-12 d-flex flex-nowrap overflow-auto">
+                                <div className="row g-0  img-scroll">
+                                    <div className="col-md-12 d-flex  flex-nowrap overflow-auto">
                                         {nationalPoetry.map(book => (
-                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                            <img key={book.id} src={book.image} className="img-fluid me-3 custom" alt={book.title} style={{ "height": "250px" }} onClick={() => handlePoetryImageClick(book.id)} />
                                         ))}
                                     </div>
                                 </div>
@@ -162,9 +181,9 @@ const Home = () => {
                         <div className="grid-container">
                             {bookerPrize.map(book => (
                                 <div className="grid-item d-flex" key={book.id}>
-                                    <img src={book.image} className="img-fluid" alt={book.title} />
+                                    <img src={book.image} className="img-fluid custom" alt={book.title} />
                                     <div className="book-info" style={{ marginLeft: "10px" }}>
-                                        <p className="book-title playfair-display-mygooglefont">{book.name}</p>
+                                        <p className="book-title playfair-display-mygooglefont" onClick={() => handleInternationalBookerPrizeImage(book.id)}>{book.name}</p>
                                         <p className="book-author lora-mygooglefont">{book.author}</p>
                                         <p className="book-price">{book.price}</p>
                                     </div>
@@ -183,12 +202,12 @@ const Home = () => {
                                 <Card.Title className='playfair-display-mygooglefont'><h2>The Books That Make You Smarter</h2></Card.Title>
                                 {/* <Card.Title>The Books That Make you smarter</Card.Title> */}
                                 <Card.Text>
-                                    <Link to="/national-poetry-month">View all (10)</Link>
+                                    <Link to="/books/booksThatMakeSmarter">View all (10)</Link>
                                 </Card.Text>
                                 <div className="row g-0 image-scroll">
                                     <div className="col-md-12 d-flex flex-nowrap overflow-auto">
                                         {smartBooks.map(book => (
-                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                            <img key={book.id} src={book.image} className="img-fluid me-3 custom" alt={book.title} style={{ "height": "250px" }} onClick={() => handleBooksThatMakeSmartImage(book.id)} />
                                         ))}
                                     </div>
                                 </div>
@@ -202,12 +221,12 @@ const Home = () => {
                             <Card.Body>
                                 <Card.Title className='playfair-display-mygooglefont'><h2>2024 Carol Shields Prize For Fiction Longlist</h2></Card.Title>
                                 <Card.Text>
-                                    <Link to="/national-poetry-month">View all (10)</Link>
+                                    <Link to="/books/CarolShieldsPrize">View all (10)</Link>
                                 </Card.Text>
                                 <div className="row g-0 image-scroll">
                                     <div className="col-md-12 d-flex flex-nowrap overflow-auto">
                                         {carolShieldsBooks.map(book => (
-                                            <img key={book.id} src={book.image} className="img-fluid me-3" alt={book.title} style={{ "height": "250px" }} />
+                                            <img key={book.id} src={book.image} className="img-fluid me-3 custom" alt={book.title} style={{ "height": "250px" }} onClick={() => { handleCarolShieldPrizeImage(book.id) }} />
                                         ))}
                                     </div>
                                 </div>

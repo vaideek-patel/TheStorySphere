@@ -57,5 +57,53 @@
   padding: 20px 0;
   margin-bottom: 20px;
 }
+.kalam-regular {
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
- 
+.pointer{
+  cursor: pointer;
+}
+
+.scrollable {
+  width: 80vw;
+  padding: 10px;
+  overflow: auto;
+  scrollbar-width:none;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+}
+
+.custom{
+  cursor: pointer;
+  transition: all 0.6s;
+
+}
+
+.custom:hover{
+  transform: scale(1.05);
+}
+
+
+.custom1{
+  cursor: pointer;
+  text-decoration: none;
+}
+.custom1:hover{
+  text-decoration: underline;
+}
+
+
+.custom2{
+  position: absolute;
+  bottom: 0;
+}
+.custom-3{
+  width:200px;
+  height: 318px;
+}
+.custom-3 img{
+  height: 100%;
+  width: 100%;
+}
