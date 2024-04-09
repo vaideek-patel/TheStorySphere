@@ -2,104 +2,125 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Container, Row, Col, Button, Form as BootstrapForm } from 'react-bootstrap';
 import * as Yup from 'yup';
-import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../utils/axios-instance';
-import { useSelector } from 'react-redux';
+import { getBookById } from '../../../../../../utils/axios-instance';
+import { useNavigate, useParams } from 'react-router-dom';
+
+// import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../utils/axios-instance';
+// import { useSelector } from 'react-redux';
 import Select from 'react-select';
 
-const RegisterBook = () => {
-    const sellerId = useSelector((state) => state.role.seller.id);
-    const [categories, setCategories] = useState([]);
-    const [subcategories, setSubcategories] = useState([]);
-    const [selectedCategoryId, setSelectedCategoryId] = useState('');
-    const [booksDataForId, setBooksDataForId] = useState([]);
+const UpdateBook = () => {
+    const { bookId } = useParams()
+    const [initialValues, setinitialValues] = useState({
+        name: '',
+        author: '',
+        description: '',
+        price: '',
+        releaseDate: '',
+        image: '',
+        categoryId: '',
+        category: '',
+        subCategoryId: '',
+        subcategoryName: '',
+        recentlyLaunched: false,
+        AdditionalBookDetails: {
+            BestSeller: false,
+            BestSellerOfTheWeek: false,
+            NationalPoetryMonth: false,
+            InternationalBookerPrizeLonglist: false,
+            BooksThatMakeYouSmarter: false,
+            CarolShieldsPrizeForFictionLonglist: false,
+        }
+    })
+    // const sellerId = useSelector((state) => state.role.seller.id);
+    // const [categories, setCategories] = useState([]);
+    // const [subcategories, setSubcategories] = useState([]);
+    // const [selectedCategoryId, setSelectedCategoryId] = useState('');
+    // const [booksDataForId, setBooksDataForId] = useState([]);
 
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchBookById = async () => {
             try {
-                const response = await getCategory();
-                setCategories(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        const fetchBooks = async () => {
-            try {
-                const response = await getBooks('books');
+                const response = await getBookById(bookId);
                 console.log(response.data)
-                setBooksDataForId(response.data);
+                const bookData = response.data;
+                setinitialValues(bookData)
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchBooks()
-        fetchData();
+        fetchBookById()
     }, []);
 
-    const handleCategoryChange = async (selectedOption, { setFieldValue }) => {
-        setSelectedCategoryId(selectedOption.value);
-        const selectedCategory = categories.find(category => category.id === selectedOption.value);
-        setFieldValue('categoryId', selectedOption.value);
-        setFieldValue('category', selectedCategory ? selectedCategory.name : '');
+    // const handleCategoryChange = async (selectedOption, { setFieldValue }) => {
+    //     setSelectedCategoryId(selectedOption.value);
+    //     const selectedCategory = categories.find(category => category.id === selectedOption.value);
+    //     setFieldValue('categoryId', selectedOption.value);
+    //     setFieldValue('category', selectedCategory ? selectedCategory.name : '');
 
-        try {
-            const response = await getSubcategoriesByCategoryId(selectedOption.value);
-            setSubcategories(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //     try {
+    //         const response = await getSubcategoriesByCategoryId(selectedOption.value);
+    //         setSubcategories(response.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
-    const handleSubcategoryChange = async (selectedOption, { setFieldValue }) => {
-        setFieldValue('subCategoryId', selectedOption.value);
-        setFieldValue('subcategoryName', selectedOption.label);
-    };
+    // const handleSubcategoryChange = async (selectedOption, { setFieldValue }) => {
+    //     setFieldValue('subCategoryId', selectedOption.value);
+    //     setFieldValue('subcategoryName', selectedOption.label);
+    // };
 
-    const validationSchema = Yup.object({
-        // categoryId: Yup.string().required('Required'),
-        // subCategoryId: Yup.string().required('Required'),
-    });
+    // const validationSchema = Yup.object({
+    //     // categoryId: Yup.string().required('Required'),
+    //     // subCategoryId: Yup.string().required('Required'),
+    // });
 
-    const handleSubmit = async (values, { resetForm }) => {
-        console.log(booksDataForId.length)
-        const lastId = booksDataForId.length > 0 ? parseInt(booksDataForId[booksDataForId.length - 1].id) + 1 : 1;
-        console.log(lastId)
-        values.id = lastId.toString();
-        values.soldBy = sellerId;
+    // const handleSubmit = async (values, { resetForm }) => {
+    //     console.log(booksDataForId.length)
+    //     const lastId = booksDataForId.length > 0 ? parseInt(booksDataForId[booksDataForId.length - 1].id) + 1 : 1;
+    //     console.log(lastId)
+    //     values.id = lastId.toString();
+    //     values.soldBy = sellerId;
 
-        const listNewBook = await registerNewBook(values)
-        console.log(listNewBook)
-        console.log(values);
-        resetForm();
-    };
+    //     const listNewBook = await registerNewBook(values)
+    //     console.log(listNewBook)
+    //     console.log(values);
+    //     resetForm();
+    // };
+
+    console.log(initialValues)
 
     return (
         <Container>
-            <h1 className="text-center mt-5 mb-4">Register New Book</h1>
+            <h1 className="text-center mt-5 mb-4">Update Exsisting Book</h1>
             <Formik
-                initialValues={{
-                    name: '',
-                    author: '',
-                    description: '',
-                    price: '',
-                    releaseDate: '',
-                    image: '',
-                    categoryId: '',
-                    category: '',
-                    subCategoryId: '',
-                    subcategoryName: '',
-                    recentlyLaunched: false,
-                    AdditionalBookDetails: {
-                        BestSeller: false,
-                        BestSellerOfTheWeek: false,
-                        NationalPoetryMonth: false,
-                        InternationalBookerPrizeLonglist: false,
-                        BooksThatMakeYouSmarter: false,
-                        CarolShieldsPrizeForFictionLonglist: false,
-                    }
-                }}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
+                initialValues={initialValues}
+            // initialValues={{
+            //     name: '',
+            //     author: '',
+            //     description: '',
+            //     price: '',
+            //     releaseDate: '',
+            //     image: '',
+            //     categoryId: '',
+            //     category: '',
+            //     subCategoryId: '',
+            //     subcategoryName: '',
+            //     recentlyLaunched: false,
+            //     AdditionalBookDetails: {
+            //         BestSeller: false,
+            //         BestSellerOfTheWeek: false,
+            //         NationalPoetryMonth: false,
+            //         InternationalBookerPrizeLonglist: false,
+            //         BooksThatMakeYouSmarter: false,
+            //         CarolShieldsPrizeForFictionLonglist: false,
+            //     }
+            // }}
+
+            // validationSchema={validationSchema}
+            // onSubmit={handleSubmit}
             >
                 {({ values, errors, touched, setFieldValue }) => (
                     <Form>
@@ -107,14 +128,15 @@ const RegisterBook = () => {
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Name</BootstrapForm.Label>
-                                    <Field name="name" type="text" className="form-control" />
+                                    {console.log(initialValues)}
+                                    <Field name="name" type="text" className="form-control" value={initialValues.name} />
                                     {/* {errors.name && touched.name && <div className="text-danger">{errors.name}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Author</BootstrapForm.Label>
-                                    <Field name="author" type="text" className="form-control" />
+                                    <Field name="author" type="text" className="form-control" value={initialValues.author} />
                                     {/* {errors.author && touched.author && <div className="text-danger">{errors.author}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
@@ -123,14 +145,14 @@ const RegisterBook = () => {
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Description</BootstrapForm.Label>
-                                    <Field name="description" as="textarea" rows={4} className="form-control" />
+                                    <Field name="description" as="textarea" rows={4} className="form-control" value={initialValues.description} />
                                     {/* {errors.description && touched.description && <div className="text-danger">{errors.description}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Price</BootstrapForm.Label>
-                                    <Field name="price" type="number" className="form-control" />
+                                    <Field name="price" type="number" className="form-control" value={initialValues.price} />
                                     {/* {errors.price && touched.price && <div className="text-danger">{errors.price}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
@@ -139,43 +161,19 @@ const RegisterBook = () => {
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Release Date</BootstrapForm.Label>
-                                    <Field name="releaseDate" type="date" className="form-control" />
+                                    <Field name="releaseDate" type="date" className="form-control" value={initialValues.releaseDate} />
                                     {/* {errors.releaseDate && touched.releaseDate && <div className="text-danger">{errors.releaseDate}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Image URL</BootstrapForm.Label>
-                                    <Field name="image" type="url" className="form-control" />
+                                    <Field name="image" type="url" className="form-control" value={initialValues.image} />
                                     {/* {errors.image && touched.image && <div className="text-danger">{errors.image}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
-                        <Row className="mb-3">
-                            <Col md={6}>
-                                <BootstrapForm.Group>
-                                    <BootstrapForm.Label>Category</BootstrapForm.Label>
-                                    <Select
-                                        name="categoryId"
-                                        options={categories.map(category => ({ value: category.id, label: category.name }))}
-                                        onChange={(selectedOption) => handleCategoryChange(selectedOption, { setFieldValue })}
-                                    />
-                                    {/* {errors.categoryId && touched.categoryId && <div className="text-danger">{errors.categoryId}</div>} */}
-                                </BootstrapForm.Group>
-                            </Col>
-                            <Col md={6}>
-                                <BootstrapForm.Group>
-                                    <BootstrapForm.Label>Subcategory</BootstrapForm.Label>
-                                    <Select
-                                        name="subCategoryId"
-                                        options={subcategories.map(subcategory => ({ value: subcategory.id, label: subcategory.name }))}
-                                        isDisabled={!selectedCategoryId}
-                                        onChange={(selectedOption) => handleSubcategoryChange(selectedOption, { setFieldValue })}
-                                    />
-                                    {/* {errors.subCategoryId && touched.subCategoryId && <div className="text-danger">{errors.subCategoryId}</div>} */}
-                                </BootstrapForm.Group>
-                            </Col>
-                        </Row>
+
                         <Row className="mb-3">
                             <Col md={6}>
                                 <BootstrapForm.Group>
@@ -185,11 +183,11 @@ const RegisterBook = () => {
                                         label="Recently Launched"
                                         name="AdditionalBookDetails.recentlyLaunched"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.recentlyLaunched}
+                                        checked={values.recentlyLaunched === "yes"} // Check if the value is "yes"
                                         onChange={(e) =>
                                             setFieldValue(
                                                 "recentlyLaunched",
-                                                e.target.checked ? "yes" : "no"
+                                                e.target.checked ? "yes" : "no" // Set the value to "yes" or "no" based on checkbox state
                                             )
                                         }
                                     />
@@ -203,11 +201,11 @@ const RegisterBook = () => {
                                         label="Best Seller"
                                         name="AdditionalBookDetails.BestSeller"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BestSeller}
+                                        checked={values.AdditionalBookDetails.BestSeller === "yes"} // Check if the value is "yes"
                                         onChange={(e) =>
                                             setFieldValue(
                                                 "AdditionalBookDetails.BestSeller",
-                                                e.target.checked ? "yes" : "no"
+                                                e.target.checked ? "yes" : "no" // Set the value to "yes" or "no" based on checkbox state
                                             )
                                         }
                                     />
@@ -329,7 +327,7 @@ const RegisterBook = () => {
                                 </BootstrapForm.Group>
                             </Col>*/}
                         </Row>
-                        <Button type='submit'>Submit</Button>
+                        <Button type='submit'>Update</Button>
                     </Form>
                 )}
             </Formik>
@@ -337,5 +335,5 @@ const RegisterBook = () => {
     );
 };
 
-export default RegisterBook;
+export default UpdateBook;
 

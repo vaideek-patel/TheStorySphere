@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { removeBookFromCart, totalAmount } from '../../../redux/actions/dataAction';
-import "../../../Global.css"
+import "../../../Global.css";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,12 +11,19 @@ const Cart = () => {
   const [finalBooks, setFinalBooks] = useState([]);
   const booksInCart = useSelector((state) => state.cart.cart);
   const subTotal = finalBooks.reduce((acc, book) => acc + parseFloat(book.price) * book.quantity, 0);
-  const taxRate = 150;
+  const taxRate = subTotal > 2000 ? 0 : 150;
   const total = subTotal + taxRate;
 
   useEffect(() => {
     setFinalBooks(booksInCart.map(book => ({ ...book, quantity: 1 })));
   }, [booksInCart]);
+
+  // Check if total crosses 2000, show alert and remove taxes
+  useEffect(() => {
+    if (total > 2000) {
+      alert("Wohoo, your shipping and taxes are waived off!");
+    }
+  }, [total]);
 
   const removeBook = (bookId) => {
     const updatedBooks = finalBooks.filter(book => book.id !== bookId);
@@ -48,7 +55,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center"> {/* Centering div */}
+    <div className="d-flex justify-content-center">
       <main id="cart" style={{ maxWidth: '960px' }}>
         <Container>
           <h1 className='playfair-display-mygooglefont'>Your Cart!</h1>

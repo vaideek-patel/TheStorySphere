@@ -27,6 +27,8 @@ const SpecialOffers = lazy(() => import('../components/pages/Books/SpecialOffers
 const Collections = lazy(() => import('../components/pages/Books/Collections.jsx'));
 //Seller
 const RegisterNewBook = lazy(() => import('../components/pages/Dashboard/SellerDashboard/RegisterBook/RegisterBook.jsx'));
+const UpdateBook = lazy(() => import('../components/pages/Dashboard/SellerDashboard/RegisterBook/UpdateBook/UpdateBook.jsx'));
+
 //Admin
 const AdminLogin = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Login/AdminLogin.jsx'));
 const AdminHome = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Home/AdminHome.jsx'));
@@ -42,6 +44,7 @@ const RegisterCategory = lazy(() => import('../components/pages/Dashboard/AdminD
 const UpdateCateogry = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateCategory/UpdateCategory.jsx'))
 
 const RouteFile = () => {
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
@@ -70,6 +73,8 @@ const RouteFile = () => {
         <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
         <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
         <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
+        <Route path="/seller/updateBook/:sellerId/:bookId" element={<UpdateBook />} />
+
         <Route path="/admin/home" element={<AdminHome />} />
         <Route path="/admin/manage-category" element={<ManageCategory />} />
         <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
@@ -81,6 +86,7 @@ const RouteFile = () => {
         <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
         <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
         <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
+
       </Routes>
     </Suspense>
   );

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Form, FormControl, Button, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faTruckFast, faUser } from '@fortawesome/free-solid-svg-icons';
 import Logo from "../../../../public/The Story Sphere_transparent(12).png"
 import { removeRole } from '../../../redux/actions/roleActions';
 import { clearCart, removeData } from '../../../redux/actions/dataAction';
@@ -127,31 +127,40 @@ const CustomedNavbar = () => {
               <>
                 {isLoggedIn.user && (
                   <>
-                    <Nav.Link as={Link} to="/account">Account</Nav.Link>
+                    <Dropdown align="end">
+                      <Dropdown.Toggle variant="link" id="dropdown-basic">
+                        <FontAwesomeIcon icon={faUser} style={{ color: 'black' }} />
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to="/account">Account</Dropdown.Item>
+                        <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                     <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                    <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
                   </>
+
                 )}
                 {isLoggedIn.seller && (
-                  <>
-                    <Nav.Link onClick={handleSellerLogOut}>Logout Seller</Nav.Link>
-                  </>
+                  <Nav.Link onClick={handleSellerLogOut}>Logout Seller</Nav.Link>
                 )}
                 {isLoggedIn.admin && (
-                  <>
-                    <Nav.Link as={Link} to="/admin/manage-category">Manage Category</Nav.Link>
-                    <Nav.Link as={Link} to="/admin/manage-sub-category">Manage Sub-Category</Nav.Link>
-                    <Nav.Link as={Link} to="/admin/manage-books">Manage Books</Nav.Link>
-                    <Nav.Link as={Link} to="/admin/manage-orders">Manage Orders</Nav.Link>
-                    <Nav.Link as={Link} to="/admin/manage-sellers">Manage Sellers</Nav.Link>
-                    <Nav.Link onClick={handleAdminLogOut}>Logout Admin</Nav.Link>
-                  </>
+                  <Dropdown align="end">
+                    <Dropdown.Toggle variant="link" id="dropdown-basic">
+                      <FontAwesomeIcon icon={faUser} style={{ color: 'black' }} />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item as={Link} to="/admin/manage-category">Manage Category</Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/admin/manage-sub-category">Manage Sub-Category</Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/admin/manage-books">Manage Books</Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/admin/manage-orders">Manage Orders</Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/admin/manage-sellers">Manage Sellers</Dropdown.Item>
+                      <Dropdown.Item onClick={handleAdminLogOut}>Logout Admin</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 )}
               </>
             ) : (
-              <>
-                <Nav.Link as={Link} to="/login">Login</Nav.Link>
-              </>
+              <Nav.Link as={Link} to="/login">Login</Nav.Link>
             )}
           </Nav>
         </Container>
@@ -159,18 +168,6 @@ const CustomedNavbar = () => {
       {isLoggedIn.user !== null ? (
         <div className="navbar-footer">
           <ul className='d-flex justify-content-center align-items-center mb-0 pb-3' style={{ listStyleType: 'none', padding: 0 }}>
-            <li className="mx-3">
-              <span style={{ cursor: 'pointer' }} onClick={handleSpecialOffers}>Special Offers</span>
-              <ul className="dropdown-list">
-                <li>There's a 10% discount on these special titles every month from DK here!</li>
-                <li>Get 15% off select titles from FSG & Picador here!</li>
-                <li>Get 10% off THE WOMEN and more by Kristin Hannah!</li>
-                <li>Get 15% off these classic Cormac McCarthy books!</li>
-                <li>Get 10% off these books in the Grumpy Monkey series!</li>
-                <li>Get 10% off OTHERWORLDLY and more by F.T. Lukens!</li>
-                <li>Get 10% off these nerdy spring reads from MIT Press!</li>
-              </ul>
-            </li>
             <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleRecentlyLaunced}>Recently Launched</li>
             <li className="mx-3">
               <span style={{ cursor: 'pointer' }} onClick={handleBooksPage}>Explore Books</span>
@@ -204,8 +201,20 @@ const CustomedNavbar = () => {
               </ul>
             </li>
 
-            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
             <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleBestSellers}>BEST SELLERS</li>
+            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={handleWishlistRegistry}>Wishlists and Registeries</li>
+            <li className="mx-3">
+              <span style={{ cursor: 'pointer' }} onClick={handleSpecialOffers}>Special Offers</span>
+              <ul className="dropdown-list">
+                <li>There's a 10% discount on these special titles every month from DK here!</li>
+                <li>Get 15% off select titles from FSG & Picador here!</li>
+                <li>Get 10% off THE WOMEN and more by Kristin Hannah!</li>
+                <li>Get 15% off these classic Cormac McCarthy books!</li>
+                <li>Get 10% off these books in the Grumpy Monkey series!</li>
+                <li>Get 10% off OTHERWORLDLY and more by F.T. Lukens!</li>
+                <li>Get 10% off these nerdy spring reads from MIT Press!</li>
+              </ul>
+            </li>
           </ul>
         </div>
       ) : (

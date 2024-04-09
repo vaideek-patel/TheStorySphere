@@ -35,6 +35,13 @@ const Home = () => {
     navigate(`/seller/registerNewBook/${id}`)
   }
 
+  const handleUpdate = (bookId) => {
+    console.log(bookId)
+    navigate(`/seller/updateBook/${seller.id}/${bookId}`)
+
+  }
+
+
   return (
     <>
       <div className='d-flex justify-content-between align-items-center mb-3'>
@@ -45,7 +52,7 @@ const Home = () => {
       <Table
         data={listedBooks}
         headers={productsArray}
-      // handleUpdate={handleUpdate}
+        handleUpdate={handleUpdate}
       // handleDelete={handleDelete}
       />
     </>
