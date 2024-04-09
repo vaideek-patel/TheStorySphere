@@ -12,7 +12,6 @@ import { getBookById } from '../../../utils/axios-instance';
 const Favourites = () => {
   const [quickViewBook, setQuickViewBook] = useState();
   const [showModal, setShowModal] = useState(false);
-
   const dispatch = useDispatch();
   const removeFavorite = ({ id }) => {
     console.log("remove Buttons", id);

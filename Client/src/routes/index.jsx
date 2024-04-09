@@ -12,6 +12,14 @@ const Cart = lazy(() => import('../components/pages/Cart/Cart'));
 const Orders = lazy(() => import('../components/pages/Orders/Orders'));
 const Books = lazy(() => import('../components/pages/Books/Books'));
 const RecentlyLaunched = lazy(() => import('../components/pages/Books/RecentlyLaunched'));
+const NationalPoetryMonth = lazy(() => import('../components/pages/Books/NationalPoetryMonth.jsx'));
+const BooksThatMakeSmarter = lazy(() => import('../components/pages/Books/BooksThatMakeSmarter.jsx'))
+const CarolShieldsPrize = lazy(() => import('../components/pages/Books/CarolShieldsPrize.jsx'))
+
+
+
+
+
 const WishListRegistryInfo = lazy(() => import('../components/pages/Wishlist&Registry/WishList&RegistryInfo'));
 const RegisterWishlist = lazy(() => import('../components/pages/Wishlist&Registry/WishList/RegisterWishlist'));
 const RegisterNewRegistry = lazy(() => import('../components/pages/Wishlist&Registry/Registry/RegisterNewRegistry'));
@@ -44,7 +52,7 @@ const RegisterCategory = lazy(() => import('../components/pages/Dashboard/AdminD
 const UpdateCateogry = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateCategory/UpdateCategory.jsx'))
 const RegisterUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterUser/RegisterUser.jsx'))
 const UpdateUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateUser/UpdateUser.jsx'))
-const UpdateBookByAdmin =  lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateBook/UpdateBook.jsx'))
+const UpdateBookByAdmin = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateBook/UpdateBook.jsx'))
 const RouteFile = () => {
 
   return (
@@ -62,6 +70,9 @@ const RouteFile = () => {
         <Route path="/manage-orders" element={<Orders />} />
         <Route path="/books" element={<Books />} />
         <Route path="/books/recentlyLaunched" element={<RecentlyLaunched />} />
+        <Route path="/books/nationalPoetryMonth" element={<NationalPoetryMonth />} />
+        <Route path="/books/booksThatMakeSmarter" element={<BooksThatMakeSmarter />} />
+        <Route path="/books/CarolShieldsPrize" element={<CarolShieldsPrize />} />
         <Route path="/books/bestSellers-of-the-week" element={<BestSellerOfTheWeek />} />
         <Route path="/info/wishlist-and-registry" element={<WishListRegistryInfo />} />
         <Route path="/wishlists/new" element={<RegisterWishlist />} />

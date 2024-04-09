@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { getBooks } from '../../../utils/axios-instance';
 import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { getBooks } from '../../../utils/axios-instance';
 import { useSelector, useDispatch } from 'react-redux';
 import { bookToCart } from '../../../redux/actions/dataAction';
+import { Link } from 'react-router-dom';
 
-const RecentlyLaunched = () => {
+const NationalPoetryMonth = () => {
     const dispatch = useDispatch();
-    const [recentlyLaunchedBooks, setRecentlyLaunchedBooks] = useState([]);
     const booksInCart = useSelector((state) => state.cart.cart);
+    const [nationalPoetry, setNationalPoetry] = useState([]);
 
     useEffect(() => {
-        const fetchRecentlyLaunchedBooks = async () => {
+        const fetchBestSeller = async () => {
             try {
-                const response = await getBooks("books?recentlyLaunched=yes");
+                const response = await getBooks("books?AdditionalBookDetails.NationalPoetryMonth=yes");
                 if (response.success) {
                     console.log(response);
-                    setRecentlyLaunchedBooks(response.data);
+                    setNationalPoetry(response.data);
                 } else {
                     console.error("Failed to fetch the Products Data", response.error);
                 }
@@ -27,20 +27,20 @@ const RecentlyLaunched = () => {
             }
         };
 
-        fetchRecentlyLaunchedBooks();
+        fetchBestSeller();
     }, []);
 
     return (
         <div className="container mt-4">
             <div className="row">
-                {recentlyLaunchedBooks.map(book => {
-                    const alreadyInCart = booksInCart.find(item => item.id === book.id);
+                {nationalPoetry.map(book => {
+                    const alreadyInCart = booksInCart.find(item => item.id === book.id)
                     return (
                         <div key={book.id} className="col-md-12">
                             <Card className="mb-3">
                                 <div className="row g-0">
-                                    <div className="col-md-2 d-flex overflow-hidden custom-3">
-                                        <img src={book.image}  style={{ }} alt={book.title} />
+                                    <div className="col-md-4 d-flex overflow-hidden">
+                                        <img src={book.image} style={{ height: '18rem', objectFit: 'contain' }} alt={book.title} />
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
@@ -69,11 +69,13 @@ const RecentlyLaunched = () => {
                                 </div>
                             </Card>
                         </div>
-                    );
+                    )
                 })}
             </div>
         </div>
     );
 };
 
-export default RecentlyLaunched;
+export default NationalPoetryMonth;
+
+

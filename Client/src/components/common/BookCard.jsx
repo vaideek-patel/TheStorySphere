@@ -22,11 +22,12 @@ const BookCard = ({ book, onQuickView, buttons }) => {
         dispatch(addToFavorites(book))
     }
     return (
-        <div className="col mb-3" style={{ margin: '0 auto' }}>
+        <div className="col mb-3 p-2">
             <Card
                 className="mx-auto"
                 style={{
-                    width: '18rem',
+                   minHeight: '470px',
+                    width: '16rem',
                     cursor: 'pointer',
                     margin: '0 10px',
                     border: 'none',
@@ -52,21 +53,19 @@ const BookCard = ({ book, onQuickView, buttons }) => {
                     </Button>
                 </div>
                 <Card.Body className="d-flex flex-column justify-content-start align-items-start">
-                    <Card.Title onClick={() => handleCardClick(book)} className='playfair-display-mygooglefont'>{book.name}</Card.Title>
+                    <Card.Title onClick={() => handleCardClick(book)} className='playfair-display-mygooglefont custom1'>{book.name}</Card.Title>
                     <Card.Text className='lora-mygooglefont'>{book.author}</Card.Text>
                     <Card.Text>₹{book.price}</Card.Text>
-                    {buttons.map((button, index) => (
-                        <div className="d-flex justify-content-between w-100">
+                    <div className="d-flex justify-content-between allign-item-center w-100 custom2">
+                        {buttons.map((button, index) => (
+
                             <Button key={index} className="rounded-pill" variant={button.variant} onClick={() => button.onClick(book)}>
                                 {button.icon && <FontAwesomeIcon icon={button.icon} />}
                                 {button.label}
                             </Button>
 
-                            {/* <Button variant="primary" onClick={() => handleFavourites(book)} className="rounded-pill" >
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Button> */}
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                     {/* <div className="d-flex justify-content-between w-100">
                         
                     </div> */}
