@@ -2,7 +2,7 @@
 // import {getSubCategory } from '../../../../../../utils/axios-instance';
 
 import { useEffect, useState } from "react"
-import { getAllBooks } from "../../../../../../utils/axios-instance";
+import { deleteBookData, getAllBooks } from "../../../../../../utils/axios-instance";
 import Table from "../../../../../common/Table";
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
@@ -39,13 +39,23 @@ const ManageBooks = () => {
     const RegisterNewBook = () => {
         navigate("/admin/register-newBook")
     }
+
+    const handleBookUpdate = (id) => {
+        navigate(`/admin/updateBook/${id}`)
+    }
+
+    const handleBookDelete = async (id) => {
+        const response = await deleteBookData(id)
+        const updatedBooks = books.filter(books => books.id !== id);
+        setcategory(updatedBooks);
+    }
     return (
         <>
             <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2>Manage Books</h2>
                 <Button variant="success" onClick={RegisterNewBook} >List a new Book</Button>
             </div>
-            <Table data={books} headers={booksArray} />
+            <Table data={books} headers={booksArray} handleUpdate={handleBookUpdate} handleDelete={handleBookDelete} />
         </>
     )
 }

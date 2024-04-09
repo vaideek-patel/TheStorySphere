@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FormComponent from '../../../../../common/Form';
 import * as Yup from 'yup';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getCategorydataFromId } from '../../../../../../utils/axios-instance';
+import { getCategorydataFromId, updateCateoryData, updateUserData } from '../../../../../../utils/axios-instance';
 
 
 const UpdateCateogry = () => {
@@ -15,7 +15,7 @@ const UpdateCateogry = () => {
       try {
         const response = await getCategorydataFromId(id);
         console.log("response from id", response);
-        setCategoriesData(response.data);
+        setCategoriesData(response.data[0]);
       } catch (error) {
         console.log(error);
       }
@@ -24,9 +24,9 @@ const UpdateCateogry = () => {
 
   }, [id]);
 
-console.log(categoriesData)
+  console.log(categoriesData)
   const initialValues = {
-    name: categoriesData && categoriesData.length > 0 ? categoriesData[0].name : '',
+    name: categoriesData ? categoriesData.name : '',
   };
 
   const fields = [
@@ -37,19 +37,16 @@ console.log(categoriesData)
     name: Yup.string().required('Required'),
   });
 
-  // const ListNewCategory = async (values, { resetForm }) => {
-  //   try {
-  //     const lastId = categories.length > 0 ? parseInt(categories[categories.length - 1].id) + 1 : 1;
-  //     const newCategory = { id: lastId.toString(), ...values };
-  //     const response = await registerNewCategory(newCategory);
-  //     if (response.success) {
-  //       navigate("/admin/manage-category");
-  //     }
-  //     resetForm();
-  //   } catch (error) {
-  //     console.log("Error:", error);
-  //   }
-  // };
+
+  const UpdateCategory = async (values) => {
+    try {
+      const currentCateogory = { id: id.toString(), ...values };
+      const response = await updateCateoryData(id, currentCateogory)
+      navigate("/admin/manage-category")
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -59,7 +56,7 @@ console.log(categoriesData)
       <FormComponent
         initialValues={initialValues}
         validationSchema={validationSchema}
-        // onSubmit={ListNewCategory}
+        onSubmit={UpdateCategory}
         fields={fields}
       />
     </>

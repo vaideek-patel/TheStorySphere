@@ -29,12 +29,6 @@
       "name": "test",
       "email": "test@mail.com",
       "password": "test123"
-    },
-    {
-      "id": "6",
-      "name": "TestUser",
-      "email": "Test@demo.com",
-      "password": "Demo@123"
     }
   ],
   "sellers": [
@@ -2294,26 +2288,26 @@
     },
     {
       "id": "95",
-      "name": "The Universe",
+      "name": " Vaideek",
       "author": "Vaideek Patel",
-      "description": "The universe at it's best",
-      "price": 555,
+      "description": "Very good Book",
+      "price": 700,
       "releaseDate": "2024-04-01",
-      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fbook&psig=AOvVaw0vgWc0PfIXJugajQ7MHozk&ust=1712418626811000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMCYm-C2q4UDFQAAAAAdAAAAABAE",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/kzu6efk0/regionalbooks/v/l/v/romeo-and-juliet-original-imagbrezzvzwp5ef.jpeg?q=90&crop=false",
       "categoryId": "1",
       "category": "Fiction",
-      "subCategoryId": "1",
-      "subcategoryName": "General & Literary Fiction",
+      "subCategoryId": "5",
+      "subcategoryName": "Romance",
       "recentlyLaunched": "yes",
       "AdditionalBookDetails": {
         "BestSeller": "yes",
-        "BestSellerOfTheWeek": false,
+        "BestSellerOfTheWeek": "yes",
         "NationalPoetryMonth": false,
-        "InternationalBookerPrizeLonglist": false,
-        "BooksThatMakeYouSmarter": false,
-        "CarolShieldsPrizeForFictionLonglist": false
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "yes"
       },
-      "soldBy": "1"
+      "soldBy": "Admin"
     }
   ],
   "wishList": [
@@ -2364,10 +2358,6 @@
     {
       "name": "Featured Books",
       "id": "5"
-    },
-    {
-      "id": "6",
-      "name": " Vaideek1011"
     }
   ],
   "sub-category": [

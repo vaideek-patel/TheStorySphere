@@ -42,7 +42,9 @@ const RegisterBook = lazy(() => import('../components/pages/Dashboard/AdminDashb
 const RegisterSubCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterSubCategory/RegisterSubCategory.jsx'))
 const RegisterCategory = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterCategory/RegisterCategory.jsx'))
 const UpdateCateogry = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateCategory/UpdateCategory.jsx'))
-
+const RegisterUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterUser/RegisterUser.jsx'))
+const UpdateUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateUser/UpdateUser.jsx'))
+const UpdateBookByAdmin =  lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateBook/UpdateBook.jsx'))
 const RouteFile = () => {
 
   return (
@@ -83,10 +85,12 @@ const RouteFile = () => {
         <Route path="/admin/manage-sellers" element={<ManageSellers />} />
         <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
         <Route path="/admin/register-newBook" element={<RegisterBook />} />
+        <Route path="/admin/updateBook/:bookId" element={<UpdateBookByAdmin />} />
         <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
         <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
         <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
-
+        <Route path="/admin/register-newUser" element={<RegisterUser />} />
+        <Route path="/admin/update-user/:userId" element={<UpdateUser />} />
       </Routes>
     </Suspense>
   );
