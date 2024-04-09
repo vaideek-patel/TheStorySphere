@@ -95,13 +95,17 @@ const CustomedNavbar = () => {
   const handleSpecialOffers = () => {
     navigate("/lists/special-offers-on-TheStorySphere")
   }
+
+  const ViewFavourites = () => {
+    navigate("/favourites")
+  }
   return (
     <>
-      <div className='text-center mb-0 ' style={{ backgroundColor: '#e0f7fa' }}>
+      {/* <div className='text-center mb-0 ' style={{ backgroundColor: '#e0f7fa' }}>
         <p className="text-center p-1 mb-0">
           <FontAwesomeIcon icon={faTruckFast} /> Enjoy <strong>Free Shipping</strong> on orders above Rs.2000
         </p>
-      </div>
+      </div> */}
       <Navbar bg="light" data-bs-theme="light">
         <Navbar.Brand as={Link} to="/" className='ms-4' >
           <img src={Logo} alt="The Story Sphere" width="auto" height="50" />
@@ -215,6 +219,8 @@ const CustomedNavbar = () => {
                 <li>Get 10% off these nerdy spring reads from MIT Press!</li>
               </ul>
             </li>
+            <li className="mx-3" style={{ cursor: 'pointer' }} onClick={ViewFavourites}>View Favourites </li>
+
           </ul>
         </div>
       ) : (

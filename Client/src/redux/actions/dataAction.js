@@ -1,10 +1,12 @@
 import {
   ADD_BOOK_TO_CART,
+  ADD_TO_FAVORITES,
   ADD_TO_WISHLIST,
   CLEAR_CART,
   ORDER_DETAILS,
   REMOVE_BOOK_FROM_CART,
   REMOVE_DATA,
+  REMOVE_FROM_FAVORITES,
   SET_DATA,
   TOTAL_AMOUNT,
 } from "./actiontypes";
@@ -13,6 +15,22 @@ export const setData = (data) => {
   return {
     type: SET_DATA,
     payload: data,
+  };
+};
+
+export const addToFavorites = (book) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: book,
+  };
+};
+
+export const removeFromFavorites = (bookId) => {
+  return {
+    type: REMOVE_FROM_FAVORITES,
+    payload: {
+      bookId: bookId,
+    },
   };
 };
 
