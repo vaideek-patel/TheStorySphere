@@ -504,3 +504,71 @@ export const deleteBookData = async (bookId) => {
     };
   }
 };
+
+export const registerNewSeller = async (sellerObj) => {
+  try {
+    const response = await API.post("sellers", sellerObj);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const updateSellerData = async (sellerId, sellerData) => {
+  try {
+    const response = await API.put(`sellers/${sellerId}`, sellerData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const deleteSellerData = async (sellerId) => {
+  try {
+    const response = await API.delete(`sellers/${sellerId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const getSellerDataBySellerId = async (sellerId) => {
+  try {
+    const response = await API.get(`sellers/${sellerId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};

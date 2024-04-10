@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { deleteUserData, getUsers } from '../../../../../utils/axios-instance';
 import Table from '../../../../common/Table';
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom'
 
 const AdminHome = () => {
@@ -41,13 +41,16 @@ const AdminHome = () => {
     setUsers(updatedUsers);
   }
   return (
-    <>
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2>Welcome to Admin Page!</h2>
-        <Button variant="success" onClick={ListNewUser}>Add New User </Button>
+    <Container className="py-4">
+      <div className="text-center">
+        <h2 className='playfair-display-mygooglefont'>Welcome to Admin Dashboard!</h2>
+      </div>
+      <div className="d-flex justify-content-between align-items-center mt-3">
+        <h4 className='playfair-display-mygooglefont'>Manage Users</h4>
+        <Button variant="success" onClick={ListNewUser}>Add New User</Button>
       </div>
       <Table data={users} headers={usersArray} handleUpdate={handleUserUpdate} handleDelete={handleUserDelete} />
-    </>
+    </Container>
   )
 }
 

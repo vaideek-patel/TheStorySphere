@@ -5,8 +5,10 @@ import * as Yup from 'yup';
 import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../utils/axios-instance';
 import { useSelector } from 'react-redux';
 import Select from 'react-select';
+import {useNavigate} from 'react-router-dom'
 
 const RegisterBook = () => {
+    const navigate = useNavigate()
     const sellerId = useSelector((state) => state.role.seller.id);
     const [categories, setCategories] = useState([]);
     const [subcategories, setSubcategories] = useState([]);
@@ -63,19 +65,17 @@ const RegisterBook = () => {
     const handleSubmit = async (values, { resetForm }) => {
         console.log(booksDataForId.length)
         const lastId = booksDataForId.length > 0 ? parseInt(booksDataForId[booksDataForId.length - 1].id) + 1 : 1;
-        console.log(lastId)
         values.id = lastId.toString();
         values.soldBy = sellerId;
 
         const listNewBook = await registerNewBook(values)
-        console.log(listNewBook)
-        console.log(values);
+        navigate("/seller")
         resetForm();
     };
 
     return (
         <Container>
-            <h1 className="text-center mt-5 mb-4">Register New Book</h1>
+            <h1 className="text-center mt-5 mb-4 playfair-display-mygooglefont">Register New Book</h1>
             <Formik
                 initialValues={{
                     name: '',

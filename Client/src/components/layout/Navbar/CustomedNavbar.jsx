@@ -154,11 +154,13 @@ const CustomedNavbar = () => {
                       <FontAwesomeIcon icon={faUser} style={{ color: 'black' }} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
+                      <Dropdown.Item as={Link} to="/admin/home">Admin DashBoard</Dropdown.Item>
                       <Dropdown.Item as={Link} to="/admin/manage-category">Manage Category</Dropdown.Item>
                       <Dropdown.Item as={Link} to="/admin/manage-sub-category">Manage Sub-Category</Dropdown.Item>
                       <Dropdown.Item as={Link} to="/admin/manage-books">Manage Books</Dropdown.Item>
                       <Dropdown.Item as={Link} to="/admin/manage-orders">Manage Orders</Dropdown.Item>
                       <Dropdown.Item as={Link} to="/admin/manage-sellers">Manage Sellers</Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/admin/sellerPermission">Seller Permission</Dropdown.Item>
                       <Dropdown.Item onClick={handleAdminLogOut}>Logout Admin</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

@@ -39,7 +39,10 @@
       "password": "vaideek@123",
       "companyName": "Brainy Books Company Pvt. Ltd.",
       "gstNumber": "GSTIN12345",
-      "storeKeepingUnit": "12345"
+      "storeKeepingUnit": "12345",
+      "register": "no",
+      "update": "no",
+      "delete": "no"
     },
     {
       "id": "2",
@@ -48,7 +51,10 @@
       "password": "John@123",
       "companyName": "Smith's Book Emporium",
       "gstNumber": "GSTIN54321",
-      "storeKeepingUnit": "54321"
+      "storeKeepingUnit": "54321",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "3",
@@ -57,7 +63,10 @@
       "password": "Emma@123",
       "companyName": "Emma's Literary Haven",
       "gstNumber": "GSTIN67890",
-      "storeKeepingUnit": "67890"
+      "storeKeepingUnit": "67890",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "4",
@@ -66,7 +75,10 @@
       "password": "Wei@123",
       "companyName": "East Meets West Books",
       "gstNumber": "GSTIN24680",
-      "storeKeepingUnit": "24680"
+      "storeKeepingUnit": "24680",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "5",
@@ -75,7 +87,10 @@
       "password": "Sophie@123",
       "companyName": "Belle Littérature",
       "gstNumber": "GSTIN13579",
-      "storeKeepingUnit": "13579"
+      "storeKeepingUnit": "13579",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "6",
@@ -84,7 +99,10 @@
       "password": "ravi@123",
       "companyName": "Patel's Book Haven",
       "gstNumber": "GSTIN97531",
-      "storeKeepingUnit": "97531"
+      "storeKeepingUnit": "97531",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "7",
@@ -93,7 +111,10 @@
       "password": "maria@123",
       "companyName": "Gonzalez Book Emporium",
       "gstNumber": "GSTIN86420",
-      "storeKeepingUnit": "86420"
+      "storeKeepingUnit": "86420",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "8",
@@ -102,7 +123,10 @@
       "password": "david@123",
       "companyName": "Lee's Literary World",
       "gstNumber": "GSTIN75309",
-      "storeKeepingUnit": "75309"
+      "storeKeepingUnit": "75309",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "9",
@@ -111,7 +135,10 @@
       "password": "lina@123",
       "companyName": "Petrova's Paperback Palace",
       "gstNumber": "GSTIN64208",
-      "storeKeepingUnit": "64208"
+      "storeKeepingUnit": "64208",
+      "register": "yes",
+      "update": "yes",
+      "delete": "yes"
     },
     {
       "id": "10",
@@ -120,7 +147,10 @@
       "password": "mohammed@123",
       "companyName": "Ali's Almanac Emporium",
       "gstNumber": "GSTIN53146",
-      "storeKeepingUnit": "53146"
+      "storeKeepingUnit": "53146",
+      "register": "yes",
+      "update": "no",
+      "delete": "yes"
     }
   ],
   "books": [
@@ -2285,29 +2315,6 @@
         "BooksThatMakeYouSmarter": "no",
         "CarolShieldsPrizeForFictionLonglist": "no"
       }
-    },
-    {
-      "id": "95",
-      "name": " Vaideek",
-      "author": "Vaideek Patel",
-      "description": "Very good Book",
-      "price": 700,
-      "releaseDate": "2024-04-01",
-      "image": "https://rukminim2.flixcart.com/image/850/1000/kzu6efk0/regionalbooks/v/l/v/romeo-and-juliet-original-imagbrezzvzwp5ef.jpeg?q=90&crop=false",
-      "categoryId": "1",
-      "category": "Fiction",
-      "subCategoryId": "5",
-      "subcategoryName": "Romance",
-      "recentlyLaunched": "yes",
-      "AdditionalBookDetails": {
-        "BestSeller": "yes",
-        "BestSellerOfTheWeek": "yes",
-        "NationalPoetryMonth": false,
-        "InternationalBookerPrizeLonglist": "no",
-        "BooksThatMakeYouSmarter": "yes",
-        "CarolShieldsPrizeForFictionLonglist": "yes"
-      },
-      "soldBy": "Admin"
     }
   ],
   "wishList": [
@@ -2337,7 +2344,110 @@
       "books": []
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "4ca3",
+      "userId": "2",
+      "shippingDetails": {
+        "firstName": "Vaideek",
+        "lastName": "Patel",
+        "shippingAddress": "30-Silver Parikrama Ahmedabad",
+        "company": "Bacancy House",
+        "city": "sadasdas",
+        "state": "sdsad",
+        "zip": "380060"
+      },
+      "paymentDetails": {
+        "cardNumber": "6776575765765765",
+        "cardName": "Vaideek Patel",
+        "cardExpiry": "21/03",
+        "cvv": "333"
+      },
+      "finalOrderBooks": {
+        "cart": [
+          {
+            "id": "1",
+            "name": "World of Science",
+            "author": "Michael Connely",
+            "description": "An exploration of various scientific concepts and discoveries. From the depths of quantum mechanics to the expanse of astrophysics, 'World of Science' takes readers on an enlightening journey through the wonders of the universe. With captivating narratives and insightful explanations, Michael Connely unravels the mysteries of science in a way that both educates and entertains.",
+            "category": "Fiction",
+            "price": "800",
+            "releaseDate": "05-May-2016",
+            "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
+            "categoryId": "1",
+            "subCategoryId": "1",
+            "subcategoryName": "General & Literary Fiction",
+            "recentlyLaunched": "yes",
+            "soldBy": "1",
+            "AdditionalBookDetails": {
+              "BestSeller": "no",
+              "BestSellerOfTheWeek": "no",
+              "NationalPoetryMonth": "no",
+              "InternationalBookerPrizeLonglist": "yes",
+              "BooksThatMakeYouSmarter": "no",
+              "CarolShieldsPrizeForFictionLonglist": "yes"
+            }
+          },
+          {
+            "id": "7",
+            "name": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "description": "A story of wealth, love, and tragedy in the Jazz Age. 'The Great Gatsby' follows the enigmatic Jay Gatsby as he pursues the elusive Daisy Buchanan in a world of extravagance and excess. F. Scott Fitzgerald's evocative prose captures the glamour and disillusionment of the Roaring Twenties, making this novel a timeless classic.",
+            "category": "Fiction",
+            "price": "950",
+            "releaseDate": "10-Apr-1925",
+            "image": "https://m.media-amazon.com/images/I/71V1cA2fiZL._AC_UF1000,1000_QL80_.jpg",
+            "categoryId": "1",
+            "subCategoryId": "1",
+            "subcategoryName": "General & Literary Fiction",
+            "recentlyLaunched": "no",
+            "soldBy": "1",
+            "AdditionalBookDetails": {
+              "BestSeller": "no",
+              "BestSellerOfTheWeek": "no",
+              "NationalPoetryMonth": "no",
+              "InternationalBookerPrizeLonglist": "no",
+              "BooksThatMakeYouSmarter": "no",
+              "CarolShieldsPrizeForFictionLonglist": "yes"
+            }
+          }
+        ],
+        "totalAmount": 2550
+      }
+    },
+    {
+      "id": "f1b3",
+      "userId": "2",
+      "finalOrderBooks": {
+        "cart": [
+          {
+            "id": "1",
+            "name": "World of Science",
+            "author": "Michael Connely",
+            "description": "An exploration of various scientific concepts and discoveries. From the depths of quantum mechanics to the expanse of astrophysics, 'World of Science' takes readers on an enlightening journey through the wonders of the universe. With captivating narratives and insightful explanations, Michael Connely unravels the mysteries of science in a way that both educates and entertains.",
+            "category": "Fiction",
+            "price": "800",
+            "releaseDate": "05-May-2016",
+            "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
+            "categoryId": "1",
+            "subCategoryId": "1",
+            "subcategoryName": "General & Literary Fiction",
+            "recentlyLaunched": "yes",
+            "soldBy": "1",
+            "AdditionalBookDetails": {
+              "BestSeller": "no",
+              "BestSellerOfTheWeek": "no",
+              "NationalPoetryMonth": "no",
+              "InternationalBookerPrizeLonglist": "yes",
+              "BooksThatMakeYouSmarter": "no",
+              "CarolShieldsPrizeForFictionLonglist": "yes"
+            }
+          }
+        ],
+        "totalAmount": 2400
+      }
+    }
+  ],
   "category": [
     {
       "name": "Fiction",
