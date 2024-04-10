@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { deleteBookData, getAllBooks } from "../../../../../../utils/axios-instance";
 import Table from "../../../../../common/Table";
 import { useNavigate } from 'react-router-dom'
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 
 const ManageBooks = () => {
@@ -51,11 +51,13 @@ const ManageBooks = () => {
     }
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-                <h2>Manage Books</h2>
-                <Button variant="success" onClick={RegisterNewBook} >List a new Book</Button>
-            </div>
-            <Table data={books} headers={booksArray} handleUpdate={handleBookUpdate} handleDelete={handleBookDelete} />
+            <Container className="py-4">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <h2 className='playfair-display-mygooglefont'>Manage Books!</h2>
+                    <Button variant="success" onClick={RegisterNewBook} >List a new Book</Button>
+                </div>
+                <Table data={books} headers={booksArray} handleUpdate={handleBookUpdate} handleDelete={handleBookDelete} />
+            </Container>
         </>
     )
 }

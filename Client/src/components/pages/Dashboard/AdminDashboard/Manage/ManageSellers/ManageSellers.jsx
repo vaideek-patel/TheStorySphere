@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { getSellers } from '../../../../../../utils/axios-instance';
+import { Button, Container } from 'react-bootstrap';
+import { deleteSellerData, getSellers } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
 import { useNavigate } from 'react-router-dom'
 
@@ -34,14 +34,28 @@ const ManageSellers = () => {
         fetchSellers();
     }, []);
 
+    const DeleteSellerData = async (sellerId) => {
+        const response = await deleteSellerData(sellerId)
+        console.log(response)
+        const updateSeller = sellers.filter(sellers => sellers.id !== sellerId);
+        setSellers(updateSeller);
+    }
 
+    const handleUpdate = (sellerId) => {
+        console.log(sellerId)
+        navigate(`/admin/updateSeller/${sellerId}`)
+    }
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-                <h2>Manage Sellers</h2>
-                <Button variant="success" onClick={RegisterNewSeller} >List a new seller</Button>
-            </div>
-            <Table data={sellers} headers={sellerArray} />
+            <Container className="py-4">
+
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <h2 className='playfair-display-mygooglefont'>Manage Sellers</h2>
+                    <Button variant="success" onClick={RegisterNewSeller} >List a new seller</Button>
+                </div>
+                <Table data={sellers} headers={sellerArray} handleDelete={DeleteSellerData} handleUpdate={handleUpdate} />
+            </Container>
+
         </>
     );
 };

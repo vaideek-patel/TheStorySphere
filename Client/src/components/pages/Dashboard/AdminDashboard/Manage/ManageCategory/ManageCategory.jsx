@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { deleteCategoryData, getCategory } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 
 const ManageCategory = () => {
@@ -40,13 +40,13 @@ const ManageCategory = () => {
         setcategory(updatedCategoery);
     }
     return (
-        <>
+        <Container className="py-4">
             <div className="d-flex justify-content-between align-items-center mb-3">
-                <h2>Manage Category here!</h2>
+                <h2 className='playfair-display-mygooglefont'>Manage Category here!</h2>
                 <Button variant="success" onClick={listNewCategory}>Add a new Category </Button>
             </div>
             <Table data={category} headers={categoryArray} handleUpdate={updateCategory} handleDelete={deleteCategory} />
-        </>
+        </Container>
     )
 }
 

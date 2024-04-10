@@ -53,6 +53,11 @@ const UpdateCateogry = lazy(() => import('../components/pages/Dashboard/AdminDas
 const RegisterUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Register/RegisterUser/RegisterUser.jsx'))
 const UpdateUser = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateUser/UpdateUser.jsx'))
 const UpdateBookByAdmin = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateBook/UpdateBook.jsx'))
+const UpdateSeller = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateSeller/UpdateSeller.jsx'))
+const UpdateOrder = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateOrder/UpdateOrder.jsx'))
+const SellerPermission = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Manage/SellerPermission/SellerPermission.jsx'))
+const UpdateSellerPermissions = lazy(() => import('../components/pages/Dashboard/AdminDashboard/Update/UpdateSeller/UpdateSellerPermissions.jsx'))
+
 const RouteFile = () => {
 
   return (
@@ -93,7 +98,9 @@ const RouteFile = () => {
         <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
         <Route path="/admin/manage-books" element={<ManageBooks />} />
         <Route path="/admin/manage-orders" element={<ManageOrders />} />
+        <Route path="/admin/updateOrders/:orderId" element={<UpdateOrder />} />
         <Route path="/admin/manage-sellers" element={<ManageSellers />} />
+        <Route path="/admin/updateSeller/:sellerId" element={<UpdateSeller />} />
         <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
         <Route path="/admin/register-newBook" element={<RegisterBook />} />
         <Route path="/admin/updateBook/:bookId" element={<UpdateBookByAdmin />} />
@@ -102,6 +109,8 @@ const RouteFile = () => {
         <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
         <Route path="/admin/register-newUser" element={<RegisterUser />} />
         <Route path="/admin/update-user/:userId" element={<UpdateUser />} />
+        <Route path="/admin/sellerPermission" element={<SellerPermission />} />
+        <Route path="/admin/updateSellerPermission/:sellerId" element={<UpdateSellerPermissions />} />
       </Routes>
     </Suspense>
   );

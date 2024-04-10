@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react'
-import {getSubCategory } from '../../../../../../utils/axios-instance';
+import { getSubCategory } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 
 const ManageSubCategory = () => {
@@ -34,11 +34,14 @@ const ManageSubCategory = () => {
 
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-                <h2>Manage Sub-Category here!</h2>
-                <Button variant="success" onClick={ListNewSubCategory}  >Add a new Sub-Category </Button>
-            </div>
-            <Table data={subCategory} headers={subCategoryArray} />
+            <Container className="py-4">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <h2 className='playfair-display-mygooglefont'>Manage Sub-Category here!</h2>
+                    <Button variant="success" onClick={ListNewSubCategory}  >Add a new Sub-Category </Button>
+                </div>
+                <Table data={subCategory} headers={subCategoryArray} />
+            </Container>
+
         </>
     )
 }

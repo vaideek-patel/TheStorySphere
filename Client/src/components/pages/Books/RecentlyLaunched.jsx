@@ -3,14 +3,16 @@ import { getBooks } from '../../../utils/axios-instance';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { bookToCart } from '../../../redux/actions/dataAction';
+import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
+import { toast } from "react-toastify";
 
 const RecentlyLaunched = () => {
     const dispatch = useDispatch();
     const [recentlyLaunchedBooks, setRecentlyLaunchedBooks] = useState([]);
     const booksInCart = useSelector((state) => state.cart.cart);
+    const booksInFavorites = useSelector((state) => state.data.favorites)
 
     useEffect(() => {
         const fetchRecentlyLaunchedBooks = async () => {
@@ -30,17 +32,26 @@ const RecentlyLaunched = () => {
         fetchRecentlyLaunchedBooks();
     }, []);
 
+    const alreadyInCartToast = () =>{
+        toast.success('User Deleted successfully!');
+    }
+
+    const alreadyInFavToast = () => {
+        toast.error("Already In Favourites!")
+    }
+
     return (
         <div className="container mt-4">
             <div className="row">
                 {recentlyLaunchedBooks.map(book => {
                     const alreadyInCart = booksInCart.find(item => item.id === book.id);
+                    const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
                     return (
                         <div key={book.id} className="col-md-12">
                             <Card className="mb-3">
                                 <div className="row g-0">
                                     <div className="col-md-2 d-flex overflow-hidden custom-3">
-                                        <img src={book.image}  style={{ }} alt={book.title} />
+                                        <img src={book.image} style={{}} alt={book.title} />
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
@@ -51,7 +62,7 @@ const RecentlyLaunched = () => {
                                             <div className="justify-content-between w-100">
                                                 {alreadyInCart ? (
                                                     <Link to="/cart">
-                                                        <Button variant="danger" className="rounded-pill">
+                                                        <Button variant="danger" className="rounded-pill" onClick={alreadyInCartToast}>
                                                             <FontAwesomeIcon icon={faShoppingCart} /> In Cart
                                                         </Button>
                                                     </Link>
@@ -60,9 +71,17 @@ const RecentlyLaunched = () => {
                                                         <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
                                                     </Button>
                                                 )}
-                                                <Button variant="danger" className="rounded-pill ms-3">
-                                                    <FontAwesomeIcon icon={faHeart} />
-                                                </Button>
+                                                {alreadyInFavourites ? (
+                                                    
+                                                    <Button variant="primary" className="rounded-pill ms-3" onClick={alreadyInFavToast}>
+                                                        <FontAwesomeIcon icon={faBagShopping} />
+                                                    </Button>
+                                                    
+                                                ) : (
+                                                    <Button variant="primary" className="rounded-pill ms-3" onClick={() => dispatch(addToFavorites(book))}>
+                                                        <FontAwesomeIcon icon={faHeart} />
+                                                    </Button>
+                                                )}
                                             </div>
                                         </Card.Body>
                                     </div>
