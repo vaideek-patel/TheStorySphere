@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage, Form } from 'formik';
+import { Button, Form as BootstrapForm } from 'react-bootstrap';
 import * as Yup from 'yup';
 import Select from 'react-select';
-import { getCategory, registerNewCategory } from '../../../../../../utils/axios-instance';
+import { getCategory, getSubCategory, registerNewCategory, registerNewSubCategory } from '../../../../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterSubCategory = () => {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
-    const [selectedCategoryName, setSelectedCategoryName] = useState('');
+    const [subCategoriesData, setSubCategoriesData] = useState('');
+    const [selectedCategoryId, setSelectedCategoryId] = useState('');
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,27 +22,39 @@ const RegisterSubCategory = () => {
                 console.log(error);
             }
         };
+
+        const fetchSubCategoriesForLength = async () => {
+            try {
+                const response = await getSubCategory();
+                setSubCategoriesData(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchSubCategoriesForLength()
         fetchData();
     }, []);
 
-    const initialValues = {
-        name: '',
-        categoryId: '',
-    };
-
-    const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
-        categoryId: Yup.string().required('Required'),
-    });
-
     const ListNewSubCategory = async (values, { resetForm }) => {
         console.log(values)
+        try {
+            const lastId = subCategoriesData.length > 0 ? parseInt(subCategoriesData[subCategoriesData.length - 1].id) + 1 : 1;
+            const newCategory = { id: lastId.toString(), ...values };
+            const response = await registerNewSubCategory(newCategory)
+            if (response.success) {
+                navigate("/admin/manage-sub-category")
+            }
+            resetForm();
+        } catch (error) {
+            console.log("Error:", error);
+        }
+
     };
-
-    const options = categories.map(category => ({ value: category.id, label: category.name }))
-
-    const handleCategoryChange = (selectedOption) => {
-        setSelectedCategoryName(selectedOption.label);
+    const handleCategoryChange = (selectedOption, { setFieldValue }) => {
+        setSelectedCategoryId(selectedOption.value);
+        const selectedCategory = categories.find(category => category.id === selectedOption.value);
+        setFieldValue('categoryId', selectedOption.value);
+        // setFieldValue('category', selectedCategory ? selectedCategory.name : '');
     };
     return (
         <>
@@ -47,31 +62,30 @@ const RegisterSubCategory = () => {
                 Register New Category
             </div>
             <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
+                initialValues={{
+                    name: '',
+                    categoryId: '',
+                }}
+                // validationSchema={validationSchema}
                 onSubmit={ListNewSubCategory}
             >
-                {({ setFieldValue }) => (
+                {({ values, setFieldValue }) => (
 
                     <Form>
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
-                            <Field type="text" id="name" name="name" className="form-control" />
-                            <ErrorMessage name="name" component="div" className="error" />
+
+                            <BootstrapForm.Group>
+                                <BootstrapForm.Label>Name</BootstrapForm.Label>
+                                <Field name="name" type="text" className="form-control" />
+                                {/* {errors.name && touched.name && <div className="text-danger">{errors.name}</div>} */}
+                            </BootstrapForm.Group>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="categoryId">Category</label>
-                            <Field name="categoryId">
-                                {({ field }) => (
-                                    <Select
-                                        {...field}
-                                        options={options}
-                                        onChange={(option) => {
-                                            setFieldValue("categoryId", option.value);
-                                            handleCategoryChange(option);
-                                        }} />
-                                )}
-                            </Field>
+                            <label htmlFor="categoryId">Category</label><Select
+                                name="categoryId"
+                                options={categories.map(category => ({ value: category.id, label: category.name }))}
+                                onChange={(selectedOption) => handleCategoryChange(selectedOption, { setFieldValue })}
+                            />
                             <ErrorMessage name="categoryId" component="div" className="error" />
                         </div>
                         <button type="submit" className="btn btn-primary">Submit</button>

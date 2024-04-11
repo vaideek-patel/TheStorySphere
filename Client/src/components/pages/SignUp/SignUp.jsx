@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./SignUp.css";
 import { getUsers, registerUser } from '../../../utils/axios-instance';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -56,9 +56,7 @@ const Login = () => {
     <>
       <br />
       <div className="row justify-content-center">
-        <div className="text-center">
-          <h3>Login as an Existing Customer</h3>
-        </div>
+
       </div>
       <section className="login-section">
 
@@ -66,6 +64,9 @@ const Login = () => {
         <div className="container py-5">
           <div className="row justify-content-center align-items-center">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div className="mb-3">
+                <h2 className='playfair-display-mygooglefont'>Create an Account</h2>
+              </div>
               <div className="card shadow rounded-3">
                 <div className="card-body p-5 text-center">
                   <Formik
@@ -120,7 +121,7 @@ const Login = () => {
                   </Formik>
 
                   <div className="mt-3">
-                    <p className="mb-0"> or Login as Existing Customer</p>
+                    <p className="mb-0 " > <Link to="/login">or Login as Existing Customer </Link></p>
                   </div>
                 </div>
               </div>

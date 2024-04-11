@@ -45,7 +45,6 @@ const Home = () => {
 
 
   const ListNewBook = (id) => {
-    console.log(id)
     navigate(`/seller/registerNewBook/${id}`)
   }
 
@@ -62,18 +61,35 @@ const Home = () => {
     }
   }
 
-  const DeleteListedBook = async (bookId) => {
-    if (sellerPermissions.delete === 'yes') {
-      const response = await deleteBookData(bookId)
-      const updateListing = listedBooks.filter(listedBooks => listedBooks.id !== bookId);
-      setListedBooks(updateListing);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "You're not allowed!",
-        text: "Please Ask Admin!",
-      });
-    }
+  const DeleteListedBook = (bookId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this book again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        if (sellerPermissions.delete === 'yes') {
+          const response = await deleteBookData(bookId)
+          const updateListing = listedBooks.filter(listedBooks => listedBooks.id !== bookId);
+          setListedBooks(updateListing);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "You're not allowed!",
+            text: "Please Ask Admin!",
+          });
+        }
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
   }
 
   console.log(sellerPermissions)

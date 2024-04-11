@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShoppingCart, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { getBooks } from '../../../utils/axios-instance';
 import { useSelector, useDispatch } from 'react-redux';
-import { bookToCart } from '../../../redux/actions/dataAction';
+import { bookToCart, addToFavorites } from '../../../redux/actions/dataAction';
 import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 const BooksThatMakeSmarter = () => {
     const dispatch = useDispatch();
     const booksInCart = useSelector((state) => state.cart.cart);
+    const booksInFavorites = useSelector((state) => state.data.favorites)
     const [smartBooks, setSmartBooks] = useState([]);
 
     useEffect(() => {
@@ -29,12 +32,17 @@ const BooksThatMakeSmarter = () => {
 
         fetchBestSeller();
     }, []);
+    const alreadyInFavToast = () => {
+        toast.error("Already In Favourites!")
+    }
+
 
     return (
         <div className="container mt-4">
             <div className="row">
                 {smartBooks.map(book => {
                     const alreadyInCart = booksInCart.find(item => item.id === book.id)
+                    const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
                     return (
                         <div key={book.id} className="col-md-12">
                             <Card className="mb-3">
@@ -60,9 +68,17 @@ const BooksThatMakeSmarter = () => {
                                                         <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
                                                     </Button>
                                                 )}
-                                                <Button variant="danger" className="rounded-pill ms-3">
-                                                    <FontAwesomeIcon icon={faHeart} />
-                                                </Button>
+                                                {alreadyInFavourites ? (
+
+                                                    <Button variant="primary" className="rounded-pill ms-3" onClick={alreadyInFavToast}>
+                                                        <FontAwesomeIcon icon={faBagShopping} />
+                                                    </Button>
+
+                                                ) : (
+                                                    <Button variant="primary" className="rounded-pill ms-3" onClick={() => dispatch(addToFavorites(book))}>
+                                                        <FontAwesomeIcon icon={faHeart} />
+                                                    </Button>
+                                                )}
                                             </div>
                                         </Card.Body>
                                     </div>

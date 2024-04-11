@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import CommonModal from "./CommonModal"
@@ -8,33 +8,31 @@ import { getAccountDetailByUsertId } from '../../../utils/axios-instance';
 
 const Account = () => {
     const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(false);
-    const currentUser = useSelector((state) => state.role.user);
-    const [userDetails, setUserDetails] = useState([]); 
+    const currentUserId = useSelector((state) => state.role.user.id);
+    const [userDetails, setUserDetails] = useState([]);
+
+    useEffect(() => {
+
+        const fetcUserData = async () => {
+            try {
+                const response = await getAccountDetailByUsertId(currentUserId);
+                console.log(response.data)
+                setUserDetails(response.data[0]);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetcUserData()
+    }, []);
 
     const viewPlacedOrders = () => {
         navigate("/manage-orders");
     };
 
     const editAccount = async () => {
-        setShowModal(true);
-        const response = await getAccountDetailByUsertId(currentUser.id);
-        setUserDetails(response.data); 
+        navigate(`/edit-account/${currentUserId}`);
     };
 
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
-    console.log(userDetails)
-
-    const accountFields = userDetails.map((userDetail, index) => ({
-        label: 'User ' + (index + 1),
-        type: 'text',
-        placeholder: 'Enter user details',
-        name: userDetail.name,
-        email: userDetail.email,
-        // Add other fields here as needed
-    }));
 
     return (
         <Container>
@@ -46,10 +44,10 @@ const Account = () => {
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <h5 className='playfair-display-mygooglefont'>Account Details</h5>
-                                    <p className='lora-mygooglefont'>Email: {currentUser.email}</p>
-                                    <p className='lora-mygooglefont'>Name: {currentUser.name}</p>
-                                    <p className='lora-mygooglefont'>Password: {currentUser.password}</p>
-                                    <p className='lora-mygooglefont'>UserId: {currentUser.id}</p>
+                                    <p className='lora-mygooglefont'>Email: {userDetails.email}</p>
+                                    <p className='lora-mygooglefont'>Name: {userDetails.name}</p>
+                                    <p className='lora-mygooglefont'>Password: {userDetails.password}</p>
+                                    <p className='lora-mygooglefont'>UserId: {userDetails.id}</p>
                                     <Button variant="primary" onClick={editAccount}>Edit Account</Button>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -61,7 +59,6 @@ const Account = () => {
                     </Card>
                 </Col>
             </Row>
-            <CommonModal show={showModal} handleClose={handleCloseModal} fields={accountFields} />
         </Container>
     );
 };

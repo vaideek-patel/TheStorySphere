@@ -10,6 +10,7 @@ import Logo from "../../../../public/The Story Sphere_transparent(12).png"
 import { removeRole } from '../../../redux/actions/roleActions';
 import { clearCart, removeData } from '../../../redux/actions/dataAction';
 import { getSubcategoriesByCategoryId, updateWishlist } from '../../../utils/axios-instance';
+import Swal from 'sweetalert2'
 
 
 const CustomedNavbar = () => {
@@ -56,41 +57,94 @@ const CustomedNavbar = () => {
     }
   };
 
-  const handleLogOut = async () => {
-    if (isLoggedIn) {
-      const userWishlist = WishList.find(wishlist => wishlist.owner === isLoggedIn.id);
+  const handleLogOut = () => {
+    Swal.fire({
+      title: "Are you sure you want to Logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        if (isLoggedIn) {
+          const userWishlist = WishList.find(wishlist => wishlist.owner === isLoggedIn.id);
 
-      if (userWishlist) {
-        try {
-          const response = await updateWishlist(isLoggedIn.id, userWishlist.id, userWishlist);
-          if (response.success) {
-            console.log("Wishlist data updated successfully.");
+          if (userWishlist) {
+            try {
+              const response = await updateWishlist(isLoggedIn.id, userWishlist.id, userWishlist);
+              if (response.success) {
+                console.log("Wishlist data updated successfully.");
+              } else {
+                console.error("Failed to update wishlist data:", response.error);
+              }
+            } catch (error) {
+              console.error("Error while updating wishlist data:", error);
+            }
           } else {
-            console.error("Failed to update wishlist data:", response.error);
+            console.error("User's wishlist not found.");
           }
-        } catch (error) {
-          console.error("Error while updating wishlist data:", error);
-        }
-      } else {
-        console.error("User's wishlist not found.");
-      }
 
-      dispatch(removeRole());
-      dispatch(removeData());
-      dispatch(clearCart());
-      navigate("/login");
-    }
+          dispatch(removeRole());
+          dispatch(removeData());
+          dispatch(clearCart());
+
+
+          navigate("/login");
+        }
+        Swal.fire({
+          title: "Logged Out Sucessfully!",
+          // text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
   };
 
   const handleSellerLogOut = () => {
-    dispatch(removeRole());
-    navigate("/seller/login");
+
+    Swal.fire({
+      title: "Are you sure you want to Logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeRole());
+        navigate("/seller/login");
+        Swal.fire({
+          title: "Logged Out Sucessfully!",
+          icon: "success"
+        });
+      }
+    });
+
 
   }
 
   const handleAdminLogOut = () => {
-    dispatch(removeRole());
-    navigate("/adminLogin")
+
+    Swal.fire({
+      title: "Are you sure you want to Logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeRole());
+        navigate("/adminLogin")
+        Swal.fire({
+          title: "Logged Out Sucessfully!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+
   }
 
   const handleSpecialOffers = () => {

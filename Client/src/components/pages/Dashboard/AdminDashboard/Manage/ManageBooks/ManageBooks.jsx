@@ -1,11 +1,9 @@
-// import React, { useEffect, useState } from 'react'
-// import {getSubCategory } from '../../../../../../utils/axios-instance';
-
 import { useEffect, useState } from "react"
 import { deleteBookData, getAllBooks } from "../../../../../../utils/axios-instance";
 import Table from "../../../../../common/Table";
 import { useNavigate } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 
 const ManageBooks = () => {
@@ -44,10 +42,28 @@ const ManageBooks = () => {
         navigate(`/admin/updateBook/${id}`)
     }
 
-    const handleBookDelete = async (id) => {
-        const response = await deleteBookData(id)
-        const updatedBooks = books.filter(books => books.id !== id);
-        setcategory(updatedBooks);
+    const handleBookDelete = (id) => {
+
+        Swal.fire({
+            title: "Are you sure you want to delete this book?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await deleteBookData(id)
+                const updatedBooks = books.filter(books => books.id !== id);
+                setBooks(updatedBooks);
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your Book has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
     }
     return (
         <>

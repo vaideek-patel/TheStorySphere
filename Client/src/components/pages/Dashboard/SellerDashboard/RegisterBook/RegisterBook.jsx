@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../utils/axios-instance';
 import { useSelector } from 'react-redux';
 import Select from 'react-select';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const RegisterBook = () => {
     const navigate = useNavigate()
@@ -69,6 +70,10 @@ const RegisterBook = () => {
         values.soldBy = sellerId;
 
         const listNewBook = await registerNewBook(values)
+        Swal.fire({
+            title: "Listed New Book!",
+            icon: "success"
+        });
         navigate("/seller")
         resetForm();
     };

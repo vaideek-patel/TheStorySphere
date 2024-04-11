@@ -5,6 +5,8 @@ import "./AdminLogin.css";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setRole } from "../../../../../redux/actions/roleActions"
+import Swal from 'sweetalert2'
+
 
 const initialValues = { email: '', password: '' }
 const AdminLogin = () => {
@@ -15,11 +17,11 @@ const AdminLogin = () => {
         if (email === "admin@gmail.com" && password === "Admin@123") {
             dispatch(setRole('admin', values));
             navigate("/admin/home");
-            // Swal.fire({
-            //   title: "Welcome Back Admin!",
-            //   text: "Manage your Library!",
-            //   icon: "success"
-            // });
+            Swal.fire({
+              title: "Welcome Back Admin!",
+              text: "Manage your Library!",
+              icon: "success"
+            });
         } else {
             console.log("error");
         }

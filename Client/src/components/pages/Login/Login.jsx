@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import "./Login.css";
 import "../../../Global.css"
-import { getUserWishlists, getUsers } from '../../../utils/axios-instance';
-import { useNavigate } from 'react-router-dom';
+import { getUsers } from '../../../utils/axios-instance';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setRole } from '../../../redux/actions/roleActions';
-import { setData } from '../../../redux/actions/dataAction';
+// import { setData } from '../../../redux/actions/dataAction';
+import Swal from 'sweetalert2'
 
 const initialValues = { email: '', password: '' }
 const Login = () => {
@@ -36,18 +37,11 @@ const Login = () => {
     const user = users.find((user) => user.email === email);
     if (user && user.password === password) {
       dispatch(setRole('user', user));
-
-      const fetchWishlists = async () => {
-        try {
-          const response = await getUserWishlists(user.id);
-          console.log(response)
-          dispatch(setData(response.data))
-        } catch (error) {
-          console.error('Error fetching wishlists:', error);
-        }
-      };
-      fetchWishlists()
-
+      Swal.fire({
+        title: "Welcome Back!",
+        text: "Happy Exploring the Story Sphere!",
+        icon: "success",
+      });
       navigate("/");
     } else {
       console.log("error");
@@ -56,17 +50,14 @@ const Login = () => {
   return (
     <>
       <br />
-      <div className="row justify-content-center">
-        <div className="text-center">
-          <h3 className='playfair-display-mygooglefont'>Login as an Existing Customer</h3>
-        </div>
-      </div>
       <section className="login-section">
-
-
         <div className="container py-5">
           <div className="row justify-content-center align-items-center">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div className="mb-3">
+                  <h2 className='playfair-display-mygooglefont mb-3' >Login as an Existing Customer</h2>
+                </div>
+            
               <div className="card shadow rounded-3">
                 <div className="card-body p-5 text-center">
                   <Formik
@@ -90,10 +81,6 @@ const Login = () => {
                         </div>
                       </div>
 
-                      <div className="mb-4 form-check d-flex justify-content-start">
-                        <Field className="form-check-input" type="checkbox" id="form1Example3" />
-                        <label className="form-check-label" htmlFor="form1Example3"> Remember password</label>
-                      </div>
                       <p className="mb-0">By creating an account, you agree to The Story Sphere's Privacy Notice and Terms of Use.</p>
                       <br />
 
@@ -102,7 +89,7 @@ const Login = () => {
                   </Formik>
 
                   <div className="mt-3">
-                    <p className="mb-0"> or Create a new Account | Forgot password</p>
+                    <p className="mb-0"> or <Link to="/signUp"> Create a new Account  </Link>| <Link to="/forgotPassword">Forgot password </Link></p>
                   </div>
                 </div>
               </div>

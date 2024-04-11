@@ -5,6 +5,9 @@ import * as Yup from 'yup';
 import Select from 'react-select';
 import { useNavigate } from 'react-router-dom'
 import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../../utils/axios-instance';
+import Swal from 'sweetalert2'
+
+
 
 const RegisterBook = () => {
     const navigate = useNavigate()
@@ -67,6 +70,10 @@ const RegisterBook = () => {
         const listNewBook = await registerNewBook(values)
         console.log(listNewBook)
         console.log(values);
+        Swal.fire({
+            title: "New Book Listed",
+            icon: "success"
+        });
         navigate("/admin/manage-books")
         // resetForm();
     };

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { getSubCategory } from '../../../../../../utils/axios-instance';
+import { deleteSellerData, deleteSubCategoryData, getSubCategory } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
 import { Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
@@ -32,6 +32,20 @@ const ManageSubCategory = () => {
         navigate("/admin/register-newSubCategory")
     }
 
+    const deleteSubCategory = async (subCategoryId) => {
+        console.log(subCategoryId)
+
+        const response = await deleteSubCategoryData(subCategoryId)
+        console.log(response)
+        const updateSubCategory = subCategory.filter(subCategory => subCategory.id !== subCategoryId);
+        setSubCategory(updateSubCategory);
+    }
+
+    const updateSubCategoryData = (subCategoryId) => {
+        console.log(subCategoryId)
+        navigate(`/admin/manage-sub-category/${subCategoryId}`)
+    }
+
     return (
         <>
             <Container className="py-4">
@@ -39,7 +53,7 @@ const ManageSubCategory = () => {
                     <h2 className='playfair-display-mygooglefont'>Manage Sub-Category here!</h2>
                     <Button variant="success" onClick={ListNewSubCategory}  >Add a new Sub-Category </Button>
                 </div>
-                <Table data={subCategory} headers={subCategoryArray} />
+                <Table data={subCategory} headers={subCategoryArray} handleDelete={deleteSubCategory} handleUpdate={updateSubCategoryData} />
             </Container>
 
         </>
@@ -47,3 +61,4 @@ const ManageSubCategory = () => {
 }
 
 export default ManageSubCategory
+
