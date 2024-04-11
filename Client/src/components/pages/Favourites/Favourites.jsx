@@ -8,10 +8,15 @@ import { removeFromFavorites } from '../../../redux/actions/dataAction';
 import { useDispatch } from "react-redux";
 import DetailModal from '../../common/Modal';
 import { getBookById } from '../../../utils/axios-instance';
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
 
 const Favourites = () => {
   const [quickViewBook, setQuickViewBook] = useState();
   const [showModal, setShowModal] = useState(false);
+  const { loader } = useSelector((state) => state.app);
+
+
   const dispatch = useDispatch();
   const removeFavorite = ({ id }) => {
     console.log("remove Buttons", id);
@@ -32,8 +37,11 @@ const Favourites = () => {
   const handleQuickView = (bookId) => {
     const fetchBookData = async () => {
       try {
+        dispatch(setLoader(true))
         const response = await getBookById(bookId);
         setQuickViewBook(response.data);
+        dispatch(setLoader(false))
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -43,6 +51,7 @@ const Favourites = () => {
   };
   return (
     <>
+      {loader && <Loader />}
       <div className="subCategory-heading-container">
         <h2 className='playfair-display-mygooglefont'>Move Your Favourites To Cart.</h2>
       </div>

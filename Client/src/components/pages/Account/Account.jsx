@@ -5,19 +5,27 @@ import CommonModal from "./CommonModal"
 import "../../../Global.css"
 import { useSelector } from 'react-redux';
 import { getAccountDetailByUsertId } from '../../../utils/axios-instance';
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
+import {useDispatch} from "react-redux"
 
 const Account = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const { loader } = useSelector((state) => state.app);
     const currentUserId = useSelector((state) => state.role.user.id);
     const [userDetails, setUserDetails] = useState([]);
+
 
     useEffect(() => {
 
         const fetcUserData = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getAccountDetailByUsertId(currentUserId);
                 console.log(response.data)
                 setUserDetails(response.data[0]);
+                dispatch(setLoader(false))
             } catch (error) {
                 console.log(error);
             }
@@ -35,7 +43,10 @@ const Account = () => {
 
 
     return (
+        <>
+        
         <Container>
+        {loader && <Loader/>}
             <Row className="mt-5">
                 <Col md={{ span: 8, offset: 2 }}>
                     <Card>
@@ -60,6 +71,7 @@ const Account = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     );
 };
 

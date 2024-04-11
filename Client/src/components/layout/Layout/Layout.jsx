@@ -7,7 +7,7 @@ const Layout = () => {
         <div>
             <CustomedNavbar />
             <Outlet />
-            {/* <Footer /> */}
+            <Footer />
 
         </div>
     )

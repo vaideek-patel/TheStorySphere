@@ -3,6 +3,7 @@ import { Button, Container } from 'react-bootstrap';
 import { deleteSellerData, getSellers } from '../../../../../../utils/axios-instance';
 import Table from '../../../../../common/Table';
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const ManageSellers = () => {
     const navigate = useNavigate()
@@ -34,11 +35,29 @@ const ManageSellers = () => {
         fetchSellers();
     }, []);
 
-    const DeleteSellerData = async (sellerId) => {
-        const response = await deleteSellerData(sellerId)
-        console.log(response)
-        const updateSeller = sellers.filter(sellers => sellers.id !== sellerId);
-        setSellers(updateSeller);
+    const DeleteSellerData = (sellerId) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await deleteSellerData(sellerId)
+                console.log(response)
+                const updateSeller = sellers.filter(sellers => sellers.id !== sellerId);
+                setSellers(updateSeller);
+                Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          });
+        
     }
 
     const handleUpdate = (sellerId) => {

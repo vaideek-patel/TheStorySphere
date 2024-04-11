@@ -7,9 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
 
 const BestSeller = () => {
   const dispatch = useDispatch();
+  const { loader } = useSelector((state) => state.app);
   const booksInCart = useSelector((state) => state.cart.cart);
   const [bestSeller, setBestSeller] = useState([]);
   const booksInFavorites = useSelector((state) => state.data.favorites)
@@ -18,10 +21,12 @@ const BestSeller = () => {
   useEffect(() => {
     const fetchBestSeller = async () => {
       try {
+        dispatch(setLoader(true))
         const response = await getBooks("books?AdditionalBookDetails.BestSeller=yes");
         if (response.success) {
           console.log(response);
           setBestSeller(response.data);
+          dispatch(setLoader(false))
         } else {
           console.error("Failed to fetch the Products Data", response.error);
         }
@@ -38,57 +43,60 @@ const BestSeller = () => {
   }
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        {bestSeller.map(book => {
-          const alreadyInCart = booksInCart.find(item => item.id === book.id)
-          const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
-          return (
-            <div key={book.id} className="col-md-12">
-              <Card className="mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4 d-flex overflow-hidden">
-                    <img src={book.image} style={{ height: '18rem', objectFit: 'contain' }} alt={book.title} />
-                  </div>
-                  <div className="col-md-8">
-                    <Card.Body>
-                      <Card.Title className='playfair-display-mygooglefont'>{book.name}</Card.Title>
-                      <Card.Text className='lora-mygooglefont'>{book.author}</Card.Text>
-                      <Card.Text> ₹{book.price}</Card.Text>
-                      <Card.Text className='playfair-display-mygooglefont'>{book.description}</Card.Text>
-                      <div className="justify-content-between w-100">
-                        {alreadyInCart ? (
-                          <Link to="/cart">
-                            <Button variant="danger" className="rounded-pill">
-                              <FontAwesomeIcon icon={faShoppingCart} /> In Cart
+    <>
+      {loader && <Loader />}
+      <div className="container mt-4">
+        <div className="row">
+          {bestSeller.map(book => {
+            const alreadyInCart = booksInCart.find(item => item.id === book.id)
+            const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
+            return (
+              <div key={book.id} className="col-md-12">
+                <Card className="mb-3">
+                  <div className="row g-0">
+                    <div className="col-md-4 d-flex overflow-hidden">
+                      <img src={book.image} style={{ height: '18rem', objectFit: 'contain' }} alt={book.title} />
+                    </div>
+                    <div className="col-md-8">
+                      <Card.Body>
+                        <Card.Title className='playfair-display-mygooglefont'>{book.name}</Card.Title>
+                        <Card.Text className='lora-mygooglefont'>{book.author}</Card.Text>
+                        <Card.Text> ₹{book.price}</Card.Text>
+                        <Card.Text className='playfair-display-mygooglefont'>{book.description}</Card.Text>
+                        <div className="justify-content-between w-100">
+                          {alreadyInCart ? (
+                            <Link to="/cart">
+                              <Button variant="danger" className="rounded-pill">
+                                <FontAwesomeIcon icon={faShoppingCart} /> In Cart
+                              </Button>
+                            </Link>
+                          ) : (
+                            <Button variant="danger" className="rounded-pill" onClick={() => dispatch(bookToCart(book))}>
+                              <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
                             </Button>
-                          </Link>
-                        ) : (
-                          <Button variant="danger" className="rounded-pill" onClick={() => dispatch(bookToCart(book))}>
-                            <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
-                          </Button>
-                        )}
-                        {alreadyInFavourites ? (
+                          )}
+                          {alreadyInFavourites ? (
 
-                          <Button variant="primary" className="rounded-pill ms-3" onClick={alreadyInFavToast}>
-                            <FontAwesomeIcon icon={faBagShopping} />
-                          </Button>
+                            <Button variant="primary" className="rounded-pill ms-3" onClick={alreadyInFavToast}>
+                              <FontAwesomeIcon icon={faBagShopping} />
+                            </Button>
 
-                        ) : (
-                          <Button variant="primary" className="rounded-pill ms-3" onClick={() => dispatch(addToFavorites(book))}>
-                            <FontAwesomeIcon icon={faHeart} />
-                          </Button>
-                        )}
-                      </div>
-                    </Card.Body>
+                          ) : (
+                            <Button variant="primary" className="rounded-pill ms-3" onClick={() => dispatch(addToFavorites(book))}>
+                              <FontAwesomeIcon icon={faHeart} />
+                            </Button>
+                          )}
+                        </div>
+                      </Card.Body>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            </div>
-          )
-        })}
+                </Card>
+              </div>
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

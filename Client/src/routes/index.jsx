@@ -8,6 +8,7 @@ import ErrorPage from '../components/pages/ErrorPage/ErrorPage.jsx';
 import BuyerPrivateRoute from '../components/PublicPrivateRoutes/BuyerPrivateRoutes/BuyerPrivateRoutes.jsx';
 import AdminPrivateRoute from '../components/PublicPrivateRoutes/AdminPrivateRoutes/AdminPrivateRoute.jsx';
 import SellerPrivateRoute from '../components/PublicPrivateRoutes/SellerPrivateRoutes/SellerPrivateRoutes.jsx';
+import SearchedBooks from '../components/pages/Books/SearchedBooks.jsx';
 const Home = lazy(() => import('../components/pages/Home/Home'));
 const Login = lazy(() => import('../components/pages/Login/Login'));
 const SellerLogin = lazy(() => import('../components/pages/Dashboard/SellerDashboard/Login/SellerLogin.jsx'));
@@ -170,6 +171,10 @@ const RouteFile = () => {
             {
               path: '/buyer/leaveAReview/:bookId',
               element: <ReviewPage />,
+            },
+            {
+              path: '/search',
+              element: <SearchedBooks />,
             }
           ],
         },

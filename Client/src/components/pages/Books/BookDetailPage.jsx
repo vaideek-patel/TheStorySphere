@@ -8,7 +8,8 @@ import "../../../Global.css"
 import { useDispatch, useSelector } from "react-redux"
 import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
 import { toast } from "react-toastify";
-
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
 const BookDetailPage = () => {
     const { id } = useParams();
     const navigate = useNavigate()
@@ -18,11 +19,14 @@ const BookDetailPage = () => {
     const booksInCart = useSelector((state) => state.cart.cart)
     const booksInFavorites = useSelector((state) => state.data.favorites)
     const [reviews, setReviews] = useState([]);
+    const { loader } = useSelector((state) => state.app);
+
 
 
     useEffect(() => {
         const fetchBook = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBookById(id);
                 console.log(response.data)
                 setBook(response.data);
@@ -33,7 +37,11 @@ const BookDetailPage = () => {
                 const reviewsData = reviewsResponses.map(response => response.data);
                 console.log(reviewsData[0])
                 setReviews(reviewsData);
+                dispatch(setLoader(false))
+
             } catch (error) {
+                dispatch(setLoader(false))
+
                 console.error('Error fetching book details:', error);
             }
         };
@@ -47,7 +55,7 @@ const BookDetailPage = () => {
     }
 
     if (!book) {
-        return <div>Loading...</div>;
+        return <div><Loader /></div>;
     }
 
     const handleCart = (book) => {
@@ -91,92 +99,92 @@ const BookDetailPage = () => {
         navigate(`/buyer/leaveAReview/${id}`)
     }
 
-
-
-
     return (
-        <Container className="my-5">
-            <Row>
-                <Col md={3}>
-                    <img src={book.image} alt="Book Cover" className="book-image" />
-                </Col>
-                <Col md={6}>
-                    <h2 className='playfair-display-mygooglefont'>{book.name}</h2>
-                    <p className='lora-mygooglefont'>{book.author} (Author)</p>
-                    <p className='lora-mygooglefont'>₹ {book.price}</p>
-                    <div className="d-flex mb-3">
-                        <Button variant={cartButton().variant} className="me-2" onClick={cartButton().onClick}>
-                            {cartButton().label}
-                        </Button>
-                        <Button variant={FavButton().variant} className="me-2" onClick={FavButton().onClick}>
-                            {FavButton().label}
-                        </Button>
-                    </div>
-                    <p className='lora-mygooglefont'>{book.description}</p>
-                    <hr className="my-4" />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <h3 className='playfair-display-mygooglefont'>Book Details</h3>
-                    <table className="table">
-                        <tbody>
-                            <tr>
-                                <td>Title</td>
-                                <td>{book.name}</td>
-                            </tr>
-                            <tr>
-                                <td>Author</td>
-                                <td>{book.author}</td>
-                            </tr>
-                            <tr>
-                                <td>SKU</td>
-                                <td>{book.SKU}</td>
-                            </tr>
-                            <tr>
-                                <td>EAN</td>
-                                <td>{book.EAN}</td>
-                            </tr>
-                            <tr>
-                                <td>Language</td>
-                                <td>{book.Language}</td>
-                            </tr>
-                            <tr>
-                                <td>Binding</td>
-                                <td>{book.Binding}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </Col>
-            </Row>
-
-            <Row className="mt-5">
-                <Col>
-                    <div className='d-flex align-items-center justify-content-between mb-3'>
-                        <h3 className='playfair-display-mygooglefont'>Customer Reviews!</h3>
-                        <Button variant="primary" onClick={handleLeaveReview}>Leave a Review</Button>
-                    </div>
-                    {reviews.length > 0 ? (
-                        <div className="card-deck">
-                            {reviews.map((review, index) => (
-                                <div className="card mt-2" key={index}>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{review.title}</h5>
-                                        <p className="card-text">{review.content}</p>
-                                    </div>
-                                    <div className="card-footer">
-                                        <small className="text-muted">Posted by {review.reviewerName}</small>
-                                    </div>
-                                </div>
-                            ))}
+        <>
+            {loader && <Loader />}
+            <Container className="my-5">
+                <Row>
+                    <Col md={3}>
+                        <img src={book.image} alt="Book Cover" className="book-image" />
+                    </Col>
+                    <Col md={6}>
+                        <h2 className='playfair-display-mygooglefont'>{book.name}</h2>
+                        <p className='lora-mygooglefont'>{book.author} (Author)</p>
+                        <p className='lora-mygooglefont'>₹ {book.price}</p>
+                        <div className="d-flex mb-3">
+                            <Button variant={cartButton().variant} className="me-2" onClick={cartButton().onClick}>
+                                {cartButton().label}
+                            </Button>
+                            <Button variant={FavButton().variant} className="me-2" onClick={FavButton().onClick}>
+                                {FavButton().label}
+                            </Button>
                         </div>
-                    ) : (
-                        <p className='playfair-display-mygooglefont'>No reviews available for this book.</p>
-                    )}
-                </Col>
-            </Row>
-        </Container>
+                        <p className='lora-mygooglefont'>{book.description}</p>
+                        <hr className="my-4" />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <h3 className='playfair-display-mygooglefont'>Book Details</h3>
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td>Title</td>
+                                    <td>{book.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Author</td>
+                                    <td>{book.author}</td>
+                                </tr>
+                                <tr>
+                                    <td>SKU</td>
+                                    <td>{book.SKU}</td>
+                                </tr>
+                                <tr>
+                                    <td>EAN</td>
+                                    <td>{book.EAN}</td>
+                                </tr>
+                                <tr>
+                                    <td>Language</td>
+                                    <td>{book.Language}</td>
+                                </tr>
+                                <tr>
+                                    <td>Binding</td>
+                                    <td>{book.Binding}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </Col>
+                </Row>
+
+                <Row className="mt-5">
+                    <Col>
+                        <div className='d-flex align-items-center justify-content-between mb-3'>
+                            <h3 className='playfair-display-mygooglefont'>Customer Reviews!</h3>
+                            <Button variant="primary" onClick={handleLeaveReview}>Leave a Review</Button>
+                        </div>
+                        {reviews.length > 0 ? (
+                            <div className="card-deck">
+                                {reviews.map((review, index) => (
+                                    <div className="card mt-2" key={index}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{review.title}</h5>
+                                            <p className="card-text">{review.content}</p>
+                                        </div>
+                                        <div className="card-footer">
+                                            <small className="text-muted">Posted by {review.reviewerName}</small>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <p className='playfair-display-mygooglefont'>No reviews available for this book.</p>
+                        )}
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 }
 

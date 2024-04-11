@@ -716,3 +716,21 @@ export const addReviewIdToBook = async (bookId, reviewId) => {
     };
   }
 };
+
+export const searchBooks = async (keyword) => {
+  try {
+    const response = await API.get(`/books?description_like=${keyword}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+

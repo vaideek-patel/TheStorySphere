@@ -5,23 +5,29 @@ import { Link } from 'react-router-dom';
 import "../../../Global.css"
 import { getBooks } from '../../../utils/axios-instance';
 import { useNavigate } from "react-router-dom"
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
 
 const Home = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const { loader } = useSelector((state) => state.app);
     const [carolShieldsBooks, setCarolShieldsBooks] = useState([]);
     const [nationalPoetry, setNationalPoetry] = useState([]);
     const [bookerPrize, setBookerPrize] = useState([]);
     const [smartBooks, setSmartBooks] = useState([]);
 
+
     useEffect(() => {
 
         const fetchCoralShieldBooks = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBooks("books?AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist=yes");
                 if (response.success) {
                     setCarolShieldsBooks(response.data);
+                    dispatch(setLoader(false))
                 } else {
                     console.error("Failed to fetch the Products Data", response.error);
                 }
@@ -32,9 +38,11 @@ const Home = () => {
 
         const fetchNationPoetryBooks = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBooks("books?AdditionalBookDetails.NationalPoetryMonth=yes");
                 if (response.success) {
                     setNationalPoetry(response.data);
+                    dispatch(setLoader(false))
                 } else {
                     console.error("Failed to fetch the Products Data", response.error);
                 }
@@ -45,10 +53,12 @@ const Home = () => {
 
         const fetchInternationalBookerPrizeBooks = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBooks("books?AdditionalBookDetails.InternationalBookerPrizeLonglist=yes");
                 if (response.success) {
                     console.log(response.data);
                     setBookerPrize(response.data);
+                    dispatch(setLoader(false))
                 } else {
                     console.error("Failed to fetch the Products Data", response.error);
                 }
@@ -59,9 +69,11 @@ const Home = () => {
 
         const fetchSmartBooks = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBooks("books?AdditionalBookDetails.BooksThatMakeYouSmarter=yes");
                 if (response.success) {
                     setSmartBooks(response.data);
+                    dispatch(setLoader(false))
                 } else {
                     console.error("Failed to fetch the Products Data", response.error);
                 }
@@ -100,7 +112,7 @@ const Home = () => {
 
     return (
         <>
-            {/* {loader && <Loader />} */}
+            {loader && <Loader />}
             <CommonCarousel>
                 <img id='95' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/Bookshop.BooksellersLIbrarians.2048X600rev.jpg?1712671316" alt="First slide" />
                 <img id='96' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/Familiar_Bookshop_2048x600.jpg?1712671667" alt="Second slide" />

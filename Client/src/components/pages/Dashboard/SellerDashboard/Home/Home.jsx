@@ -72,17 +72,9 @@ const Home = () => {
       confirmButtonText: "Yes, delete it!"
     }).then(async (result) => {
       if (result.isConfirmed) {
-        if (sellerPermissions.delete === 'yes') {
-          const response = await deleteBookData(bookId)
-          const updateListing = listedBooks.filter(listedBooks => listedBooks.id !== bookId);
-          setListedBooks(updateListing);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "You're not allowed!",
-            text: "Please Ask Admin!",
-          });
-        }
+        const response = await deleteBookData(bookId)
+        const updateListing = listedBooks.filter(listedBooks => listedBooks.id !== bookId);
+        setListedBooks(updateListing);
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -90,6 +82,14 @@ const Home = () => {
         });
       }
     });
+
+    if (sellerPermissions.delete !== 'yes') {
+      Swal.fire({
+        icon: "error",
+        title: "You're not allowed!",
+        text: "Please Ask Admin!",
+      });
+    }
   }
 
   console.log(sellerPermissions)

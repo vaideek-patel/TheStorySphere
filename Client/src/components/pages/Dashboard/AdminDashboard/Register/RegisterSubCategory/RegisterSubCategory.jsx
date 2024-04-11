@@ -5,6 +5,9 @@ import * as Yup from 'yup';
 import Select from 'react-select';
 import { getCategory, getSubCategory, registerNewCategory, registerNewSubCategory } from '../../../../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
+
 
 const RegisterSubCategory = () => {
     const navigate = useNavigate();
@@ -42,6 +45,10 @@ const RegisterSubCategory = () => {
             const newCategory = { id: lastId.toString(), ...values };
             const response = await registerNewSubCategory(newCategory)
             if (response.success) {
+                Swal.fire({
+                    title: "New SubCategory Added!",
+                    icon: "success",
+                });
                 navigate("/admin/manage-sub-category")
             }
             resetForm();
@@ -54,45 +61,46 @@ const RegisterSubCategory = () => {
         setSelectedCategoryId(selectedOption.value);
         const selectedCategory = categories.find(category => category.id === selectedOption.value);
         setFieldValue('categoryId', selectedOption.value);
-        // setFieldValue('category', selectedCategory ? selectedCategory.name : '');
     };
     return (
-        <>
-            <div>
-                Register New Category
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="border rounded shadow p-4">
+                        <h3 className="text-center mb-4 playfair-display-mygooglefont">Register New Sub-Category</h3>
+                        <Formik
+                            initialValues={{
+                                name: '',
+                                categoryId: '',
+                            }}
+                            onSubmit={ListNewSubCategory}
+                        >
+                            {({ values, setFieldValue }) => (
+
+                                <Form>
+                                    <div className="form-group">
+
+                                        <BootstrapForm.Group>
+                                            <BootstrapForm.Label>Name</BootstrapForm.Label>
+                                            <Field name="name" type="text" className="form-control" />
+                                        </BootstrapForm.Group>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="categoryId">Category</label><Select
+                                            name="categoryId"
+                                            options={categories.map(category => ({ value: category.id, label: category.name }))}
+                                            onChange={(selectedOption) => handleCategoryChange(selectedOption, { setFieldValue })}
+                                        />
+                                        <ErrorMessage name="categoryId" component="div" className="error" />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary mt-4">Submit</button>
+                                </Form>
+                            )}
+                        </Formik>
+                    </div>
+                </div>
             </div>
-            <Formik
-                initialValues={{
-                    name: '',
-                    categoryId: '',
-                }}
-                // validationSchema={validationSchema}
-                onSubmit={ListNewSubCategory}
-            >
-                {({ values, setFieldValue }) => (
-
-                    <Form>
-                        <div className="form-group">
-
-                            <BootstrapForm.Group>
-                                <BootstrapForm.Label>Name</BootstrapForm.Label>
-                                <Field name="name" type="text" className="form-control" />
-                                {/* {errors.name && touched.name && <div className="text-danger">{errors.name}</div>} */}
-                            </BootstrapForm.Group>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="categoryId">Category</label><Select
-                                name="categoryId"
-                                options={categories.map(category => ({ value: category.id, label: category.name }))}
-                                onChange={(selectedOption) => handleCategoryChange(selectedOption, { setFieldValue })}
-                            />
-                            <ErrorMessage name="categoryId" component="div" className="error" />
-                        </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                    </Form>
-                )}
-            </Formik>
-        </>
+        </div>
     );
 };
 

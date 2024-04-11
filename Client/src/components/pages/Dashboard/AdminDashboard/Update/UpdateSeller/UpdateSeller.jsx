@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FormComponent from '../../../../../common/Form';
 import { getSellerDataBySellerId, updateSellerData } from '../../../../../../utils/axios-instance/index';
 import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const UpdateSeller = () => {
     const navigate = useNavigate();
@@ -24,10 +25,14 @@ const UpdateSeller = () => {
         try {
             const currentSeller = { id: sellerId.toString(), ...values };
             const response = await updateSellerData(sellerId, currentSeller)
+            Swal.fire({
+                title: "Updated Seller!",
+                icon: "success",
+            });
             navigate("/admin/manage-sellers")
-          } catch (error) {
+        } catch (error) {
             console.log(error)
-          }
+        }
     };
 
     const fields = [
@@ -42,14 +47,20 @@ const UpdateSeller = () => {
     if (!sellerData) return <div>Loading...</div>;
 
     return (
-        <>
-            <div>Update Seller</div>
-            <FormComponent
-                initialValues={sellerData}
-                onSubmit={handleSubmit}
-                fields={fields}
-            />
-        </>
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="border rounded shadow p-4">
+                        <h3 className="text-center mb-4 playfair-display-mygooglefont">Update Exsisitng Seller</h3>
+                        <FormComponent
+                            initialValues={sellerData}
+                            onSubmit={handleSubmit}
+                            fields={fields}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 
