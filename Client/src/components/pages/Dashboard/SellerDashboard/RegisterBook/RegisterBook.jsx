@@ -93,14 +93,14 @@ const RegisterBook = () => {
                     category: '',
                     subCategoryId: '',
                     subcategoryName: '',
-                    recentlyLaunched: false,
+                    recentlyLaunched: 'no', // Set default value
                     AdditionalBookDetails: {
-                        BestSeller: false,
-                        BestSellerOfTheWeek: false,
-                        NationalPoetryMonth: false,
-                        InternationalBookerPrizeLonglist: false,
-                        BooksThatMakeYouSmarter: false,
-                        CarolShieldsPrizeForFictionLonglist: false,
+                        BestSeller: 'no', // Set default value
+                        BestSellerOfTheWeek: 'no', // Set default value
+                        NationalPoetryMonth: 'no', // Set default value
+                        InternationalBookerPrizeLonglist: 'no', // Set default value
+                        BooksThatMakeYouSmarter: 'no', // Set default value
+                        CarolShieldsPrizeForFictionLonglist: 'no', // Set default value
                     }
                 }}
                 validationSchema={validationSchema}

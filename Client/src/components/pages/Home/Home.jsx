@@ -127,9 +127,9 @@ const Home = () => {
                             <Card className="mb-3">
                                 <div className="row g-0">
                                     <div className="col-md-4  d-flex overflow-hidden">
-                                        <img src="https://images-us.bookshop.org/ingram/9781646221974.jpg?height=250&v=v2-5f7652f3d344f6b94469b0926aa98d4a" className="img-fluid me-3 custom" alt="New Books Image" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
-                                        <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
+                                        <img id='99' onClick={(event) => handleBookClick(event.target.id)} src="https://www.exetertoday.co.uk/resizer/640/-1/true/2024_04_05/9780008701116-1712326424520_1712326474.jpg--the_age_of_magical_overthinking.jpg?1712326474877" className="img-fluid me-3 custom" alt="New Books Image" />
+                                        <img id='97' onClick={(event) => handleBookClick(event.target.id)}src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
+                                        <img id='98' onClick={(event) => handleBookClick(event.target.id)} src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
                                     </div>
                                     <div className="col-md-8">
                                         <Card.Body>
@@ -147,7 +147,7 @@ const Home = () => {
                                 <div className="row g-0">
                                     <div className="col-md-4  d-flex overflow-hidden">
                                         <div className='d-flex pd-19'>
-                                            <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="New Books Image" />
+                                            <img id='100' onClick={(event) => handleBookClick(event.target.id)} src="https://m.media-amazon.com/images/I/91TjX-AYeLL._AC_UF1000,1000_QL80_.jpg" className="img-fluid me-3 custom" alt="New Books Image" />
                                             <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />
                                             <img src="https://images-us.bookshop.org/ingram/9781649374189.jpg?height=250&v=v2-0e0c0a7fc2463723c5a977c9ca6a441e" className="img-fluid me-3 custom" alt="Best of the Week Image" />                                    </div>
                                     </div>

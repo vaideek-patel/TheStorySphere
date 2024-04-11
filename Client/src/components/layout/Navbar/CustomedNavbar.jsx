@@ -5,7 +5,7 @@ import './Navbar.css';
 import "../../../Global.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruckFast, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTruckFast, faUser } from '@fortawesome/free-solid-svg-icons';
 import Logo from "../../../../public/The Story Sphere_transparent(12).png"
 import { removeRole } from '../../../redux/actions/roleActions';
 import { clearCart, removeData } from '../../../redux/actions/dataAction';
@@ -47,7 +47,7 @@ const CustomedNavbar = () => {
 
   useEffect(() => {
     fetchSubcategories(1),
-    fetchSubcategories(2)
+      fetchSubcategories(2)
     fetchSubcategories(3)
     fetchSubcategories(4)
   }, [])
@@ -293,9 +293,12 @@ const CustomedNavbar = () => {
         null
       )}
     </>
+
   );
 }
 
 export default CustomedNavbar;
+
+
 
 

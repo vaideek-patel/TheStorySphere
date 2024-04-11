@@ -6,8 +6,8 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { setLoader } from '../../../redux/actions/appAction';
 import Loader from '../../common/Loader';
-import {useSelector} from 'react-redux'
-import {useDispatch} from "react-redux"
+import { useSelector } from 'react-redux'
+import { useDispatch } from "react-redux"
 
 const OrderConfirmationPage = () => {
     const { id } = useParams();
@@ -50,9 +50,13 @@ const OrderConfirmationPage = () => {
         });
     };
 
+    const navigateToHome = () => {
+        navigate("/")
+    }
+
     return (
         <>
-          {loader && <Loader/>}
+            {loader && <Loader />}
             <Container className="mt-5">
                 <Row className="justify-content-center">
                     <Col md={8}>
@@ -102,8 +106,10 @@ const OrderConfirmationPage = () => {
                     </Col>
                 </Row>
                 <Row className="justify-content-center mt-4">
-                    <Button variant="success" className="rounded-pill mr-3" onClick={downLoadPDF}>Download Invoice</Button>
-                    <Button variant="primary" className="rounded-pill">Continue Shopping</Button>
+                    <div className="d-flex justify-content-center">
+                        <Button variant="success" className="rounded-pill mr-3" onClick={downLoadPDF}>Download Invoice</Button>
+                        <Button variant="primary" className="rounded-pill" onClick={navigateToHome}>Continue Shopping</Button>
+                    </div>
                 </Row>
             </Container>
         </>
