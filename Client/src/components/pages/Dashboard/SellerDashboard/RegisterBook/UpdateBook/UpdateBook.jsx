@@ -68,12 +68,12 @@ const UpdateBook = () => {
             subcategoryName: fetchedBookData.subcategoryName,
             soldBy: fetchedBookData.soldBy,
             AdditionalBookDetails: {
-                BestSeller: fetchedBookData.AdditionalBookDetails.BestSeller === 'yes' ? true : false,
-                BestSellerOfTheWeek: fetchedBookData.AdditionalBookDetails.BestSellerOfTheWeek === 'yes' ? true : false,
-                NationalPoetryMonth: fetchedBookData.AdditionalBookDetails.NationalPoetryMonth === 'yes' ? true : false,
-                InternationalBookerPrizeLonglist: fetchedBookData.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes' ? true : false,
-                BooksThatMakeYouSmarter: fetchedBookData.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes' ? true : false,
-                CarolShieldsPrizeForFictionLonglist: fetchedBookData.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes' ? true : false,
+                BestSeller: fetchedBookData.AdditionalBookDetails.BestSeller === 'yes' ? 'yes' : 'no',
+                BestSellerOfTheWeek: fetchedBookData.AdditionalBookDetails.BestSellerOfTheWeek === 'yes' ? 'yes' : 'no',
+                NationalPoetryMonth: fetchedBookData.AdditionalBookDetails.NationalPoetryMonth === 'yes' ? 'yes' : 'no',
+                InternationalBookerPrizeLonglist: fetchedBookData.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes' ? 'yes' : 'no',
+                BooksThatMakeYouSmarter: fetchedBookData.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes' ? 'yes' : 'no',
+                CarolShieldsPrizeForFictionLonglist: fetchedBookData.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes' ? 'yes' : 'no',
             }
         } : {
             name: '',
@@ -177,8 +177,11 @@ const UpdateBook = () => {
                                         label="Recently Launched"
                                         name="recentlyLaunched"
                                         as={Field}
-                                        checked={values.recentlyLaunched}
-                                        onChange={() => setFieldValue('recentlyLaunched', !values.recentlyLaunched)}
+                                        checked={values.recentlyLaunched === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.recentlyLaunched === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('recentlyLaunched', newValue);
+                                        }}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -190,8 +193,11 @@ const UpdateBook = () => {
                                         label="Best Seller"
                                         name="AdditionalBookDetails.BestSeller"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BestSeller}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.BestSeller', !values.AdditionalBookDetails.BestSeller)}
+                                        checked={values.AdditionalBookDetails.BestSeller === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.AdditionalBookDetails.BestSeller === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('AdditionalBookDetails.BestSeller', newValue);
+                                        }}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -205,7 +211,7 @@ const UpdateBook = () => {
                                         label="Best Seller Of The Week"
                                         name="AdditionalBookDetails.BestSellerOfTheWeek"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BestSellerOfTheWeek}
+                                        checked={values.AdditionalBookDetails.BestSellerOfTheWeek === 'yes'}
                                         onChange={() => setFieldValue('AdditionalBookDetails.BestSellerOfTheWeek', !values.AdditionalBookDetails.BestSellerOfTheWeek)}
                                     />
                                 </BootstrapForm.Group>
@@ -218,9 +224,11 @@ const UpdateBook = () => {
                                         label="National Poetry Month"
                                         name="AdditionalBookDetails.NationalPoetryMonth"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.NationalPoetryMonth}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.NationalPoetryMonth', !values.AdditionalBookDetails.NationalPoetryMonth)}
-                                    />
+                                        checked={values.AdditionalBookDetails.NationalPoetryMonth === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.AdditionalBookDetails.NationalPoetryMonth === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('AdditionalBookDetails.NationalPoetryMonth', newValue);
+                                        }} />
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
@@ -233,9 +241,11 @@ const UpdateBook = () => {
                                         label="International Booker Prize Longlist"
                                         name="AdditionalBookDetails.InternationalBookerPrizeLonglist"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.InternationalBookerPrizeLonglist}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.InternationalBookerPrizeLonglist', !values.AdditionalBookDetails.InternationalBookerPrizeLonglist)}
-                                    />
+                                        checked={values.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('AdditionalBookDetails.InternationalBookerPrizeLonglist', newValue);
+                                        }} />
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
@@ -246,9 +256,11 @@ const UpdateBook = () => {
                                         label="Books That Make You Smarter"
                                         name="AdditionalBookDetails.BooksThatMakeYouSmarter"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BooksThatMakeYouSmarter}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.BooksThatMakeYouSmarter', !values.AdditionalBookDetails.BooksThatMakeYouSmarter)}
-                                    />
+                                        checked={values.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('AdditionalBookDetails.BooksThatMakeYouSmarter', newValue);
+                                        }} />
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
@@ -261,9 +273,11 @@ const UpdateBook = () => {
                                         label="Carol Shields Prize For Fiction Longlist"
                                         name="AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist', !values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist)}
-                                    />
+                                        checked={values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes'}
+                                        onChange={() => {
+                                            const newValue = values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes' ? 'no' : 'yes';
+                                            setFieldValue('AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist', newValue);
+                                        }} />
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>

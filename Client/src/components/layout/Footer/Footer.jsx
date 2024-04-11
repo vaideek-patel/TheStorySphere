@@ -49,25 +49,25 @@ const Footer = () => {
               </MDBCol>
 
               <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
-                <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+                <h6 className='text-uppercase fw-bold mb-4'>Might be Useful!</h6>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Pricing
+                    Carrers - We're Hiring
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Settings
+                    Contact
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Orders
+                    Returns and Refund Policy
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Help
+                    Privacy Notice
                   </a>
                 </p>
               </MDBCol>

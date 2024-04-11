@@ -2902,6 +2902,85 @@
         "BooksThatMakeYouSmarter": "no",
         "CarolShieldsPrizeForFictionLonglist": "no"
       }
+    },
+    {
+      "id": "99",
+      "name": "The Age of Magical Overthinking: Notes on Modern Irrationality",
+      "author": "Amanda Montell",
+      "description": "In 'The Age of Magical Overthinking,' Amanda Montell explores the phenomenon of modern irrationality. From conspiracy theories to pseudoscience, Montell delves into the various ways people engage in magical thinking in the digital age. With wit and insight, she dissects the psychology behind these behaviors, offering readers a fascinating glimpse into the quirks of the human mind.",
+      "category": "Non-Fiction",
+      "price": "1200",
+      "releaseDate": "15-June-2019",
+      "image": "https://www.exetertoday.co.uk/resizer/640/-1/true/2024_04_05/9780008701116-1712326424520_1712326474.jpg--the_age_of_magical_overthinking.jpg?1712326474877",
+      "categoryId": "1",
+      "subCategoryId": "5",
+      "subcategoryName": "Romance",
+      "recentlyLaunched": "yes",
+      "SKU": "LM123456",
+      "EAN": "9876543210987",
+      "Binding": "Paperback",
+      "Language": "English",
+      "reviews": [],
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "yes",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "100",
+      "name": "The Far Away Brothers (Adapted for Young Adults): Two Teenage Immigrants Making a Life in America",
+      "author": "Lauren Markham",
+      "description": "In 'The Far Away Brothers,' Lauren Markham tells the compelling story of two teenage immigrants striving to build a new life in America. Adapted for young adults, this book offers an intimate portrayal of the challenges and triumphs faced by immigrant youth. Through vivid storytelling, Markham explores themes of family, identity, and resilience, making this a must-read for young readers seeking to understand the immigrant experience.",
+      "category": "Non-Fiction",
+      "price": "1500",
+      "releaseDate": "10-October-2017",
+      "image": "https://m.media-amazon.com/images/I/91TjX-AYeLL._AC_UF1000,1000_QL80_.jpg",
+      "categoryId": "1",
+      "subCategoryId": "6",
+      "subcategoryName": "Mythological Fiction",
+      "recentlyLaunched": "yes",
+      "SKU": "LM789012",
+      "EAN": "1234567890123",
+      "Binding": "Hardcover",
+      "Language": "English",
+      "reviews": [],
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": "no",
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
+    },
+    {
+      "id": "101",
+      "name": "Vaideek Patel",
+      "author": "Vaideek Patel Demo",
+      "description": "SDSSAD",
+      "price": 223,
+      "releaseDate": "2024-04-11",
+      "image": "https://4.imimg.com/data4/HS/QF/MY-31989476/the-world-of-science-and-technology.jpg",
+      "categoryId": "3",
+      "subCategoryId": "18",
+      "recentlyLaunched": "no",
+      "category": "Business & Management",
+      "subcategoryName": "Entrepreneurship & Management",
+      "soldBy": "1",
+      "AdditionalBookDetails": {
+        "BestSeller": "no",
+        "BestSellerOfTheWeek": false,
+        "NationalPoetryMonth": "no",
+        "InternationalBookerPrizeLonglist": "no",
+        "BooksThatMakeYouSmarter": "no",
+        "CarolShieldsPrizeForFictionLonglist": "no"
+      }
     }
   ],
   "orders": [
@@ -2962,6 +3041,64 @@
         "totalAmount": 650
       },
       "ordered_At": "2024-04-11T15:09:04.255Z"
+    },
+    {
+      "id": "60d5",
+      "userId": "1",
+      "shippingDetails": {
+        "firstName": "Vaideek",
+        "lastName": "Patel",
+        "shippingAddress": "30-silver a",
+        "company": "3293",
+        "city": "Ahmedabd ",
+        "state": "gujrata",
+        "zip": "380060"
+      },
+      "paymentDetails": {
+        "cardNumber": "30232132132",
+        "cardName": "Vaideek patel",
+        "cardExpiry": "2103",
+        "cvv": "123"
+      },
+      "finalOrderBooks": {
+        "cart": [
+          {
+            "id": "4",
+            "name": "Flash Fiction Stories",
+            "author": "John Smith",
+            "description": "A collection of short and engaging stories perfect for quick reads. 'Flash Fiction Stories' offers a diverse array of narratives, each crafted to captivate and entertain readers in just a few short moments. From heartwarming tales to spine-tingling mysteries, John Smith showcases his storytelling prowess in this compelling anthology.",
+            "category": "Fiction",
+            "price": "500",
+            "releaseDate": "10-Oct-2020",
+            "image": "https://m.media-amazon.com/images/I/71KA66Gl4uL._AC_UF1000,1000_QL80_.jpg",
+            "categoryId": "1",
+            "subCategoryId": "4",
+            "subcategoryName": "Quick Reads",
+            "recentlyLaunched": "no",
+            "SKU": "IJ7890123",
+            "EAN": "7890123456789",
+            "Binding": "Hardcover",
+            "Language": "English",
+            "reviews": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "soldBy": "1",
+            "AdditionalBookDetails": {
+              "BestSeller": "no",
+              "BestSellerOfTheWeek": "no",
+              "NationalPoetryMonth": "no",
+              "InternationalBookerPrizeLonglist": "no",
+              "BooksThatMakeYouSmarter": "no",
+              "CarolShieldsPrizeForFictionLonglist": "no"
+            }
+          }
+        ],
+        "totalAmount": 650
+      },
+      "ordered_At": "2024-04-11T17:01:27.133Z"
     }
   ],
   "category": [
