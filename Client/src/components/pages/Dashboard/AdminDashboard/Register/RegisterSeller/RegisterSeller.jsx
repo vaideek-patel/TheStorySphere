@@ -3,6 +3,7 @@ import FormComponent from '../../../../../common/Form';
 import * as Yup from 'yup';
 import { getSellers, registerNewSeller } from "../../../../../../utils/axios-instance/index"
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const RegisterSeller = () => {
@@ -43,6 +44,10 @@ const RegisterSeller = () => {
         const newSellerObj = { id: lastId.toString(), ...values };
         const response = await registerNewSeller(newSellerObj)
         if (response.success) {
+            Swal.fire({
+                title: "Seller Registered Sucessfully!",
+                icon: "success",
+            });
             navigate("/admin/manage-sellers")
         }
         resetForm();
@@ -52,16 +57,20 @@ const RegisterSeller = () => {
 
 
     return (
-        <>
-            <div>
-                Register New Seller
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="border rounded shadow p-4">
+                        <h3 className="text-center mb-4 playfair-display-mygooglefont">Register New Seller</h3>
+                        <FormComponent
+                            initialValues={initialValues}
+                            onSubmit={handleSubmit}
+                            fields={fields}
+                        />
+                    </div>
+                </div>
             </div>
-            <FormComponent
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-                fields={fields}
-            />
-        </>
+        </div>
     )
 }
 

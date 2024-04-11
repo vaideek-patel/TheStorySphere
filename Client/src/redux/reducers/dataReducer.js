@@ -8,7 +8,6 @@ import {
 } from "../actions/actiontypes";
 
 const initialState = {
-  wishList: [],
   favorites: [],
 };
 

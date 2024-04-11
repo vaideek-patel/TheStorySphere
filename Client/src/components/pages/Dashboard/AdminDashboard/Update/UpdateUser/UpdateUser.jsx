@@ -3,6 +3,7 @@ import FormComponent from '../../../../../common/Form';
 import * as Yup from 'yup';
 import { useNavigate, useParams } from 'react-router-dom'
 import { getAccountDetailByUsertId, getUsers, updateUserData } from '../../../../../../utils/axios-instance';
+import Swal from 'sweetalert2'
 
 const UpdateUser = () => {
   const { userId } = useParams()
@@ -55,6 +56,11 @@ const UpdateUser = () => {
     try {
       const currentUser = { id: userId.toString(), ...values };
       const response = await updateUserData(userId, currentUser)
+      Swal.fire({
+        title: "User updated!",
+        text: "Happy Exploring the Story Sphere!",
+        icon: "success",
+      });
       navigate("/admin/home")
     } catch (error) {
       console.log(error)
@@ -62,17 +68,25 @@ const UpdateUser = () => {
   }
 
   return (
-    <>
-      <div>
-        Register New Category
+
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="border rounded shadow p-4">
+            <h3 className="text-center mb-4 playfair-display-mygooglefont">
+              Update Exsisting User
+            </h3>
+            <FormComponent
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={UpdateSelectedUser}
+              fields={fields}
+            />
+          </div>
+        </div>
       </div>
-      <FormComponent
-        initialValues={initialValues}
-        // validationSchema={validationSchema}
-        onSubmit={UpdateSelectedUser}
-        fields={fields}
-      />
-    </>
+    </div>
+
   )
 }
 

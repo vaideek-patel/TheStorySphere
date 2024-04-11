@@ -5,13 +5,14 @@ import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Suspense } from 'react';
 import { RouterProvider } from "react-router-dom";
+import Loader from "./components/common/Loader";
 
 
 function App() {
   const router = RouteFile()
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><Loader /></div>}>
         <div>
           {/* <CustomedNavbar /> */}
           {/* <RouteFile /> */}

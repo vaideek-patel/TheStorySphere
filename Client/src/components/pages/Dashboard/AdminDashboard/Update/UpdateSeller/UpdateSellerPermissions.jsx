@@ -43,40 +43,46 @@ const UpdateSellerPermissions = () => {
     };
 
     return (
-        <Container>
-            <h2 className='playfair-display-mygooglefont'>Update Seller Permissions</h2>
-            <Form>
-                <Form.Group controlId="registerPermissionCheckbox">
-                    <Form.Check
-                        type="checkbox"
-                        label="Register Permission"
-                        checked={registerPermission}
-                        onChange={() => setRegisterPermission(!registerPermission)}
-                    />
-                </Form.Group>
+        <Container className="mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="border rounded shadow p-4">
+                        <h2 className='text-center mb-4 playfair-display-mygooglefont'>Update Seller Permissions</h2>
+                        <Form>
+                            <Form.Group controlId="registerPermissionCheckbox">
+                                <Form.Check
+                                    type="checkbox"
+                                    label="Register Permission"
+                                    checked={registerPermission}
+                                    onChange={() => setRegisterPermission(!registerPermission)}
+                                />
+                            </Form.Group>
 
-                <Form.Group controlId="updatePermissionCheckbox">
-                    <Form.Check
-                        type="checkbox"
-                        label="Update Permission"
-                        checked={updatePermission}
-                        onChange={() => setUpdatePermission(!updatePermission)}
-                    />
-                </Form.Group>
+                            <Form.Group controlId="updatePermissionCheckbox">
+                                <Form.Check
+                                    type="checkbox"
+                                    label="Update Permission"
+                                    checked={updatePermission}
+                                    onChange={() => setUpdatePermission(!updatePermission)}
+                                />
+                            </Form.Group>
 
-                <Form.Group controlId="deletePermissionCheckbox">
-                    <Form.Check
-                        type="checkbox"
-                        label="Delete Permission"
-                        checked={deletePermission}
-                        onChange={() => setDeletePermission(!deletePermission)}
-                    />
-                </Form.Group>
+                            <Form.Group controlId="deletePermissionCheckbox">
+                                <Form.Check
+                                    type="checkbox"
+                                    label="Delete Permission"
+                                    checked={deletePermission}
+                                    onChange={() => setDeletePermission(!deletePermission)}
+                                />
+                            </Form.Group>
 
-                <Button variant="primary" onClick={handleUpdatePermissions}>
-                    Update Permissions
-                </Button>
-            </Form>
+                            <Button variant="primary" className='mt-4' onClick={handleUpdatePermissions}>
+                                Update Permissions
+                            </Button>
+                        </Form>
+                    </div>
+                </div>
+            </div>
         </Container>
     );
 };

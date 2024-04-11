@@ -9,7 +9,9 @@ import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from '../../common/Pagination';
 import { toast } from "react-toastify";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
 
 const Books = () => {
     const [books, setBooks] = useState([]);
@@ -21,14 +23,19 @@ const Books = () => {
     const [sortPriceAsc, setSortPriceAsc] = useState(true);
     const booksInCart = useSelector((state) => state.cart.cart);
     const booksInFavorites = useSelector((state) => state.data.favorites);
+    const { loader } = useSelector((state) => state.app);
+
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const handleQuickView = async (bookId) => {
         try {
+            dispatch(setLoader(true))
             const response = await getBookById(bookId);
             setQuickViewBook(response.data);
             setShowModal(true);
+            dispatch(setLoader(false))
+
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -37,8 +44,10 @@ const Books = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
+                dispatch(setLoader(true))
                 const response = await getBooks("books");
                 setBooks(response.data);
+                dispatch(setLoader(false))
             } catch (error) {
                 console.error("Error while fetching books:", error);
             }
@@ -113,6 +122,7 @@ const Books = () => {
 
     return (
         <>
+            {loader && <Loader />}
             <div className="subCategory-heading-container">
                 <h2 className='playfair-display-mygooglefont'>Explore All Books Across The Story Sphere.</h2>
                 <div className='d-flex align-items-center justify-content-center'>

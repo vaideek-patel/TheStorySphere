@@ -2904,7 +2904,66 @@
       }
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "3aa6",
+      "userId": "1",
+      "shippingDetails": {
+        "firstName": "Vaideek",
+        "lastName": "patel",
+        "shippingAddress": "23920932803",
+        "company": "30830q29310",
+        "city": "Ahmedaabd ",
+        "state": "Gujarat",
+        "zip": "380060"
+      },
+      "paymentDetails": {
+        "cardNumber": "3232434324",
+        "cardName": "Vaideek Patel",
+        "cardExpiry": "2132",
+        "cvv": "12"
+      },
+      "finalOrderBooks": {
+        "cart": [
+          {
+            "id": "4",
+            "name": "Flash Fiction Stories",
+            "author": "John Smith",
+            "description": "A collection of short and engaging stories perfect for quick reads. 'Flash Fiction Stories' offers a diverse array of narratives, each crafted to captivate and entertain readers in just a few short moments. From heartwarming tales to spine-tingling mysteries, John Smith showcases his storytelling prowess in this compelling anthology.",
+            "category": "Fiction",
+            "price": "500",
+            "releaseDate": "10-Oct-2020",
+            "image": "https://m.media-amazon.com/images/I/71KA66Gl4uL._AC_UF1000,1000_QL80_.jpg",
+            "categoryId": "1",
+            "subCategoryId": "4",
+            "subcategoryName": "Quick Reads",
+            "recentlyLaunched": "no",
+            "SKU": "IJ7890123",
+            "EAN": "7890123456789",
+            "Binding": "Hardcover",
+            "Language": "English",
+            "reviews": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "soldBy": "1",
+            "AdditionalBookDetails": {
+              "BestSeller": "no",
+              "BestSellerOfTheWeek": "no",
+              "NationalPoetryMonth": "no",
+              "InternationalBookerPrizeLonglist": "no",
+              "BooksThatMakeYouSmarter": "no",
+              "CarolShieldsPrizeForFictionLonglist": "no"
+            }
+          }
+        ],
+        "totalAmount": 650
+      },
+      "ordered_At": "2024-04-11T15:09:04.255Z"
+    }
+  ],
   "category": [
     {
       "name": "Fiction",
@@ -3082,6 +3141,11 @@
       "name": "New York Times BestSellers",
       "id": "31",
       "categoryId": "5"
+    },
+    {
+      "id": "32",
+      "name": "Demo Sub Category",
+      "categoryId": "1"
     }
   ],
   "reviews": [

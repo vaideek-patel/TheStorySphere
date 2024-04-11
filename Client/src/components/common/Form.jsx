@@ -5,9 +5,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 const FormComponent = ({ initialValues, validationSchema, onSubmit, fields }) => {
     console.log(initialValues);
     return (
-
         <Container>
-            {/* <h1 className="text-center mt-5 mb-4">Register New Book</h1> */}
             <Formik
                 enableReinitialize
                 initialValues={initialValues}
@@ -18,8 +16,8 @@ const FormComponent = ({ initialValues, validationSchema, onSubmit, fields }) =>
                     <Form>
                         {fields.map((field, index) => (
                             <Row className="mb-3" key={index}>
-                                <Col md={6}>
-                                    <div>
+                                <Col md={8} lg={12}>
+                                    <div className="form-group">
                                         <label htmlFor={field.name}>{field.label}</label>
                                         {field.type === 'checkbox' ? (
                                             <div>

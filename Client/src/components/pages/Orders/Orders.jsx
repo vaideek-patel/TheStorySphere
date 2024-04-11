@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { deleteOrderById, getOrders } from '../../../utils/axios-instance';
+import { getOrders } from '../../../utils/axios-instance';
 import { useSelector } from 'react-redux';
 import { Card, ListGroup, Button } from 'react-bootstrap';
-import Swal from 'sweetalert2';
 import DetailModal from '../../common/Modal';
+import { setLoader } from '../../../redux/actions/appAction';
+import Loader from '../../common/Loader';
+import { useDispatch } from "react-redux"
 
 const Orders = () => {
+  const dispatch = useDispatch();
+  const { loader } = useSelector((state) => state.app);
+
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [orderedBooks, setOrderedBooks] = useState([]);
-  const [selectedOrder, setSelectedOrder] = useState(null);
   const userId = useSelector((state) => state.role.user.id);
-
-  const handleOrderDelete = async (orderId) => {
-    const deleteOrder = await deleteOrderById(orderId)
-    if (deleteOrder.success) {
-      console.log("Order Deleted!")
-      setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
-    }
-  }
 
   const handleViewOrderedBooks = async (order) => {
     try {
-      // const booksIds = order.finalOrderBooks.books.map(book => book.bookId);
+      dispatch(setLoader(true))
       console.log(order.finalOrderBooks.cart)
       setOrderedBooks(order.finalOrderBooks.cart);
-      // setSelectedOrder(order);
       setShowModal(true);
+      dispatch(setLoader(false))
     } catch (error) {
       console.error("Error while fetching ordered books:", error);
     }
@@ -35,10 +31,12 @@ const Orders = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        dispatch(setLoader(true))
         const { success, data, error } = await getOrders();
         if (success) {
           const filteredOrders = data.filter(order => order.userId === userId);
           setOrders(filteredOrders);
+          dispatch(setLoader(false))
         } else {
           console.error("Failed to fetch users:", error);
         }
@@ -51,6 +49,7 @@ const Orders = () => {
 
   return (
     <>
+      {loader && <Loader />}
       <div className="container mt-3">
         {orders.length > 0 ? (
           orders.map((order) => (
@@ -64,7 +63,6 @@ const Orders = () => {
                 </ListGroup>
                 <div className="d-flex justify-content-end">
                   <Button variant="primary" style={{ marginRight: '8px' }} onClick={() => handleViewOrderedBooks(order)}>View ordered books</Button>
-                  <Button variant="danger" onClick={() => handleOrderDelete(order.id)}>Delete order</Button>
                 </div>
               </Card.Body>
             </Card>
@@ -76,7 +74,6 @@ const Orders = () => {
       <DetailModal
         show={showModal}
         onHide={() => setShowModal(false)}
-        // quickViewBook={orderedBooks}
         data={orderedBooks}
       />
     </>

@@ -3,6 +3,8 @@ import { deleteUserData, getUsers } from '../../../../../utils/axios-instance';
 import Table from '../../../../common/Table';
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 
 const AdminHome = () => {
   const navigate = useNavigate()
@@ -34,11 +36,28 @@ const AdminHome = () => {
     navigate(`/admin/update-user/${userId}`)
 
   }
-  const handleUserDelete = async (userId) => {
-    const deleteUser = await deleteUserData(userId)
-    console.log(deleteUser)
-    const updatedUsers = users.filter(user => user.id !== userId);
-    setUsers(updatedUsers);
+  const handleUserDelete = (userId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this user again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const deleteUser = await deleteUserData(userId)
+        console.log(deleteUser)
+        const updatedUsers = users.filter(user => user.id !== userId);
+        setUsers(updatedUsers);
+        Swal.fire({
+          title: "User Deleted!",
+          icon: "success"
+        });
+      }
+    });
+
   }
   return (
     <Container className="py-4">

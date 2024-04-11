@@ -4,6 +4,8 @@ import { deleteSellerData, deleteSubCategoryData, getSubCategory } from '../../.
 import Table from '../../../../../common/Table';
 import { Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 
 const ManageSubCategory = () => {
     const navigate = useNavigate()
@@ -32,13 +34,31 @@ const ManageSubCategory = () => {
         navigate("/admin/register-newSubCategory")
     }
 
-    const deleteSubCategory = async (subCategoryId) => {
+    const deleteSubCategory =  (subCategoryId) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await deleteSubCategoryData(subCategoryId)
+                console.log(response)
+                const updateSubCategory = subCategory.filter(subCategory => subCategory.id !== subCategoryId);
+                setSubCategory(updateSubCategory);
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your Sub-Category has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
         console.log(subCategoryId)
 
-        const response = await deleteSubCategoryData(subCategoryId)
-        console.log(response)
-        const updateSubCategory = subCategory.filter(subCategory => subCategory.id !== subCategoryId);
-        setSubCategory(updateSubCategory);
+
     }
 
     const updateSubCategoryData = (subCategoryId) => {
