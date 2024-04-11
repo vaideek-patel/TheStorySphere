@@ -4,17 +4,19 @@ import RouteFile from "./routes"
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Suspense } from 'react';
+import { RouterProvider } from "react-router-dom";
 
 
 function App() {
-
+  const router = RouteFile()
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <div>
-          <CustomedNavbar />
-          <RouteFile />
-          <Footer />
+          {/* <CustomedNavbar /> */}
+          {/* <RouteFile /> */}
+          <RouterProvider router={router} />
+          {/* <Footer /> */}
           <ToastContainer
             autoClose={2000}
             closeOnClick

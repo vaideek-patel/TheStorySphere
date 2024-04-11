@@ -33,9 +33,6 @@ const AdminLogin = () => {
         <>
             <br />
             <div className="row justify-content-center">
-                <div className="text-center">
-                    <h3>Admin Login</h3>
-                </div>
             </div>
             <section className="login-section">
 
@@ -43,6 +40,8 @@ const AdminLogin = () => {
                 <div className="container py-5">
                     <div className="row justify-content-center align-items-center">
                         <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <h3 className='playfair-display-mygooglefont '>Admin Login</h3>
+
                             <div className="card shadow rounded-3">
                                 <div className="card-body p-5 text-center">
                                     <Formik
