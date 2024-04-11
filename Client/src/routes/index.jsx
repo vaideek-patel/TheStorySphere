@@ -278,64 +278,6 @@ const RouteFile = () => {
       ]
     }
   ]);
-  // <Routes>
-  //   <Route path="/adminLogin" element={<AdminLogin />} />
-  //   <Route path="/" element={<Home />} />
-  //   <Route path="/login" element={<Protected Component={Login} />} />
-  //   <Route path="/seller/login" element={<SellerLogin />} />
-  //   <Route path="/seller" element={<SellerHome />} />
-  //   <Route path="/signUp" element={<Protected Component={SignUp} />} />
-  //   
-  // 
-  // <Route path="/account" element={<Account />} />
-  //   <Route path="/edit-account/:userId" element={<EditAccount />} />
-  //   <Route path="/favourites" element={<Favourites />} />
-  //   <Route path="/cart" element={<Cart />} />
-  //   <Route path="/manage-orders" element={<Orders />} />
-  //   <Route path="/books" element={<Books />} />
-  //   <Route path="/books/recentlyLaunched" element={<RecentlyLaunched />} />
-  //   <Route path="/books/nationalPoetryMonth" element={<NationalPoetryMonth />} />
-  //   <Route path="/books/booksThatMakeSmarter" element={<BooksThatMakeSmarter />} />
-  //   <Route path="/books/CarolShieldsPrize" element={<CarolShieldsPrize />} />
-  //   <Route path="/books/bestSellers-of-the-week" element={<BestSellerOfTheWeek />} />
-  //   <Route path="/info/wishlist-and-registry" element={<WishListRegistryInfo />} />
-  //   <Route path="/wishlists/new" element={<RegisterWishlist />} />
-  //   <Route path="/create_registry" element={<RegisterNewRegistry />} />
-  //   <Route path="/wishlists" element={<ManageWishListRegistry />} />
-
-
-  //   <Route path="/books/:id" element={<BookDetailPage />} />
-  //   <Route path="/wishlist/:id" element={<ViewWishListRegistry />} />
-  //   <Route path="/checkout" element={<CheckOutPage />} />
-  //   <Route path="/confirmedOrder/:id" element={<OrderConfirmationPage />} />
-  //   <Route path="/categories/popular-books" element={<BestSeller />} />
-  //   <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
-  //   <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
-  //   <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
-  //   <Route path="/seller/updateBook/:sellerId/:bookId" element={<UpdateBook />} />
-  //   <Route path="/buyer/leaveAReview/:bookId" element={<ReviewPage />} />
-
-  //   <Route path="/admin/home" element={<AdminHome />} />
-  //   <Route path="/admin/manage-category" element={<ManageCategory />} />
-  //   <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
-  //   <Route path="/admin/manage-books" element={<ManageBooks />} />
-  //   <Route path="/admin/manage-orders" element={<ManageOrders />} />
-  //   <Route path="/admin/updateOrders/:orderId" element={<UpdateOrder />} />
-  //   <Route path="/admin/manage-sellers" element={<ManageSellers />} />
-  //   <Route path="/admin/updateSeller/:sellerId" element={<UpdateSeller />} />
-  //   <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
-  //   <Route path="/admin/register-newBook" element={<RegisterBook />} />
-  //   <Route path="/admin/updateBook/:bookId" element={<UpdateBookByAdmin />} />
-  //   <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
-  //   <Route path="/admin/manage-sub-category/:subCategoryId" element={<UpdateSubCategory />} />
-
-  //   <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
-  //   <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
-  //   <Route path="/admin/register-newUser" element={<RegisterUser />} />
-  //   <Route path="/admin/update-user/:userId" element={<UpdateUser />} />
-  //   <Route path="/admin/sellerPermission" element={<SellerPermission />} />
-  //   <Route path="/admin/updateSellerPermission/:sellerId" element={<UpdateSellerPermissions />} />
-  // </Routes>
 };
 
 export default RouteFile;
