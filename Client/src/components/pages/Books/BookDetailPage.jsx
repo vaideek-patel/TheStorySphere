@@ -88,7 +88,7 @@ const BookDetailPage = () => {
     };
 
     const handleLeaveReview = (id) => {
-        naviagte(`/buyer/leaveAReview/${id}`)
+        navigate(`/buyer/leaveAReview/${id}`)
     }
 
 

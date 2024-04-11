@@ -1,6 +1,13 @@
 import React, { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Layout from '../components/layout/Layout/Layout.jsx';
 import Protected from './Protected.jsx';
+import ErrorPage from '../components/pages/ErrorPage/ErrorPage.jsx';
+import BuyerPrivateRoute from '../components/PublicPrivateRoutes/BuyerPrivateRoutes/BuyerPrivateRoutes.jsx';
+import AdminPrivateRoute from '../components/PublicPrivateRoutes/AdminPrivateRoutes/AdminPrivateRoute.jsx';
+import SellerPrivateRoute from '../components/PublicPrivateRoutes/SellerPrivateRoutes/SellerPrivateRoutes.jsx';
 const Home = lazy(() => import('../components/pages/Home/Home'));
 const Login = lazy(() => import('../components/pages/Login/Login'));
 const SellerLogin = lazy(() => import('../components/pages/Dashboard/SellerDashboard/Login/SellerLogin.jsx'));
@@ -14,11 +21,6 @@ const RecentlyLaunched = lazy(() => import('../components/pages/Books/RecentlyLa
 const NationalPoetryMonth = lazy(() => import('../components/pages/Books/NationalPoetryMonth.jsx'));
 const BooksThatMakeSmarter = lazy(() => import('../components/pages/Books/BooksThatMakeSmarter.jsx'))
 const CarolShieldsPrize = lazy(() => import('../components/pages/Books/CarolShieldsPrize.jsx'))
-
-
-
-
-
 const WishListRegistryInfo = lazy(() => import('../components/pages/Wishlist&Registry/WishList&RegistryInfo'));
 const RegisterWishlist = lazy(() => import('../components/pages/Wishlist&Registry/WishList/RegisterWishlist'));
 const RegisterNewRegistry = lazy(() => import('../components/pages/Wishlist&Registry/Registry/RegisterNewRegistry'));
@@ -63,63 +65,277 @@ const UpdateSubCategory = lazy(() => import('../components/pages/Dashboard/Admin
 
 
 const RouteFile = () => {
+  const role = useSelector((state) => state.role);
+  return createBrowserRouter([
+    {
 
-  return (
-    <Routes>
-      <Route path="/adminLogin" element={<AdminLogin />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Protected Component={Login} />} />
-      <Route path="/seller/login" element={<SellerLogin />} />
-      <Route path="/seller" element={<SellerHome />} />
-      <Route path="/signUp" element={<Protected Component={SignUp} />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="/edit-account/:userId" element={<EditAccount />} />
-      <Route path="/favourites" element={<Favourites />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/manage-orders" element={<Orders />} />
-      <Route path="/books" element={<Books />} />
-      <Route path="/books/recentlyLaunched" element={<RecentlyLaunched />} />
-      <Route path="/books/nationalPoetryMonth" element={<NationalPoetryMonth />} />
-      <Route path="/books/booksThatMakeSmarter" element={<BooksThatMakeSmarter />} />
-      <Route path="/books/CarolShieldsPrize" element={<CarolShieldsPrize />} />
-      <Route path="/books/bestSellers-of-the-week" element={<BestSellerOfTheWeek />} />
-      <Route path="/info/wishlist-and-registry" element={<WishListRegistryInfo />} />
-      <Route path="/wishlists/new" element={<RegisterWishlist />} />
-      <Route path="/create_registry" element={<RegisterNewRegistry />} />
-      <Route path="/wishlists" element={<ManageWishListRegistry />} />
-      <Route path="/books/:id" element={<BookDetailPage />} />
-      <Route path="/wishlist/:id" element={<ViewWishListRegistry />} />
-      <Route path="/checkout" element={<CheckOutPage />} />
-      <Route path="/confirmedOrder/:id" element={<OrderConfirmationPage />} />
-      <Route path="/categories/popular-books" element={<BestSeller />} />
-      <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
-      <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
-      <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
-      <Route path="/seller/updateBook/:sellerId/:bookId" element={<UpdateBook />} />
-      <Route path="/buyer/leaveAReview/:bookId" element={<ReviewPage />} />
+      element: <Layout />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/SignUp',
+          element: <SignUp />
+        },
+        {
+          path: '/seller/login',
+          element: <SellerLogin />
+        },
+        {
+          path: '/AdminLogin',
+          element: <AdminLogin />
+        },
+        {
 
-      <Route path="/admin/home" element={<AdminHome />} />
-      <Route path="/admin/manage-category" element={<ManageCategory />} />
-      <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
-      <Route path="/admin/manage-books" element={<ManageBooks />} />
-      <Route path="/admin/manage-orders" element={<ManageOrders />} />
-      <Route path="/admin/updateOrders/:orderId" element={<UpdateOrder />} />
-      <Route path="/admin/manage-sellers" element={<ManageSellers />} />
-      <Route path="/admin/updateSeller/:sellerId" element={<UpdateSeller />} />
-      <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
-      <Route path="/admin/register-newBook" element={<RegisterBook />} />
-      <Route path="/admin/updateBook/:bookId" element={<UpdateBookByAdmin />} />
-      <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
-      <Route path="/admin/manage-sub-category/:subCategoryId" element={<UpdateSubCategory />} />
+          element: <BuyerPrivateRoute isAuth={role.user !== null ? true : false} />,
+          children: [
+            {
+              path: '/account',
+              element: <Account />,
+            },
+            {
+              path: '/edit-account/:userId',
+              element: <EditAccount />,
+            },
+            {
+              path: '/favourites',
+              element: <Favourites />,
+            },
+            {
+              path: '/cart',
+              element: <Cart />,
+            },
+            {
+              path: '/manage-orders',
+              element: <Orders />,
+            },
+            {
+              path: '/books',
+              element: <Books />,
+            },
+            {
+              path: '/books/recentlyLaunched',
+              element: <NationalPoetryMonth />,
+            },
+            {
+              path: '/books/nationalPoetryMonth',
+              element: <RecentlyLaunched />,
+            },
+            {
+              path: '/books/booksThatMakeSmarter',
+              element: <BooksThatMakeSmarter />,
+            },
+            {
+              path: '/books/CarolShieldsPrize',
+              element: <CarolShieldsPrize />,
+            },
+            {
+              path: '/books/bestSellers-of-the-week',
+              element: <BestSellerOfTheWeek />,
+            },
+            {
+              path: '/books/:id',
+              element: <BookDetailPage />,
+            },
+            {
+              path: '/checkout',
+              element: <CheckOutPage />,
+            },
+            {
+              path: '/confirmedOrder/:id',
+              element: <OrderConfirmationPage />,
+            },
+            {
+              path: '/categories/popular-books',
+              element: <BestSeller />,
+            },
+            {
+              path: '/books/recentlyLaunched',
+              element: <RecentlyLaunched />,
+            },
+            {
+              path: '/lists/special-offers-on-TheStorySphere',
+              element: <SpecialOffers />,
+            },
+            {
+              path: '/collections/:categoryId/:subCategoryId/:subcategoryName',
+              element: <Collections />,
+            },
+            {
+              path: '/buyer/leaveAReview/:bookId',
+              element: <ReviewPage />,
+            }
+          ],
+        },
+        {
+          element: <AdminPrivateRoute isAuth={role.admin !== null ? true : false} />,
+          children: [
+            {
+              path: '/admin/home',
+              element: <AdminHome />,
+            },
+            {
+              path: '/admin/manage-category',
+              element: <ManageCategory />,
+            },
+            {
+              path: '/admin/manage-sub-category',
+              element: <ManageSubCategory />,
+            },
+            {
+              path: '/admin/manage-books',
+              element: <ManageBooks />,
+            },
+            {
+              path: '/admin/manage-orders',
+              element: <ManageOrders />,
+            },
+            {
+              path: '/admin/updateOrders/:orderId',
+              element: <UpdateOrder />,
+            },
+            {
+              path: '/admin/manage-sellers',
+              element: <ManageSellers />,
+            },
+            {
+              path: '/admin/updateSeller/:sellerId',
+              element: <UpdateSeller />,
+            },
+            {
+              path: '/admin/register-newSeller',
+              element: <RegisterSeller />,
+            },
+            {
+              path: '/admin/register-newBook',
+              element: <RegisterBook />,
+            },
+            {
+              path: '/admin/updateBook/:bookId',
+              element: <UpdateBookByAdmin />,
+            },
+            {
+              path: '/admin/register-newSubCategory',
+              element: <RegisterSubCategory />,
+            },
+            {
+              path: '/admin/manage-sub-category/:subCategoryId',
+              element: <UpdateSubCategory />,
+            },
+            {
+              path: '/admin/register-newCategory',
+              element: <RegisterCategory />,
+            },
+            {
+              path: '/admin/update-Category/:id',
+              element: <UpdateCateogry />,
+            },
+            {
+              path: '/admin/register-newUser',
+              element: <RegisterUser />,
+            },
+            {
+              path: '/admin/update-user/:userId',
+              element: <UpdateUser />,
+            },
+            {
+              path: '/admin/sellerPermission',
+              element: <SellerPermission />,
+            },
+            {
+              path: '/admin/updateSellerPermission/:sellerId',
+              element: <UpdateSellerPermissions />,
+            }
+          ]
+        },
+        {
+          element: <SellerPrivateRoute isAuth={role.seller !== null ? true : false} />,
+          children: [
+            {
+              path: "/seller",
+              element: <SellerHome />,
+            },
+            {
+              path: "/seller/registerNewBook/:sellerId",
+              element: <RegisterNewBook />,
+            },
+            {
+              path: "/seller/updateBook/:sellerId/:bookId",
+              element: <UpdateBook />,
+            }
+          ],
+        },
+        {
+          path: '*',
+          element: <ErrorPage />,
+        },
+      ]
+    }
+  ]);
+  // <Routes>
+  //   <Route path="/adminLogin" element={<AdminLogin />} />
+  //   <Route path="/" element={<Home />} />
+  //   <Route path="/login" element={<Protected Component={Login} />} />
+  //   <Route path="/seller/login" element={<SellerLogin />} />
+  //   <Route path="/seller" element={<SellerHome />} />
+  //   <Route path="/signUp" element={<Protected Component={SignUp} />} />
+  //   
+  // 
+  // <Route path="/account" element={<Account />} />
+  //   <Route path="/edit-account/:userId" element={<EditAccount />} />
+  //   <Route path="/favourites" element={<Favourites />} />
+  //   <Route path="/cart" element={<Cart />} />
+  //   <Route path="/manage-orders" element={<Orders />} />
+  //   <Route path="/books" element={<Books />} />
+  //   <Route path="/books/recentlyLaunched" element={<RecentlyLaunched />} />
+  //   <Route path="/books/nationalPoetryMonth" element={<NationalPoetryMonth />} />
+  //   <Route path="/books/booksThatMakeSmarter" element={<BooksThatMakeSmarter />} />
+  //   <Route path="/books/CarolShieldsPrize" element={<CarolShieldsPrize />} />
+  //   <Route path="/books/bestSellers-of-the-week" element={<BestSellerOfTheWeek />} />
+  //   <Route path="/info/wishlist-and-registry" element={<WishListRegistryInfo />} />
+  //   <Route path="/wishlists/new" element={<RegisterWishlist />} />
+  //   <Route path="/create_registry" element={<RegisterNewRegistry />} />
+  //   <Route path="/wishlists" element={<ManageWishListRegistry />} />
 
-      <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
-      <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
-      <Route path="/admin/register-newUser" element={<RegisterUser />} />
-      <Route path="/admin/update-user/:userId" element={<UpdateUser />} />
-      <Route path="/admin/sellerPermission" element={<SellerPermission />} />
-      <Route path="/admin/updateSellerPermission/:sellerId" element={<UpdateSellerPermissions />} />
-    </Routes>
-  );
+
+  //   <Route path="/books/:id" element={<BookDetailPage />} />
+  //   <Route path="/wishlist/:id" element={<ViewWishListRegistry />} />
+  //   <Route path="/checkout" element={<CheckOutPage />} />
+  //   <Route path="/confirmedOrder/:id" element={<OrderConfirmationPage />} />
+  //   <Route path="/categories/popular-books" element={<BestSeller />} />
+  //   <Route path="/lists/special-offers-on-TheStorySphere" element={<SpecialOffers />} />
+  //   <Route path="/collections/:categoryId/:subCategoryId/:subcategoryName" element={<Collections />} />
+  //   <Route path="/seller/registerNewBook/:sellerId" element={<RegisterNewBook />} />
+  //   <Route path="/seller/updateBook/:sellerId/:bookId" element={<UpdateBook />} />
+  //   <Route path="/buyer/leaveAReview/:bookId" element={<ReviewPage />} />
+
+  //   <Route path="/admin/home" element={<AdminHome />} />
+  //   <Route path="/admin/manage-category" element={<ManageCategory />} />
+  //   <Route path="/admin/manage-sub-category" element={<ManageSubCategory />} />
+  //   <Route path="/admin/manage-books" element={<ManageBooks />} />
+  //   <Route path="/admin/manage-orders" element={<ManageOrders />} />
+  //   <Route path="/admin/updateOrders/:orderId" element={<UpdateOrder />} />
+  //   <Route path="/admin/manage-sellers" element={<ManageSellers />} />
+  //   <Route path="/admin/updateSeller/:sellerId" element={<UpdateSeller />} />
+  //   <Route path="/admin/register-newSeller" element={<RegisterSeller />} />
+  //   <Route path="/admin/register-newBook" element={<RegisterBook />} />
+  //   <Route path="/admin/updateBook/:bookId" element={<UpdateBookByAdmin />} />
+  //   <Route path="/admin/register-newSubCategory" element={<RegisterSubCategory />} />
+  //   <Route path="/admin/manage-sub-category/:subCategoryId" element={<UpdateSubCategory />} />
+
+  //   <Route path="/admin/register-newCategory" element={<RegisterCategory />} />
+  //   <Route path="/admin/update-Category/:id" element={<UpdateCateogry />} />
+  //   <Route path="/admin/register-newUser" element={<RegisterUser />} />
+  //   <Route path="/admin/update-user/:userId" element={<UpdateUser />} />
+  //   <Route path="/admin/sellerPermission" element={<SellerPermission />} />
+  //   <Route path="/admin/updateSellerPermission/:sellerId" element={<UpdateSellerPermissions />} />
+  // </Routes>
 };
 
 export default RouteFile;
