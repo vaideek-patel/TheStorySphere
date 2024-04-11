@@ -572,3 +572,147 @@ export const getSellerDataBySellerId = async (sellerId) => {
     };
   }
 };
+
+export const registerNewSubCategory = async (subCategoryObj) => {
+  try {
+    const response = await API.post("sub-category", subCategoryObj);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: [],
+      error: error.message,
+    };
+  }
+};
+
+export const deleteSubCategoryData = async (subCategoryId) => {
+  try {
+    const response = await API.delete(`sub-category/${subCategoryId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const updateSubCategoryData = async (subCategoryId, sellerData) => {
+  try {
+    const response = await API.put(`sub-category/${subCategoryId}`, sellerData);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const getSubCategoryById = async (subCategoryId) => {
+  try {
+    const response = await API.get(`sub-category/${subCategoryId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const getReviewsById = async (reviewId) => {
+  try {
+    const response = await API.get(`reviews/${reviewId}`);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const getAllReviews = async () => {
+  try {
+    const response = await API.get("/reviews");
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const listNewReview = async (reviewObj) => {
+  try {
+    const response = await API.post("reviews", reviewObj);
+    return {
+      success: true,
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};
+
+export const addReviewIdToBook = async (bookId, reviewId) => {
+  try {
+    const bookResponse = await API.get(`/books/${bookId}`);
+    const book = bookResponse.data;
+
+    book.reviews.push(reviewId);
+
+    const patchResponse = await API.patch(`/books/${bookId}`, {
+      reviews: book.reviews,
+    });
+
+    return {
+      success: true,
+      data: patchResponse.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: null,
+      error: error.message,
+    };
+  }
+};

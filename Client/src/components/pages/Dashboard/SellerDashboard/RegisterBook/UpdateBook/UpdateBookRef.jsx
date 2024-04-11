@@ -2,141 +2,127 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Container, Row, Col, Button, Form as BootstrapForm } from 'react-bootstrap';
 import * as Yup from 'yup';
-import { getBookById, getCategory, getSubcategoriesByCategoryId, updateBookData } from '../../../../../../utils/axios-instance';
+import { getBookById } from '../../../../../../utils/axios-instance';
 import { useNavigate, useParams } from 'react-router-dom';
-import Select from 'react-select';
-import Swal from 'sweetalert2'
 
+// import { getBooks, getCategory, getSubcategoriesByCategoryId, registerNewBook } from '../../../../../utils/axios-instance';
+// import { useSelector } from 'react-redux';
+import Select from 'react-select';
 
 const UpdateBook = () => {
     const { bookId } = useParams()
-    const navigate = useNavigate()
-    const [fetchedBookData, setFetchedBookData] = useState(null)
-    const [categories, setCategories] = useState([]);
-    const [subcategories, setSubcategories] = useState([]);
-    const [selectedCategoryId, setSelectedCategoryId] = useState('');
-    const [disableSubcategory, setDisableSubcategory] = useState(true);
+    const [recentlyLaunced, setRecentlyLaunched] = useState(false);
+    const [bestSeller, setBestSeller] = useState(false);
+    const [bestSellerOfTheWeek, setBestSellerOfTheWeek] = useState(false);
+    const [carolShieldsPrizeForFictionLonglist, setCarolShieldsPrizeForFictionLonglist] = useState(false);
+    const [InternationalBookerPrizeLonglist, setInternationalBookerPrizeLonglist] = useState(false);
+    const [booksThatMakeYouSmarter, setBooksThatMakeYouSmarter] = useState(false);
+    const [nationalPoetryMonth, setNationalPoetryMonth] = useState(false);
+
+    const [initialValues, setinitialValues] = useState({
+        name: '',
+        author: '',
+        description: '',
+        price: '',
+        releaseDate: '',
+        image: '',
+        categoryId: '',
+        category: '',
+        subCategoryId: '',
+        subcategoryName: '',
+        recentlyLaunched: false,
+        AdditionalBookDetails: {
+            BestSeller: false,
+            BestSellerOfTheWeek: false,
+            NationalPoetryMonth: false,
+            InternationalBookerPrizeLonglist: false,
+            BooksThatMakeYouSmarter: false,
+            CarolShieldsPrizeForFictionLonglist: false,
+        }
+    })
+    // const sellerId = useSelector((state) => state.role.seller.id);
+    // const [categories, setCategories] = useState([]);
+    // const [subcategories, setSubcategories] = useState([]);
+    // const [selectedCategoryId, setSelectedCategoryId] = useState('');
+    // const [booksDataForId, setBooksDataForId] = useState([]);
+
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await getCategory();
-                setCategories(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
         const fetchBookById = async () => {
             try {
                 const response = await getBookById(bookId);
-                setFetchedBookData(response.data)
-                setSelectedCategoryId(response.data.categoryId);
-                const responseSubcategories = await getSubcategoriesByCategoryId(response.data.categoryId);
-                setSubcategories(responseSubcategories.data);
-                setDisableSubcategory(false);
+                console.log(response.data)
+                setRecentlyLaunched(response.data.recentlyLaunched === 'yes');
+                setBestSeller(response.data.AdditionalBookDetails.BestSeller === 'yes');
+                setBestSellerOfTheWeek(response.data.AdditionalBookDetails.BestSellerOfTheWeek === 'yes');
+                setBooksThatMakeYouSmarter(response.data.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes');
+                setNationalPoetryMonth(response.data.AdditionalBookDetails.NationalPoetryMonth === 'yes');
+                setCarolShieldsPrizeForFictionLonglist(response.data.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes');
+                setInternationalBookerPrizeLonglist(response.data.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes');
+                const bookData = response.data;
+                setinitialValues(bookData)
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchData();
-        fetchBookById();
-    }, [bookId]);
+        fetchBookById()
+    }, []);
 
-    const updateBookDataBySeller = async (values) => {
-        const updatedSellerData = { id: bookId.toString(), ...values }
-        const response = await updateBookData(bookId, updatedSellerData)
-        console.log(response)
-        Swal.fire({
-            title: "Book Updated Sucessfully!",
-            icon: "success"
-        });
-        navigate("/seller")
+    // const handleCategoryChange = async (selectedOption, { setFieldValue }) => {
+    //     setSelectedCategoryId(selectedOption.value);
+    //     const selectedCategory = categories.find(category => category.id === selectedOption.value);
+    //     setFieldValue('categoryId', selectedOption.value);
+    //     setFieldValue('category', selectedCategory ? selectedCategory.name : '');
+
+    //     try {
+    //         const response = await getSubcategoriesByCategoryId(selectedOption.value);
+    //         setSubcategories(response.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
+    // const handleSubcategoryChange = async (selectedOption, { setFieldValue }) => {
+    //     setFieldValue('subCategoryId', selectedOption.value);
+    //     setFieldValue('subcategoryName', selectedOption.label);
+    // };
+
+    // const validationSchema = Yup.object({
+    //     // categoryId: Yup.string().required('Required'),
+    //     // subCategoryId: Yup.string().required('Required'),
+    // });
+
+    const updateBookData = async (initialValues) => {
+        console.log(initialValues)
+
     };
 
-    const initialValues = fetchedBookData ?
-        {
-            name: fetchedBookData.name,
-            author: fetchedBookData.author,
-            description: fetchedBookData.description,
-            price: fetchedBookData.price,
-            releaseDate: fetchedBookData.releaseDate,
-            image: fetchedBookData.image,
-            categoryId: fetchedBookData.categoryId,
-            subCategoryId: fetchedBookData.subCategoryId,
-            recentlyLaunched: fetchedBookData.recentlyLaunched === 'yes' ? 'yes' : 'no',
-            category: fetchedBookData.category,
-            subcategoryName: fetchedBookData.subcategoryName,
-            soldBy: fetchedBookData.soldBy,
-            AdditionalBookDetails: {
-                BestSeller: fetchedBookData.AdditionalBookDetails.BestSeller === 'yes' ? true : false,
-                BestSellerOfTheWeek: fetchedBookData.AdditionalBookDetails.BestSellerOfTheWeek === 'yes' ? true : false,
-                NationalPoetryMonth: fetchedBookData.AdditionalBookDetails.NationalPoetryMonth === 'yes' ? true : false,
-                InternationalBookerPrizeLonglist: fetchedBookData.AdditionalBookDetails.InternationalBookerPrizeLonglist === 'yes' ? true : false,
-                BooksThatMakeYouSmarter: fetchedBookData.AdditionalBookDetails.BooksThatMakeYouSmarter === 'yes' ? true : false,
-                CarolShieldsPrizeForFictionLonglist: fetchedBookData.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist === 'yes' ? true : false,
-            }
-        } : {
-            name: '',
-            author: '',
-            description: '',
-            price: '',
-            releaseDate: '',
-            image: '',
-            categoryId: '',
-            subCategoryId: '',
-            recentlyLaunched: false,
-            AdditionalBookDetails: {
-                BestSeller: false,
-                BestSellerOfTheWeek: false,
-                NationalPoetryMonth: false,
-                InternationalBookerPrizeLonglist: false,
-                BooksThatMakeYouSmarter: false,
-                CarolShieldsPrizeForFictionLonglist: false,
-            }
-        }
-
-    console.log(fetchedBookData)
-
-    const handleCategoryChange = async (selectedOption, { setFieldValue }) => {
-        setSelectedCategoryId(selectedOption.value);
-        setFieldValue('categoryId', selectedOption.value);
-        setFieldValue('category', selectedOption.label);
-
-        try {
-            const response = await getSubcategoriesByCategoryId(selectedOption.value);
-            setSubcategories(response.data);
-            setDisableSubcategory(false);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const handleSubcategoryChange = async (selectedOption, { setFieldValue }) => {
-        setFieldValue('subCategoryId', selectedOption.value);
-        setFieldValue('subcategoryName', selectedOption.label);
-    };
+    // console.log(initialValues)
 
     return (
         <Container>
-            <h1 className="text-center mt-5 mb-4 playfair-display-mygooglefont">Update Existing Book</h1>
+            <h1 className="text-center mt-5 mb-4 playfair-display-mygooglefont">Update Exsisting Book</h1>
             <Formik
-                enableReinitialize
                 initialValues={initialValues}
-                onSubmit={updateBookDataBySeller}
+                // validationSchema={validationSchema}
+                onSubmit={updateBookData}
             >
-                {({ values, setFieldValue }) => (
+                {({ values, errors, touched, setFieldValue }) => (
                     <Form>
                         <Row className="mb-3">
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Name</BootstrapForm.Label>
-                                    <Field name="name" type="text" className="form-control" />
+                                    {/* {console.log(initialValues)}x */}
+                                    <Field name="name" type="text" className="form-control" value={initialValues.name} />
+                                    {/* {errors.name && touched.name && <div className="text-danger">{errors.name}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Author</BootstrapForm.Label>
-                                    <Field name="author" type="text" className="form-control" />
+                                    <Field name="author" type="text" className="form-control" value={initialValues.author} />
+                                    {/* {errors.author && touched.author && <div className="text-danger">{errors.author}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
@@ -144,13 +130,15 @@ const UpdateBook = () => {
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Description</BootstrapForm.Label>
-                                    <Field name="description" as="textarea" rows={4} className="form-control" />
+                                    <Field name="description" as="textarea" rows={4} className="form-control" value={initialValues.description} />
+                                    {/* {errors.description && touched.description && <div className="text-danger">{errors.description}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Price</BootstrapForm.Label>
-                                    <Field name="price" type="number" className="form-control" />
+                                    <Field name="price" type="number" className="form-control" value={initialValues.price} />
+                                    {/* {errors.price && touched.price && <div className="text-danger">{errors.price}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
@@ -158,16 +146,19 @@ const UpdateBook = () => {
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Release Date</BootstrapForm.Label>
-                                    <Field name="releaseDate" type="date" className="form-control" />
+                                    <Field name="releaseDate" type="date" className="form-control" value={initialValues.releaseDate} />
+                                    {/* {errors.releaseDate && touched.releaseDate && <div className="text-danger">{errors.releaseDate}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                             <Col md={6}>
                                 <BootstrapForm.Group>
                                     <BootstrapForm.Label>Image URL</BootstrapForm.Label>
-                                    <Field name="image" type="url" className="form-control" />
+                                    <Field name="image" type="url" className="form-control" value={initialValues.image} />
+                                    {/* {errors.image && touched.image && <div className="text-danger">{errors.image}</div>} */}
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
+
                         <Row className="mb-3">
                             <Col md={6}>
                                 <BootstrapForm.Group>
@@ -175,10 +166,10 @@ const UpdateBook = () => {
                                         type="checkbox"
                                         id="recentlyLaunched"
                                         label="Recently Launched"
-                                        name="recentlyLaunched"
+                                        name="AdditionalBookDetails.recentlyLaunched"
                                         as={Field}
-                                        checked={values.recentlyLaunched}
-                                        onChange={() => setFieldValue('recentlyLaunched', !values.recentlyLaunched)}
+                                        checked={recentlyLaunced}
+                                        onChange={() => setRecentlyLaunched(!recentlyLaunced)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -190,12 +181,13 @@ const UpdateBook = () => {
                                         label="Best Seller"
                                         name="AdditionalBookDetails.BestSeller"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BestSeller}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.BestSeller', !values.AdditionalBookDetails.BestSeller)}
+                                        checked={bestSeller} // Check if the value is "yes"
+                                        onChange={() => setBestSeller(!bestSeller)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
                         </Row>
+
                         <Row className="mb-3">
                             <Col md={6}>
                                 <BootstrapForm.Group>
@@ -205,8 +197,8 @@ const UpdateBook = () => {
                                         label="Best Seller Of The Week"
                                         name="AdditionalBookDetails.BestSellerOfTheWeek"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BestSellerOfTheWeek}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.BestSellerOfTheWeek', !values.AdditionalBookDetails.BestSellerOfTheWeek)}
+                                        checked={bestSellerOfTheWeek}
+                                        onChange={() => setBestSellerOfTheWeek(!bestSellerOfTheWeek)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -218,8 +210,8 @@ const UpdateBook = () => {
                                         label="National Poetry Month"
                                         name="AdditionalBookDetails.NationalPoetryMonth"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.NationalPoetryMonth}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.NationalPoetryMonth', !values.AdditionalBookDetails.NationalPoetryMonth)}
+                                        checked={nationalPoetryMonth}
+                                        onChange={() => setNationalPoetryMonth(!nationalPoetryMonth)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -233,8 +225,8 @@ const UpdateBook = () => {
                                         label="International Booker Prize Longlist"
                                         name="AdditionalBookDetails.InternationalBookerPrizeLonglist"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.InternationalBookerPrizeLonglist}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.InternationalBookerPrizeLonglist', !values.AdditionalBookDetails.InternationalBookerPrizeLonglist)}
+                                        checked={InternationalBookerPrizeLonglist}
+                                        onChange={() => setInternationalBookerPrizeLonglist(!InternationalBookerPrizeLonglist)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -246,8 +238,8 @@ const UpdateBook = () => {
                                         label="Books That Make You Smarter"
                                         name="AdditionalBookDetails.BooksThatMakeYouSmarter"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.BooksThatMakeYouSmarter}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.BooksThatMakeYouSmarter', !values.AdditionalBookDetails.BooksThatMakeYouSmarter)}
+                                        checked={booksThatMakeYouSmarter}
+                                        onChange={() => setBooksThatMakeYouSmarter(!booksThatMakeYouSmarter)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -261,8 +253,8 @@ const UpdateBook = () => {
                                         label="Carol Shields Prize For Fiction Longlist"
                                         name="AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist"
                                         as={Field}
-                                        checked={values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist}
-                                        onChange={() => setFieldValue('AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist', !values.AdditionalBookDetails.CarolShieldsPrizeForFictionLonglist)}
+                                        checked={carolShieldsPrizeForFictionLonglist}
+                                        onChange={() => setCarolShieldsPrizeForFictionLonglist(!carolShieldsPrizeForFictionLonglist)}
                                     />
                                 </BootstrapForm.Group>
                             </Col>
@@ -276,3 +268,4 @@ const UpdateBook = () => {
 };
 
 export default UpdateBook;
+

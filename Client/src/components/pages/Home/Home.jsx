@@ -102,10 +102,10 @@ const Home = () => {
         <>
             {/* {loader && <Loader />} */}
             <CommonCarousel>
-                <img id='91' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/DESMOND_Poverty_TR_bookshop_2048x600.jpg?1711464411" alt="First slide" />
-                <img id='92' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/ABDURRAQIB_TheresAlwaysThisYear_HC_bookshop_2048x600.jpg?1711464486" alt="Second slide" />
-                <img id='93' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/AliSmith_Bookshop_2048x600B_%281%29.jpg?1712066742" alt="Third slide" />
-                <img id='94' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/2048_600_SHES_NOT_SORRY.jpg?1712066314" alt="Fourth slide" />
+                <img id='95' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/294/original/Bookshop.BooksellersLIbrarians.2048X600rev.jpg?1712671316" alt="First slide" />
+                <img id='96' onClick={(event) => handleBookClick(event.target.id)} src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/293/original/Familiar_Bookshop_2048x600.jpg?1712671667" alt="Second slide" />
+                <img id='97' onClick={(event) => handleBookClick(event.target.id)} src="https://www.bookswagon.com/bannerimages/80_inr.jpg?v=4.3" alt="Third slide" />
+                <img id='98' onClick={(event) => handleBookClick(event.target.id)} src="https://www.bookswagon.com/bannerimages/79_inr.jpg?v=2.5" alt="Fourth slide" />
             </CommonCarousel>
 
             <div className="container mt-4">

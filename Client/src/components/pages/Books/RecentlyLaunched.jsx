@@ -32,9 +32,6 @@ const RecentlyLaunched = () => {
         fetchRecentlyLaunchedBooks();
     }, []);
 
-    const alreadyInCartToast = () =>{
-        toast.success('User Deleted successfully!');
-    }
 
     const alreadyInFavToast = () => {
         toast.error("Already In Favourites!")
@@ -62,7 +59,7 @@ const RecentlyLaunched = () => {
                                             <div className="justify-content-between w-100">
                                                 {alreadyInCart ? (
                                                     <Link to="/cart">
-                                                        <Button variant="danger" className="rounded-pill" onClick={alreadyInCartToast}>
+                                                        <Button variant="danger" className="rounded-pill">
                                                             <FontAwesomeIcon icon={faShoppingCart} /> In Cart
                                                         </Button>
                                                     </Link>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, Image } from 'react-bootstrap';
 import { getOrderById } from '../../../utils/axios-instance';
 import { useParams } from 'react-router-dom';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const OrderConfirmationPage = () => {
     const { id } = useParams();
@@ -28,13 +30,25 @@ const OrderConfirmationPage = () => {
         return cardNumber.slice(-4);
     };
 
+    const downLoadPDF = () => {
+        const capture = document.querySelector('.actual-receipt');
+        html2canvas(capture).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const width = pdf.internal.pageSize.getWidth();
+            const height = pdf.internal.pageSize.getHeight();
+            pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+            pdf.save('receipt.pdf');
+        });
+    };
+
     return (
-        <Container>
-            <Row className="justify-content-center mt-5">
+        <Container className="mt-5">
+            <Row className="justify-content-center">
                 <Col md={8}>
                     <Card className="shadow">
-                        <Card.Body>
-                            <h2 className="text-center mb-4">Order Confirmation</h2>
+                        <Card.Body className='actual-receipt'>
+                            <h2 className="text-center mb-4 playfair-display-mygooglefont">Thank You for Placing Your Order!</h2>
                             <p><strong>Order ID:</strong> {data?.id}</p>
                             <h4 className="mt-4">Shipping Details</h4>
                             <Row>
@@ -54,7 +68,7 @@ const OrderConfirmationPage = () => {
                             <h4 className="mt-4">Payment Details</h4>
                             <p><strong>Ending Card Number:</strong> {data?.paymentDetails && getLastFourDigits(data.paymentDetails.cardNumber)}</p>
 
-                            <h4 className="mt-4">Total Amount: {data?.finalOrderBooks?.totalAmount}</h4>
+                            <h4 className="mt-4">Total Amount: ₹{data?.finalOrderBooks?.totalAmount}</h4>
 
                             <h4 className="mt-4">Ordered Books</h4>
                             {OrderedBooks && OrderedBooks.map((book, index) => (
@@ -67,19 +81,19 @@ const OrderConfirmationPage = () => {
                                             <Col md={8}>
                                                 <Card.Title>{book.name}</Card.Title>
                                                 <Card.Text><strong>Author:</strong> {book.author}</Card.Text>
-                                                <Card.Text><strong>Price:</strong> ${book.price}</Card.Text>
+                                                <Card.Text><strong>Price:</strong> ₹{book.price}</Card.Text>
                                             </Col>
                                         </Row>
                                     </Card.Body>
                                 </Card>
                             ))}
-                            <Row className="justify-content-center mt-5">
-                                <Button variant="success" className="rounded-pill mr-3">Download Invoice</Button>
-                                <Button variant="primary" className="rounded-pill">Continue Shopping</Button>
-                            </Row>
                         </Card.Body>
                     </Card>
                 </Col>
+            </Row>
+            <Row className="justify-content-center mt-4">
+                <Button variant="success" className="rounded-pill mr-3" onClick={downLoadPDF}>Download Invoice</Button>
+                <Button variant="primary" className="rounded-pill">Continue Shopping</Button>
             </Row>
         </Container>
     );

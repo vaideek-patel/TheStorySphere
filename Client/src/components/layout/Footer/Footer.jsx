@@ -20,6 +20,8 @@ const Footer = () => {
                 <p>
                   Welcome to "The Story Sphere" - Where every page turns into a new adventure!
                 </p>
+
+                {/* <img src="https://rails-assets-us.bookshop.org/assets/ClimateNeutralLabelCertifiedHorizontalWhiteOutline-17ebe1222195c2028711dcd4eb05d8ef1d83ad6f315c9f4445fa69fc570bfff2.png" className="img-fluid me-3 custom" style={{backgroundColor: '#00000'}} alt="New Books Image" /> */}
               </MDBCol>
 
               <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { getBookById, getBooks } from '../../../utils/axios-instance';
 import BookCard from '../../common/BookCard';
-import "../../../Global.css";
 import DetailModal from '../../common/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShoppingCart, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from '../../common/Pagination';
+import { toast } from "react-toastify";
+import {useNavigate} from 'react-router-dom'
 
 const Books = () => {
     const [books, setBooks] = useState([]);
@@ -15,20 +17,21 @@ const Books = () => {
     const [quickViewBook, setQuickViewBook] = useState();
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(16);
+    const [filterPrice, setFilterPrice] = useState(null);
+    const [sortPriceAsc, setSortPriceAsc] = useState(true);
     const booksInCart = useSelector((state) => state.cart.cart);
+    const booksInFavorites = useSelector((state) => state.data.favorites);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
-    const handleQuickView = (bookId) => {
-        const fetchBookData = async () => {
-            try {
-                const response = await getBookById(bookId);
-                setQuickViewBook(response.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        fetchBookData();
-        setShowModal(true);
+    const handleQuickView = async (bookId) => {
+        try {
+            const response = await getBookById(bookId);
+            setQuickViewBook(response.data);
+            setShowModal(true);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
 
     useEffect(() => {
@@ -48,27 +51,28 @@ const Books = () => {
         const alreadyInCart = booksInCart.find(item => item.id === bookId);
         if (alreadyInCart) {
             console.log("Book is already in the cart")
-        }
-        else {
+            navigate("/cart")
+        } else {
             dispatch(bookToCart(book));
         }
     };
 
-
     const handleFavourites = (book) => {
-        console.log(book)
-        dispatch(addToFavorites(book))
+        dispatch(addToFavorites(book));
+    };
 
-    }
     const FavButton = (book) => {
-        // const alreadyInCart = booksInCart.find(item => item.id === book.id);
-        return {
+        const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
+        return alreadyInFavourites ? {
+            variant: "primary",
+            onClick: alreadyInFavToast,
+            label: <><FontAwesomeIcon icon={faBagShopping} /></>
+        } : {
             variant: "primary",
             onClick: () => handleFavourites(book),
             label: <><FontAwesomeIcon icon={faHeart} /></>
-        };
+        }
     };
-
 
     const cartButton = (book) => {
         const alreadyInCart = booksInCart.find(item => item.id === book.id);
@@ -84,18 +88,47 @@ const Books = () => {
 
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
-    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+    let currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+    if (filterPrice) {
+        currentBooks = currentBooks.filter(book => {
+            const price = book.price;
+            return price >= filterPrice.min && price <= filterPrice.max;
+        });
+    }
+
+    currentBooks.sort((a, b) => {
+        if (sortPriceAsc) {
+            return a.price - b.price;
+        } else {
+            return b.price - a.price;
+        }
+    });
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const alreadyInFavToast = () => {
+        toast.error("Already In Favourites!")
+    };
 
     return (
         <>
             <div className="subCategory-heading-container">
                 <h2 className='playfair-display-mygooglefont'>Explore All Books Across The Story Sphere.</h2>
+                <div className='d-flex align-items-center justify-content-center'>
+                    <DropdownButton id="dropdown-basic-button" title="Filter" variant="info" className="me-2">
+                        <Dropdown.Item onClick={() => setFilterPrice({ min: 100, max: 500 })}>100 - 500</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilterPrice({ min: 500, max: 1000 })}>500 - 1000</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilterPrice({ min: 1000, max: 1500 })}>1000 - 1500</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilterPrice({ min: 1500, max: 2000 })}>1500 - 2000</Dropdown.Item>
+                    </DropdownButton>
+                    <Button onClick={() => setSortPriceAsc(!sortPriceAsc)}>Sort by Price {sortPriceAsc ? '↑' : '↓'}</Button>
+                </div>
             </div>
+
             <div className="books-container">
                 {currentBooks.map((book, index) => (
-                    <BookCard key={book.id} book={book} onQuickView={handleQuickView} buttons={buttons(book)} />
+                    <BookCard key={book.id} book={book} onQuickView={() => handleQuickView(book.id)} buttons={buttons(book)} />
                 ))}
             </div>
             <Pagination currentPage={currentPage} totalPages={Math.ceil(books.length / booksPerPage)} onPageChange={paginate} />

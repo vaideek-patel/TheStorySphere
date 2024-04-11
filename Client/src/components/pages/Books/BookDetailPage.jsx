@@ -1,69 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getBookById } from '../../../utils/axios-instance';
+import { faShoppingCart, faHeart, faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getBookById, getReviewsById } from '../../../utils/axios-instance';
 import "../../../Global.css"
 import { useDispatch, useSelector } from "react-redux"
-import { addToWishlist, bookToCart } from '../../../redux/actions/dataAction';
-// import { getUserWishlists } from "../../../utils/axios-instance";
+import { addToFavorites, bookToCart } from '../../../redux/actions/dataAction';
+import { toast } from "react-toastify";
 
 const BookDetailPage = () => {
     const { id } = useParams();
-    const [book, setBook] = useState(null);
     const navigate = useNavigate()
+    const [book, setBook] = useState(null);
     const dispatch = useDispatch()
-    const [selectedWishlist, setSelectedWishlist] = useState('Select Wishlist');
-    // const [wishlists, setWishlists] = useState([]);
     const userId = useSelector((state) => state.role.user.id);
-    const wishlists = useSelector((state) => state.data.wishList)
     const booksInCart = useSelector((state) => state.cart.cart)
+    const booksInFavorites = useSelector((state) => state.data.favorites)
+    const [reviews, setReviews] = useState([]);
 
 
-    const handleWishlistSelect = (wishlist) => {
-        console.log(wishlist)
-        dispatch(addToWishlist(wishlist.id, book));
-    }
-
-    const handleCreateNewWishlist = () => {
-        navigate("/wishlists/new")
-    }
     useEffect(() => {
         const fetchBook = async () => {
             try {
                 const response = await getBookById(id);
+                console.log(response.data)
                 setBook(response.data);
+                const reviewIds = response.data.reviews;
+                const reviewPromises = reviewIds.map(reviewId => getReviewsById(reviewId));
+                const reviewsResponses = await Promise.all(reviewPromises);
+                console.log(reviewsResponses)
+                const reviewsData = reviewsResponses.map(response => response.data);
+                console.log(reviewsData[0])
+                setReviews(reviewsData);
             } catch (error) {
                 console.error('Error fetching book details:', error);
             }
         };
 
-        // const fetchWishlists = async () => {
-        //     try {
-        //         const response = await getUserWishlists(userId);
-        //         console.log(response)
-        //         setWishlists(response.data);
-        //     } catch (error) {
-        //         console.error('Error fetching wishlists:', error);
-        //     }
-        // };
-
         fetchBook();
-        // fetchWishlists();
     }, [id, userId]);
+
+    const alreadyInFavToast = (book) => {
+        const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
+        toast.error("Already In Favourites!")
+    }
 
     if (!book) {
         return <div>Loading...</div>;
     }
 
-    // const handleWishlistSelect = (wishlist) => {
-    //     setSelectedWishlist(wishlist.name); 
-    // };
-
     const handleCart = (book) => {
-        const bookId = book.id;
-        const alreadyInCart = booksInCart.find(item => item.id === bookId);
+        const alreadyInCart = booksInCart.find(item => item.id === book.id);
         if (alreadyInCart) {
             console.log("Book is already in the cart")
         }
@@ -73,14 +61,38 @@ const BookDetailPage = () => {
     };
 
     const cartButton = () => {
-        const alreadyInCart = booksInCart.find(item => item.id === book.id);
-        const label = alreadyInCart ? "In Cart" : "Add to Cart";
-        return {
+        const bookalreadyInCart = booksInCart.find(item => item.id === book.id);
+        return bookalreadyInCart ? {
+            variant: 'danger',
+            onClick: () => navigate("/cart"),
+            label: <><FontAwesomeIcon icon={faShoppingCart} /> In Cart</>
+        } : {
             variant: 'danger',
             onClick: () => handleCart(book),
-            label: <><FontAwesomeIcon icon={faShoppingCart} /> {label}</>
+            label: <><FontAwesomeIcon icon={faShoppingCart} />Add to Cart</>
         };
     };
+
+    const FavButton = () => {
+        console.log(book);
+        const alreadyInFavourites = booksInFavorites.find(item => item.id === book.id);
+        return alreadyInFavourites ? {
+            variant: "primary",
+            onClick: alreadyInFavToast,
+            label: <><FontAwesomeIcon icon={faBagShopping} /></>
+        } : {
+            variant: "primary",
+            onClick: () => dispatch(addToFavorites(book)),
+            label: <><FontAwesomeIcon icon={faHeart} /></>
+        }
+    };
+
+    const handleLeaveReview = (id) => {
+        naviagte(`/buyer/leaveAReview/${id}`)
+    }
+
+
+
 
     return (
         <Container className="my-5">
@@ -96,27 +108,9 @@ const BookDetailPage = () => {
                         <Button variant={cartButton().variant} className="me-2" onClick={cartButton().onClick}>
                             {cartButton().label}
                         </Button>
-                        {wishlists.length === 0 ? (
-                            <Button variant="primary" className="me-2">Create a Wishlist first</Button>
-                        ) : (
-                            <Dropdown>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    <FontAwesomeIcon icon={faHeart} className="me-1" />
-                                    Add to Wishlist
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    {wishlists.map((wishlist, index) => (
-                                        <Dropdown.Item key={index} onClick={() => handleWishlistSelect(wishlist)}>
-                                            {wishlist.name}
-                                        </Dropdown.Item>
-                                    ))}
-                                    <Dropdown.Divider />
-                                    <Dropdown.Item onClick={handleCreateNewWishlist}>
-                                        Create a new wishlist
-                                    </Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        )}
+                        <Button variant={FavButton().variant} className="me-2" onClick={FavButton().onClick}>
+                            {FavButton().label}
+                        </Button>
                     </div>
                     <p className='lora-mygooglefont'>{book.description}</p>
                     <hr className="my-4" />
@@ -125,7 +119,7 @@ const BookDetailPage = () => {
 
             <Row>
                 <Col>
-                    <h3>Book Details</h3>
+                    <h3 className='playfair-display-mygooglefont'>Book Details</h3>
                     <table className="table">
                         <tbody>
                             <tr>
@@ -138,19 +132,19 @@ const BookDetailPage = () => {
                             </tr>
                             <tr>
                                 <td>SKU</td>
-                                <td>{book.sku}</td>
+                                <td>{book.SKU}</td>
                             </tr>
                             <tr>
                                 <td>EAN</td>
-                                <td>{book.ean}</td>
+                                <td>{book.EAN}</td>
                             </tr>
                             <tr>
                                 <td>Language</td>
-                                <td>{book.language}</td>
+                                <td>{book.Language}</td>
                             </tr>
                             <tr>
                                 <td>Binding</td>
-                                <td>{book.binding}</td>
+                                <td>{book.Binding}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -159,27 +153,27 @@ const BookDetailPage = () => {
 
             <Row className="mt-5">
                 <Col>
-                    <h3>Customer Reviews</h3>
-                    <div className="card-deck">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">Great Book!</h5>
-                                <p className="card-text">This book is amazing. I couldn't put it down!</p>
-                            </div>
-                            <div className="card-footer">
-                                <small className="text-muted">Posted by John Doe</small>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">Highly Recommend</h5>
-                                <p className="card-text">Such a well-written book. I highly recommend it to everyone!</p>
-                            </div>
-                            <div className="card-footer">
-                                <small className="text-muted">Posted by Jane Smith</small>
-                            </div>
-                        </div>
+                    <div className='d-flex align-items-center justify-content-between mb-3'>
+                        <h3 className='playfair-display-mygooglefont'>Customer Reviews!</h3>
+                        <Button variant="primary" onClick={handleLeaveReview}>Leave a Review</Button>
                     </div>
+                    {reviews.length > 0 ? (
+                        <div className="card-deck">
+                            {reviews.map((review, index) => (
+                                <div className="card mt-2" key={index}>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{review.title}</h5>
+                                        <p className="card-text">{review.content}</p>
+                                    </div>
+                                    <div className="card-footer">
+                                        <small className="text-muted">Posted by {review.reviewerName}</small>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className='playfair-display-mygooglefont'>No reviews available for this book.</p>
+                    )}
                 </Col>
             </Row>
         </Container>

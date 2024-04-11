@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, finalOrderDetails } from '../../../redux/actions/dataAction';
 import { placeOrder } from '../../../utils/axios-instance';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import Swal from 'sweetalert2';
+
 
 const CheckOutPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +20,10 @@ const CheckOutPage = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [paymentMethodSaved, setpaymentMethodSaved] = useState(false);
 
+  // const [isShippingDetailsSaved, setIsShippingDetailsSaved] = useState(false);
+  // const [isPaymentDetailsSaved, setIsPaymentDetailsSaved] = useState(false);
+
+
   const handleShippingAdress = (values) => {
     dispatch(finalOrderDetails(values));
     setIsSaved(true);
@@ -27,25 +34,51 @@ const CheckOutPage = () => {
     setpaymentMethodSaved(true)
   };
 
-  const placeFinalOrder = async () => {
-    const shippingDetails = finalOrder[0];
-    const paymentDetails = finalOrder[1];
+  const placeFinalOrder = () => {
+    if (isSaved && paymentMethodSaved) {
 
-    const orderData = {
-      userId,
-      shippingDetails,
-      paymentDetails,
-      finalOrderBooks,
-    };
+      let timerInterval;
+      Swal.fire({
+        title: "Verifying Payment",
+        html: "Do not Click anywhere!",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then(async (result) => {
+        const shippingDetails = finalOrder[0];
+        const paymentDetails = finalOrder[1];
+        const timestamp = new Date();
 
-    try {
-      const response = await placeOrder(orderData);
-      console.log('Order placed successfully:', response);
-      dispatch(clearCart());
-      navigate(`/confirmedOrder/${response.data.id}`);
-    } catch (error) {
-      console.error('Error placing order:', error);
+        const orderData = {
+          userId,
+          shippingDetails,
+          paymentDetails,
+          finalOrderBooks,
+          ordered_At: timestamp
+        };
+
+        try {
+          const response = await placeOrder(orderData);
+          console.log('Order placed successfully:', response);
+          dispatch(clearCart());
+          navigate(`/confirmedOrder/${response.data.id}`);
+        } catch (error) {
+          console.error('Error placing order:', error);
+        }
+      });
+    } else {
+      toast.error("Please fill both shipping and payment details before placing the order.");
     }
+
   };
 
   const validateShippingAddress = values => {
@@ -95,6 +128,14 @@ const CheckOutPage = () => {
     return errors;
   };
 
+  const SavedShippingAdressToast = () => {
+    toast.success("Shipping Adress Saved!")
+  }
+
+  const SavedPaymentDetails = () => {
+    toast.success("Payment Details Verified & Saved!")
+  }
+
   return (
     <Container>
       <Row>
@@ -102,7 +143,7 @@ const CheckOutPage = () => {
           <Col md={10}>
             <Card className="mb-4">
               <Card.Body>
-                <h4>1). Shipping Address</h4>
+                <h4 className='playfair-display-mygooglefont'>1). Shipping Address</h4>
                 <hr style={{ backgroundColor: '#333', height: '2px', marginBottom: '20px' }} />
                 <Formik
                   initialValues={{
@@ -163,7 +204,7 @@ const CheckOutPage = () => {
                       </Row>
                       <Row>
                         <Col md={12} className='text-end'>
-                          <Button type="submit" variant='danger' className='rounded-pill' disabled={isSaved}>{isSaved ? 'Saved' : 'SAVE & CONTINUE'}</Button>
+                          <Button type="submit" variant='danger' className='rounded-pill' onClick={SavedShippingAdressToast} disabled={isSaved}>{isSaved ? 'Saved' : 'SAVE & CONTINUE'}</Button>
                         </Col>
                       </Row>
                     </FormikForm>
@@ -178,7 +219,7 @@ const CheckOutPage = () => {
               <Card.Body>
                 <Row>
                   <Col md={6}>
-                    <h4>2). Payment</h4>
+                    <h4 className='playfair-display-mygooglefont'>2). Payment</h4>
                   </Col>
                   <Col md={6} className="d-flex align-items-center justify-content-center">
                     <Image src="https://mini-assets-prod.storage.googleapis.com/secure_checkout_badge.png" alt="Payment" fluid />
@@ -219,7 +260,7 @@ const CheckOutPage = () => {
                           </Form.Group>
                         </Col>
                         <Col md={12} className='text-end'>
-                          <Button type="submit" variant='danger' className='rounded-pill' disabled={paymentMethodSaved} >{paymentMethodSaved ? 'SAVED PAYMENT METHOD' : 'CONFIRM PAYMENT METHOD'}</Button>
+                          <Button type="submit" variant='danger' className='rounded-pill' onClick={SavedPaymentDetails} disabled={paymentMethodSaved} >{paymentMethodSaved ? 'SAVED PAYMENT METHOD' : 'CONFIRM PAYMENT METHOD'}</Button>
 
                         </Col>
                       </Row>
@@ -233,9 +274,9 @@ const CheckOutPage = () => {
 
         <Col md={4}>
           <Card>
-            <Card.Body>
-              <h3 className='mb-3'>Order Summary</h3>
-              <h6>Apply a promo code (Optional)</h6>
+            <Card.Body >
+              <h3 className='mb-3 playfair-display-mygooglefont'>Order Summary</h3>
+              <h6 className='playfair-display-mygooglefont'>Apply a promo code (Optional)</h6>
               <Row className="mb-3">
                 <Col>
                   <Form.Control type="text" placeholder="Enter promo code" />
@@ -245,11 +286,12 @@ const CheckOutPage = () => {
                 </Col>
               </Row>
               <hr style={{ backgroundColor: '#333', height: '2px', marginBottom: '20px' }} />
-              <h5>Order Summary</h5>
+              <h5 className='playfair-display-mygooglefont'>Order Summary</h5>
               <div className="mb-3">
-                <p>Total: ${totalAmount}</p>
+                <p>Total: ₹{totalAmount}</p>
               </div>
-              <Button variant="danger" className="rounded-pill" onClick={placeFinalOrder}>Place Order</Button>
+              <Button variant="danger" className="rounded-pill" onClick={placeFinalOrder} disabled={!isSaved || !paymentMethodSaved}
+              >Place Order</Button>
             </Card.Body>
           </Card>
         </Col>

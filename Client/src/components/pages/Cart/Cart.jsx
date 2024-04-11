@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { removeBookFromCart, totalAmount } from '../../../redux/actions/dataAction';
 import "../../../Global.css";
+import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
+
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -13,15 +16,15 @@ const Cart = () => {
   const subTotal = finalBooks.reduce((acc, book) => acc + parseFloat(book.price) * book.quantity, 0);
   const taxRate = subTotal > 2000 ? 0 : 150;
   const total = subTotal + taxRate;
+  const remainingForFreeShipping = 2000 - subTotal;
 
   useEffect(() => {
     setFinalBooks(booksInCart.map(book => ({ ...book, quantity: 1 })));
   }, [booksInCart]);
 
-  // Check if total crosses 2000, show alert and remove taxes
   useEffect(() => {
     if (total > 2000) {
-      alert("Wohoo, your shipping and taxes are waived off!");
+      toast.success('Wohoo, your shipping and taxes are waived off!');
     }
   }, [total]);
 
@@ -32,14 +35,22 @@ const Cart = () => {
   };
 
   const handleCheckOut = () => {
-    const confirmation = window.confirm("Are you sure you want to Checkout? If yes then you will not be able to modify your order again.");
-    if (confirmation) {
-      dispatch(totalAmount(total));
-      navigate("/checkout");
-      console.log("User confirmed checkout");
-    } else {
-      console.log("User Wants to edit the order");
-    }
+    Swal.fire({
+      title: `Complete Your Shopping Experience!`,
+      text: "Proceed to Payment!",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Proceed For Payment",
+      denyButtonText: "Continue Shopping",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(totalAmount(total));
+        console.log("true");
+        navigate("/checkout");
+      } else if (result.isDenied) {
+        navigate("/books");
+      }
+    });
   };
 
   const handleDecrement = (bookId) => {
